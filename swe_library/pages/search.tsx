@@ -13,13 +13,14 @@ import {
 } from "@nextui-org/react";
 import { FormEvent } from "react";
 import { User } from "@prisma/client";
+import { siteConfig } from "@/config/site";
 
 export default function SearchPage(users: User[]  ) {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const response = await fetch("/api/user", {
+    const response = await fetch(`${siteConfig.siteUrl}/api/user`, {
       method: "POST",
       body: formData,
     });
@@ -127,7 +128,7 @@ export default function SearchPage(users: User[]  ) {
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch("http://localhost:3002/api/user");
+  const res = await fetch(`${siteConfig.siteUrl}/api/user`);
   const data = await res.json();
   const users = data.users;
 
