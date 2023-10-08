@@ -12,8 +12,9 @@ import {
   getKeyValue,
 } from "@nextui-org/react";
 import { FormEvent } from "react";
+import { User } from "@prisma/client";
 
-export default function SearchPage({ users } ) {
+export default function SearchPage(users: User[]  ) {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 

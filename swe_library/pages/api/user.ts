@@ -28,7 +28,7 @@ export default async function handler(
     }
   } else if (req.method === "POST") {
     try {
-      upload.none()(req, res, async () => {
+      upload.none()(req as any, res as any, async () => {
         const formData = req.body; // Now req.body contains the parsed form data
 
         const result = await createUser(formData);
@@ -42,7 +42,7 @@ export default async function handler(
   }
 }
 
-async function createUser(input) {
+async function createUser(input :any) {
   const user = await prisma.user.create({
     data: {
       firstName: input.firstName,
