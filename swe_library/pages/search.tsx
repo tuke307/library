@@ -14,8 +14,13 @@ import {
 import { FormEvent } from "react";
 import { User } from "@prisma/client";
 import { siteConfig } from "@/config/site";
+import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 
-export default function SearchPage(users: User[]  ) {
+
+export default function SearchPage({
+  users, 
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -46,7 +51,7 @@ export default function SearchPage(users: User[]  ) {
               <TableColumn key="plz">plz</TableColumn>
             </TableHeader>
             <TableBody items={users}>
-              {(user) => (
+            {(user) => (
                 <TableRow key={user.id}>
                   {(columnKey) => (
                     <TableCell>{getKeyValue(user, columnKey)}</TableCell>
@@ -125,16 +130,18 @@ export default function SearchPage(users: User[]  ) {
 // This function gets called at build time on server-side.
 // It won't be called on client-side, so you can even do
 // direct database queries.
-export async function getStaticProps() {
+export const getStaticProps = (async (context) => {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
   const res = await fetch(`${siteConfig.siteUrl}/api/user`);
   const data = await res.json();
-  const users = data.users;
+  const users = data.users as User[];
 
   return {
     props: {
       users,
     },
   };
-}
+}) satisfies GetStaticProps<{
+  users: User[];
+}>
