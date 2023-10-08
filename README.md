@@ -1,11 +1,21 @@
 # Software Engineering - Library
 
 # Development
+## .env variables
+duplicate and rename the `.env` file to `.env.local` and change the variables.
+
+
+## start server
 ```bash
 cd swe_library/
 npm install
 npm run dev
 ```
+or use the vs code run and debug function
+
+## Debugging
+follow these steps for debugging the api calls and other stuff in vs code:
+https://nextjs.org/docs/pages/building-your-application/configuring/debugging#debugging-with-vs-code
 
 # Database
 whenever changes to the prisma.scheme made:
@@ -28,9 +38,7 @@ Database management with browser GUI:
 npx prisma studio
 ```
 
-# Debugging
-follow these steps for debugging the api calls and other stuff in vs code:
-https://nextjs.org/docs/pages/building-your-application/configuring/debugging#debugging-with-vs-code
+
 
 # vs code plugins
 https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
