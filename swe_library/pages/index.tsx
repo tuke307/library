@@ -45,7 +45,7 @@ export default function IndexPage() {
 
           <Card
             shadow="sm"
-            key="1"
+            key="2"
             isPressable
             isHoverable
             className="h-[250px] w-[300px]"
