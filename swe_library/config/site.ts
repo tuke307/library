@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
 	name: "Library",
 	description: "Library Management System",
-	siteUrl: "https://software-engineering-library.vercel.app",
+	siteUrl: "http://localhost:3000",
 	navItems: [
 	{
 		label: "Home",
