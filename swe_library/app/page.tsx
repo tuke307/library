@@ -60,7 +60,7 @@ export default function HomePage() {
           isPressable
           isHoverable
           className="h-[250px] w-[300px]"
-          onPress={() => router.push("/rentedmedia")}
+          onPress={() => router.push("/borrowed-media")}
         >
           <CardBody className="">
             <ImBooks className="h-full w-full" />

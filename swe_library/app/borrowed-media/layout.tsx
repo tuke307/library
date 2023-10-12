@@ -1,4 +1,10 @@
-export default function RentMediaLayout({
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ausgeliehene Medien",
+};
+
+export default function BorrowedMediaLayout({
   children,
 }: {
   children: React.ReactNode;
