@@ -10,13 +10,14 @@ import { useRouter } from "next/navigation";
 import { BiSearch } from "react-icons/bi";
 import { ImBooks } from "react-icons/im";
 import { FiUsers } from "react-icons/fi";
+import { AiOutlinePlus } from "react-icons/ai";
 
 export default function HomePage() {
   const router = useRouter();
 
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="grid grid-cols-3 gap-2 sm:grid-cols-3">
+      <div className="grid grid-cols-4 gap-2 sm:grid-cols-4">
         <Card
           shadow="sm"
           key="1"
@@ -40,6 +41,25 @@ export default function HomePage() {
           isPressable
           isHoverable
           className="h-[250px] w-[300px]"
+          onPress={() => router.push("/media-create")}
+        >
+          <CardBody className="">
+            <AiOutlinePlus className="h-full w-full" />
+          </CardBody>
+          <Divider />
+          <CardFooter className="">
+            <h4 className="text-large font-bold">
+              Medium erstellen
+            </h4>
+          </CardFooter>
+        </Card>
+
+        <Card
+          shadow="sm"
+          key="3"
+          isPressable
+          isHoverable
+          className="h-[250px] w-[300px]"
           onPress={() => router.push("/rentedmedia")}
         >
           <CardBody className="">
@@ -55,7 +75,7 @@ export default function HomePage() {
 
         <Card
           shadow="sm"
-          key="3"
+          key="4"
           isPressable
           isHoverable
           className="h-[250px] w-[300px]"
