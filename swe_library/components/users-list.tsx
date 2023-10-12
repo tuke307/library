@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import {
-  Button,
-  Input,
   Table,
   TableHeader,
   TableColumn,
@@ -10,7 +8,6 @@ import {
   TableRow,
   TableCell,
   getKeyValue,
-  Pagination,
 } from "@nextui-org/react";
 import { User } from "@prisma/client";
 import { siteConfig } from "@/config/site";
@@ -24,13 +21,14 @@ export async function UsersList() {
         <h1 className="my-3 text-3xl font-semibold">retrieve users</h1>
         <Table aria-label="Example table with client side pagination">
           <TableHeader>
-            <TableColumn key="id">id</TableColumn>
-            <TableColumn key="firstName">first name</TableColumn>
-            <TableColumn key="lastName">last name</TableColumn>
-            <TableColumn key="email">email</TableColumn>
-            <TableColumn key="street">street</TableColumn>
-            <TableColumn key="city">city</TableColumn>
-            <TableColumn key="plz">plz</TableColumn>
+            <TableColumn key="id">Id</TableColumn>
+            <TableColumn key="firstName">Vorname</TableColumn>
+            <TableColumn key="lastName">Nachname</TableColumn>
+            <TableColumn key="birthday">Geburtstag</TableColumn>
+            <TableColumn key="email">E-Mail</TableColumn>
+            <TableColumn key="street">Straße</TableColumn>
+            <TableColumn key="city">Stadt</TableColumn>
+            <TableColumn key="plz">Postleitzahl</TableColumn>
           </TableHeader>
           <TableBody items={items}>
             {(item) => (
@@ -48,9 +46,7 @@ export async function UsersList() {
 }
 
 async function getUsers() {
-  const res = await fetch(`${siteConfig.siteUrl}/users/api`, {
-    next: { revalidate: 3600 },
-  });
+  const res = await fetch(`${siteConfig.siteUrl}/users/api`);
   const data = await res.json();
   const users = data.users as User[];
 
