@@ -27,6 +27,17 @@ model Media {
   ISBN      String?  @unique
   author    Author   @relation(fields: [authorId], references: [id])
   authorId  Int
+  rentedBy  RentedMedia[]
+}
+
+model RentedMedia{
+  id        Int      @id @default(autoincrement())
+  media     Media    @relation(fields: [mediaId], references: [id])
+  mediaId   Int
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  rentedAt  DateTime @default(now())
+  returnedAt DateTime?
 }
 
 
@@ -50,6 +61,8 @@ model User {
   street String
   plz    Int
   city   String
+
+  rentedMedias RentedMedia[]
 }
 
 model Employee {
