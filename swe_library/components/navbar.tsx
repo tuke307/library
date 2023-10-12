@@ -16,7 +16,7 @@ import { siteConfig } from "@/config/site";
 import NextLink from "next/link";
 import clsx from "clsx";
 
-import { Logo } from "@/components/icons";
+import { AiFillHome } from "react-icons/ai";
 
 export const Navbar = () => {
   return (
@@ -24,8 +24,8 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="max-w-fit gap-3">
           <NextLink className="flex items-center justify-start gap-1" href="/">
-            <Logo />
-            <p className="font-bold text-inherit">Library</p>
+            <AiFillHome />
+            <p className="font-bold text-inherit">Home</p>
           </NextLink>
         </NavbarBrand>
         <div className="ml-2 hidden justify-start gap-4 lg:flex">

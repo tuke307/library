@@ -1,16 +1,12 @@
 "use client";
 import React from "react";
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  Divider,
-} from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Divider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { BiSearch } from "react-icons/bi";
 import { ImBooks } from "react-icons/im";
 import { FiUsers } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
+import { RiArrowGoBackFill } from "react-icons/ri";
 
 export default function HomePage() {
   const router = useRouter();
@@ -48,9 +44,7 @@ export default function HomePage() {
           </CardBody>
           <Divider />
           <CardFooter className="">
-            <h4 className="text-large font-bold">
-              Medium erstellen
-            </h4>
+            <h4 className="text-large font-bold">Medium erstellen</h4>
           </CardFooter>
         </Card>
 
@@ -79,6 +73,23 @@ export default function HomePage() {
           isPressable
           isHoverable
           className="h-[250px] w-[300px]"
+          onPress={() => router.push("/return-media")}
+        >
+          <CardBody className="">
+            <RiArrowGoBackFill className="h-full w-full" />
+          </CardBody>
+          <Divider />
+          <CardFooter className="">
+            <h4 className="text-large font-bold">Medium zurückgeben</h4>
+          </CardFooter>
+        </Card>
+
+        <Card
+          shadow="sm"
+          key="5"
+          isPressable
+          isHoverable
+          className="h-[250px] w-[300px]"
           onPress={() => router.push("/users")}
         >
           <CardBody className="">
@@ -86,9 +97,7 @@ export default function HomePage() {
           </CardBody>
           <Divider />
           <CardFooter className="">
-            <h4 className="text-large font-bold">
-              Kundenverwaltung
-            </h4>
+            <h4 className="text-large font-bold">Kundenverwaltung</h4>
           </CardFooter>
         </Card>
       </div>
