@@ -13,7 +13,9 @@ datasource db {
 
 enum MediaType {
   BOOK
-  PAPER
+  CD
+  MAP
+  MAGAZINE
 }
 
 model Media {
@@ -28,6 +30,8 @@ model Media {
   author    Author   @relation(fields: [authorId], references: [id])
   authorId  Int
   rentedBy  RentedMedia[]
+  location    Location?   @relation(fields: [locationId], references: [id])
+  locationId  Int?
 }
 
 model RentedMedia{
@@ -40,6 +44,12 @@ model RentedMedia{
   returnedAt DateTime?
 }
 
+model Location {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  media     Media[]
+}
+
 
 model Author {
   id        Int      @id @default(autoincrement())
@@ -47,8 +57,9 @@ model Author {
   firstName String
   lastName  String
   createdAt DateTime @default(now())
+  birthday  DateTime? @default(now())
 
-  medias    Media[]
+  media     Media[] 
 }
 
 model User {
@@ -58,6 +69,7 @@ model User {
   lastName  String
   createdAt DateTime @default(now())
 
+  birthday  DateTime @default(now())
   street String
   plz    Int
   city   String
@@ -71,6 +83,7 @@ model Employee {
   firstName String
   lastName  String
   createdAt DateTime @default(now())
+  birthday  DateTime? @db.Date
 
   password String
 }
