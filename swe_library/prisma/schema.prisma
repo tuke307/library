@@ -55,7 +55,7 @@ model Author {
   firstName String
   lastName  String
   createdAt DateTime  @default(now())
-  birthday  DateTime? @default(now())
+  birthday  DateTime?
 
   media Media[]
 }
@@ -77,12 +77,11 @@ model User {
 }
 
 model Employee {
-  id        Int       @id @default(autoincrement())
-  email     String?   @unique
+  id        Int      @id @default(autoincrement())
+  email     String?  @unique
   firstName String
   lastName  String
-  createdAt DateTime  @default(now())
-  birthday  DateTime? @db.Date
+  createdAt DateTime @default(now())
 
   password String
 }

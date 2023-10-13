@@ -3,7 +3,7 @@ import { Link } from "@nextui-org/link";
 import React from "react";
  
 
-export default function BorrowedMediaPage() {
+export default function RentedMediaPage() {
   return (
     <section>
       <Link color="primary" href="/">
