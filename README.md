@@ -11,8 +11,10 @@
 - [next-themes](https://github.com/pacocoursey/next-themes)
 
 ## Development
-### .env variables
-duplicate and rename the `.env` file to `.env.local` and change the variables.
+### set up the environment
+- duplicate and rename the `.env.development` file to `.env.development.local`
+- duplicate and rename the `.env.production` file to `.env.production.local`
+- change the variables in `.env.development.local` and `.env.production.local` to the desired source
 
 ### start server
 ```bash
@@ -23,31 +25,36 @@ npm install
 # Run the development server
 npm run dev
 ```
-or use the vs code run and debug function
+or use the vs code >>run and debug<< function
 
 ### Debugging
 follow these steps for debugging the api calls and other stuff in vs code:
 https://nextjs.org/docs/pages/building-your-application/configuring/debugging#debugging-with-vs-code
 
 ## Database
-whenever changes to the prisma.scheme made:
+for local development, use a docker container:
+```bash
+docker run -d -e POSTGRES_DB=librarydb -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -p "6500:5432" postgres
+```
+
+whenever changes to the `prisma.scheme` made:
 ```bash
 # create migration
-npx prisma migrate dev --name add_person_table
+dotenv -e .env.development.local -- npx prisma migrate dev --name add_person_table
 # apply migrations for dev
-npx prisma migrate dev
+dotenv -e .env.development.local npx prisma migrate dev
 # apply migrations for prod
-npx prisma migrate deploy
+dotenv -e .env.development.local npx prisma migrate deploy
 ```
 
 test api queries for the database:
 ```bash
-npx ts-node script.ts
+dotenv -e .env.development.local npx ts-node config/initial-database.ts
 ```
 
 Database management with browser GUI:
 ```bash
-npx prisma studio
+dotenv -e .env.development.local npx prisma studio
 ```
 
 ## Visual Studio Code Plugins
