@@ -1,5 +1,6 @@
 "use server";
 import { PrismaClient } from "@prisma/client";
+import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
 // Create a new Prisma client instance for handling our database requests
@@ -12,7 +13,9 @@ export async function createUser(prevState: any, formData: FormData) {
     const schema = z.object({
       firstName: z.string(),
       lastName: z.string(),
-      birthday: z.coerce.date(),
+      birthdayDay: z.coerce.number(),
+      birthdayMonth: z.coerce.number(),
+      birthdayYear: z.coerce.number(),
       email: z.coerce.string().email(),
       street: z.string(),
       houseNumber: z.string(),
@@ -23,7 +26,9 @@ export async function createUser(prevState: any, formData: FormData) {
     const data = schema.parse({
       firstName: formData.get("firstName"),
       lastName: formData.get("lastName"),
-      birthday: new Date(2000, 1, 1),
+      birthdayDay: formData.get("birthdayDay"),
+      birthdayMonth: formData.get("birthdayMonth"),
+      birthdayYear: formData.get("birthdayYear"),
       email: formData.get("email"),
       street: formData.get("street"),
       houseNumber: formData.get("houseNumber"),
@@ -35,7 +40,7 @@ export async function createUser(prevState: any, formData: FormData) {
       data: {
         firstName: data.firstName,
         lastName: data.lastName,
-        birthday: data.birthday,
+        birthday: new Date(data.birthdayYear, data.birthdayMonth-1, data.birthdayDay+1),
         email: data.email,
         street: data.street,
         houseNumber: data.houseNumber,
@@ -44,9 +49,11 @@ export async function createUser(prevState: any, formData: FormData) {
       },
     });
 
-    return user;
+    revalidatePath('/user/create')
+
+    return { message: `Added user with id ${user.id}` }
   } catch (err) {
-    return err;
+    return { message: `Failed to create user: ${err}` }
   }
 }
 
@@ -75,9 +82,9 @@ export async function loginEmployee(prevState: any, formData: FormData) {
       throw new Error("Employee not found");
     }
 
-    return employee;
+    return { message: `Employee with id ${employee.id} was found.` }
   } catch (err) {
-    return err;
+    return { message: `Failed to login employee: ${err}` }
   }
 }
 
@@ -87,18 +94,23 @@ export async function loginUser(prevState: any, formData: FormData) {
   try {
     const schema = z.object({
       id: z.coerce.number(),
-      birthday: z.coerce.date(),
+      birthdayDay: z.coerce.number(),
+      birthdayMonth: z.coerce.number(),
+      birthdayYear: z.coerce.number(),
     });
 
     const data = schema.parse({
       id: formData.get("id"),
-      birthday: formData.get("birthday"),
+      birthdayDay: formData.get("birthdayDay"),
+      birthdayMonth: formData.get("birthdayMonth"),
+      birthdayYear: formData.get("birthdayYear"),
     });
+
 
     const user = await prisma.user.findUnique({
       where: {
         id: data.id,
-        birthday: data.birthday,
+        birthday: new Date(data.birthdayYear, data.birthdayMonth-1, data.birthdayDay+1),
       },
     });
 
@@ -106,9 +118,9 @@ export async function loginUser(prevState: any, formData: FormData) {
       throw new Error("User not found");
     }
 
-    return user;
+    return { message: `User with id ${user.id} was found.` }
   } catch (err) {
-    return err;
+    return { message: `Failed to login user: ${err}` }
   }
 }
 

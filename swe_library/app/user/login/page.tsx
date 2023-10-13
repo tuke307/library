@@ -4,7 +4,6 @@ import { experimental_useFormState as useFormState } from "react-dom";
 import { experimental_useFormStatus as useFormStatus } from "react-dom";
 import { Button, Input } from "@nextui-org/react";
 import { loginUser } from "@/app/actions";
-import { DatePicker } from "nextui-date-picker";
 
 const initialState = {
   message: null,
@@ -44,7 +43,29 @@ export default function UserLoginPage() {
           className="max-w-xs"
         />
 
-        <DatePicker label="Geburtsdatum" />
+        <div className="grid grid-cols-3 gap-1">
+          <Input
+            isRequired
+            type="number"
+            label="Tag"
+            placeholder="Tag"
+            name="birthdayDay"
+          />
+          <Input
+            isRequired
+            type="number"
+            label="Monat"
+            placeholder="Monat"
+            name="birthdayMonth"
+          />
+          <Input
+            isRequired
+            type="number"
+            label="Jahr"
+            placeholder="Jahr"
+            name="birthdayYear"
+          />
+        </div>
       </div>
 
       <LoginButton />

@@ -4,8 +4,6 @@ import { Button, Input } from "@nextui-org/react";
 import { experimental_useFormState as useFormState } from "react-dom";
 import { experimental_useFormStatus as useFormStatus } from "react-dom";
 import { createUser } from "../app/actions";
-import { DatePicker } from "nextui-date-picker";
-import { today, getLocalTimeZone, endOfMonth } from "@internationalized/date";
 
 const initialState = {
   message: null,
@@ -17,21 +15,21 @@ function SubmitButton() {
   return (
     <Button
       type="submit"
-      aria-disabled={pending}
+      disabled={pending}
       className="mt-5"
       color="primary"
     >
-      create user
+      Kunde erstellen
     </Button>
   );
 }
 
-export function AddForm() {
+export function AddUserForm() {
   const [state, formAction] = useFormState(createUser, initialState);
-  const dateToday = today(getLocalTimeZone());
+
   return (
     <form action={formAction}>
-      <h1 className="my-3 text-3xl font-semibold">create user</h1>
+      <h1 className="my-3 text-3xl font-semibold">Nutzer hinzufügen</h1>
 
       <div className="grid grid-cols-2 gap-2">
         <Input
@@ -57,9 +55,29 @@ export function AddForm() {
           name="email"
         />
 
-        <DatePicker
-          label="Geburtsdatum"
-        />
+        <div className="grid grid-cols-3 gap-1">
+          <Input
+            isRequired
+            type="number"
+            label="Tag"
+            placeholder="Tag"
+            name="birthdayDay"
+          />
+          <Input
+            isRequired
+            type="number"
+            label="Monat"
+            placeholder="Monat"
+            name="birthdayMonth"
+          />
+          <Input
+            isRequired
+            type="number"
+            label="Jahr"
+            placeholder="Jahr"
+            name="birthdayYear"
+          />
+        </div>
       </div>
 
       <div className="my-8 grid grid-cols-2 gap-2">
