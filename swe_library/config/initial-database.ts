@@ -10,6 +10,7 @@ const users = [
     birthday: new Date(1995, 2, 15),
     email: "john.doe@example.com",
     street: "456 Elm St",
+    houseNumber: "42",
     plz: 67890,
     city: "Othertown",
   },
@@ -19,6 +20,7 @@ const users = [
     birthday: new Date(1998, 5, 20),
     email: "jane.doe@example.com",
     street: "789 Oak St",
+    houseNumber: "13",
     plz: 54321,
     city: "Somewhere",
   },
@@ -28,6 +30,7 @@ const users = [
     birthday: new Date(1985, 10, 12),
     email: "bob.smith@example.com",
     street: "321 Maple St",
+    houseNumber: "7",
     plz: 9876,
     city: "Nowhere",
   },
@@ -37,6 +40,7 @@ const users = [
     birthday: new Date(1976, 1, 1),
     email: "alice.johnson@example.com",
     street: "654 Pine St",
+    houseNumber: "21",
     plz: 13579,
     city: "Everywhere",
   },
@@ -46,6 +50,7 @@ const users = [
     birthday: new Date(1990, 7, 7),
     email: "sarah.lee@example.com",
     street: "123 Main St",
+    houseNumber: "1",
     plz: 45678,
     city: "Anywhere",
   },
@@ -55,6 +60,7 @@ const users = [
     birthday: new Date(1988, 11, 25),
     email: "david.kim@example.com",
     street: "567 1st Ave",
+    houseNumber: "3",
     plz: 98765,
     city: "Nowhere",
   },
@@ -64,6 +70,7 @@ const users = [
     birthday: new Date(1993, 4, 30),
     email: "emily.chen@example.com",
     street: "890 2nd St",
+    houseNumber: "5",
     plz: 12345,
     city: "Somewhere",
   },
@@ -73,6 +80,7 @@ const users = [
     birthday: new Date(1980, 8, 8),
     email: "michael.wang@example.com",
     street: "246 3rd Ave",
+    houseNumber: "8",
     plz: 13579,
     city: "Anywhere",
   },
@@ -392,6 +400,7 @@ async function createUsers() {
         birthday: user.birthday,
         email: user.email,
         street: user.street,
+        houseNumber: user.houseNumber,
         plz: user.plz,
         city: user.city,
       },
@@ -452,7 +461,7 @@ async function createMedia() {
         locationId: medium.locationId,
       },
     });
-    console.log(`Created medium with id: ${newMedium.id}`);
+    console.log(`Created meida with id: ${newMedium.id}`);
   }
 }
 
@@ -466,6 +475,6 @@ async function createRentedMedia() {
         returnedAt: rentedMedium.returnedAt,
       },
     });
-    console.log(`Created rented medium with id: ${newRentedMedium.id}`);
+    console.log(`Created rented media with id: ${newRentedMedium.id}`);
   }
 }

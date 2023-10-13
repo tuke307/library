@@ -4,6 +4,8 @@ import { Button, Input } from "@nextui-org/react";
 import { experimental_useFormState as useFormState } from "react-dom";
 import { experimental_useFormStatus as useFormStatus } from "react-dom";
 import { createUser } from "../app/actions";
+import { DatePicker } from "nextui-date-picker";
+import { today, getLocalTimeZone, endOfMonth } from "@internationalized/date";
 
 const initialState = {
   message: null,
@@ -26,7 +28,7 @@ function SubmitButton() {
 
 export function AddForm() {
   const [state, formAction] = useFormState(createUser, initialState);
-
+  const dateToday = today(getLocalTimeZone());
   return (
     <form action={formAction}>
       <h1 className="my-3 text-3xl font-semibold">create user</h1>
@@ -46,20 +48,22 @@ export function AddForm() {
           placeholder="Enter your Vorname"
           name="firstName"
         />
+
+        <Input
+          isRequired
+          type="email"
+          label="Email"
+          placeholder="Enter your email"
+          name="email"
+        />
+
+        <DatePicker
+          label="Geburtsdatum"
+        />
       </div>
 
-      <Input
-        className="col-span-2 my-5"
-        isRequired
-        type="email"
-        label="Email"
-        placeholder="Enter your email"
-        name="email"
-      />
-
-      <div className="grid grid-cols-2 gap-2">
+      <div className="my-8 grid grid-cols-2 gap-2">
         <Input
-          className="col-span-2"
           isRequired
           type="text"
           label="Straße"
@@ -70,6 +74,14 @@ export function AddForm() {
         <Input
           isRequired
           type="text"
+          label="Hausnummer"
+          placeholder="Gib deine Hausnummer ein"
+          name="houseNumber"
+        />
+
+        <Input
+          isRequired
+          type="number"
           label="PLZ"
           placeholder="Enter your PLZ"
           name="plz"

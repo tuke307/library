@@ -1,4 +1,4 @@
-import { AddForm } from "@/components/add-form";
+import { AddForm } from "@/components/add-user-form";
 import { UsersList } from "@/components/users-list";
 import { Metadata } from "next";
 import { Suspense } from "react";
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Nutzer erstellen",
 };
 
-export default function UsersLayout({
+export default function CreateUserLayout({
   children,
 }: {
   children: React.ReactNode;

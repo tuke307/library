@@ -46,7 +46,7 @@ export async function UsersList() {
 }
 
 async function getUsers() {
-  const res = await fetch(`${siteConfig.siteUrl}/users/api`);
+  const res = await fetch(`${siteConfig.siteUrl}/user/api`);
   const data = await res.json();
   const users = data.users as User[];
 

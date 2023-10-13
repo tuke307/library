@@ -37,7 +37,7 @@ export default function HomePage() {
           isPressable
           isHoverable
           className="h-[250px] w-[300px]"
-          onPress={() => router.push("/media-create")}
+          onPress={() => router.push("/media/create")}
         >
           <CardBody className="">
             <AiOutlinePlus className="h-full w-full" />
@@ -54,7 +54,7 @@ export default function HomePage() {
           isPressable
           isHoverable
           className="h-[250px] w-[300px]"
-          onPress={() => router.push("/borrowed-media")}
+          onPress={() => router.push("/user/login")}
         >
           <CardBody className="">
             <ImBooks className="h-full w-full" />
@@ -73,7 +73,7 @@ export default function HomePage() {
           isPressable
           isHoverable
           className="h-[250px] w-[300px]"
-          onPress={() => router.push("/return-media")}
+          onPress={() => router.push("/media/return")}
         >
           <CardBody className="">
             <RiArrowGoBackFill className="h-full w-full" />
@@ -90,14 +90,14 @@ export default function HomePage() {
           isPressable
           isHoverable
           className="h-[250px] w-[300px]"
-          onPress={() => router.push("/users")}
+          onPress={() => router.push("/user/create")}
         >
           <CardBody className="">
             <FiUsers className="h-full w-full" />
           </CardBody>
           <Divider />
           <CardFooter className="">
-            <h4 className="text-large font-bold">Kundenverwaltung</h4>
+            <h4 className="text-large font-bold">Kunde erstellen</h4>
           </CardFooter>
         </Card>
       </div>

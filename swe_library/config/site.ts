@@ -7,7 +7,7 @@ export const siteConfig = {
   navItems: [
     {
       label: "Mitarbeiterlogin",
-      href: "/employee-login",
+      href: "/employee/login",
     },
     {
       label: "Logout",
@@ -17,7 +17,7 @@ export const siteConfig = {
   navMenuItems: [
     {
       label: "Mitarbeiterlogin",
-      href: "/employee-login",
+      href: "/employee/login",
     },
     {
       label: "Logout",
