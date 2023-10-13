@@ -18,7 +18,7 @@ export async function UsersList() {
   return (
     <section>
       <section>
-        <h1 className="my-3 text-3xl font-semibold">retrieve users</h1>
+        <h1 className="my-3 text-3xl font-semibold">Nutzer abrufen</h1>
         <Table aria-label="Example table with client side pagination">
           <TableHeader>
             <TableColumn key="id">Id</TableColumn>
