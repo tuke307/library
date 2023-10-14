@@ -1,14 +1,13 @@
 import "@/styles/globals.css";
 import { Metadata } from "next";
-import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import clsx from "clsx";
 
 export const metadata: Metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
+  title: "Bibliothek",
+  description: "Bibliothek der DHBW Stuttgart",
 };
 
 export default function RootLayout({
@@ -25,7 +24,7 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+        <Providers>
           <div className="relative flex h-screen flex-col">
             <Navbar />
             <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">
