@@ -1,9 +1,7 @@
 import "@/styles/globals.css";
 import { Metadata } from "next";
-import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
-import clsx from "clsx";
 
 export const metadata: Metadata = {
   title: "Bibliothek",
@@ -16,21 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="de" suppressHydrationWarning>
       <head />
-      <body
-        className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
-        )}
-      >
+      <body>
         <Providers>
-          <div className="relative flex h-screen flex-col">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl flex-grow px-6 pt-16">
-              {children}
-            </main>
-          </div>
+          <Navbar />
+          {children}
         </Providers>
       </body>
     </html>
