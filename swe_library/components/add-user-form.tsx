@@ -16,7 +16,7 @@ function SubmitButton() {
     <Button
       type="submit"
       disabled={pending}
-      className="mt-5"
+      className="mt-7"
       color="primary"
     >
       Kunde erstellen
@@ -29,7 +29,7 @@ export function AddUserForm() {
 
   return (
     <form action={formAction}>
-      <h1 className="my-3 text-3xl font-semibold">Nutzer hinzufügen</h1>
+      <h1 className="my-10 text-3xl font-semibold">Nutzer hinzufügen</h1>
 
       <div className="grid grid-cols-2 gap-2">
         <Input
@@ -80,7 +80,7 @@ export function AddUserForm() {
         </div>
       </div>
 
-      <div className="my-8 grid grid-cols-2 gap-2">
+      <div className="mt-8 grid grid-cols-2 gap-2">
         <Input
           isRequired
           type="text"
