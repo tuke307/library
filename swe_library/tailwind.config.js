@@ -26,12 +26,7 @@ module.exports = {
             sans: ["Poppins", ...defaultTheme.fontFamily.sans],
             serif: ["Charter"],
           },
-          colors: {
-            primary: "#73a8cf",
-            primaryAccent: "#cdd7de",
-            secondary: "#dbdbdb",
-            secondaryAccent: "#f3f6f8",
-          },
+          
         },
       },
     }),

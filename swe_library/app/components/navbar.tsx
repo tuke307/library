@@ -8,29 +8,41 @@ import {
   Button,
 } from "@nextui-org/react";
 
-import NextLink from "next/link";
-
+import { signIn, signOut, useSession } from "next-auth/react";
 import { AiFillHome } from "react-icons/ai";
-import { logout } from "@/app/actions";
+
+function AuthButton() {
+  const { data: session } = useSession();
+
+  if (session) {
+    return (
+      <>
+        <Button onClick={() => signOut()} color="primary">
+          Logout
+        </Button>
+      </>
+    );
+  }
+  return (
+    <>
+      <Button onClick={() => signIn()} color="primary">Mitarbeiterlogin</Button>
+    </>
+  );
+}
 
 export const Navbar = () => {
   return (
     <NextUINavbar isBordered maxWidth="xl" position="sticky">
       <NavbarBrand>
-        <NextLink className="flex items-center justify-start gap-1" href="/">
+        <Link className="flex items-center justify-start gap-1" href="/">
           <AiFillHome />
           <p className="font-bold text-inherit">Home</p>
-        </NextLink>
+        </Link>
       </NavbarBrand>
 
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="/employee/login">Mitarbeiterlogin</Link>
-        </NavbarItem>
         <NavbarItem>
-          <Button onClick={() => logout()} color="primary" variant="flat">
-            Logout
-          </Button>
+          <AuthButton />
         </NavbarItem>
       </NavbarContent>
     </NextUINavbar>

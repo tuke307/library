@@ -1,7 +1,6 @@
-'use client' 
- 
-import { Button } from '@nextui-org/button'
-import { useEffect } from 'react'
+"use client";
+import { Button } from '@nextui-org/button';
+import { useEffect } from 'react';
  
 export default function Error({
   error,

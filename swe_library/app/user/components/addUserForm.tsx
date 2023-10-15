@@ -3,7 +3,7 @@ import React from "react";
 import { Button, Input } from "@nextui-org/react";
 import { experimental_useFormState as useFormState } from "react-dom";
 import { experimental_useFormStatus as useFormStatus } from "react-dom";
-import { createUser } from "../app/actions";
+import { createUser } from "../../../actions/user";
 
 const initialState = {
   message: null,
