@@ -15,12 +15,11 @@ export default async function EmployeeCards() {
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="grid grid-cols-4 gap-2 sm:grid-cols-4">
           <Card
-            isBlurred
             shadow="sm"
             key="1"
             isPressable
             isHoverable
-            className="h-[250px] max-h-[400px] w-[300px] max-w-[500px] border-none bg-background/60 dark:bg-default-100/50"
+            className="h-[250px] w-[300px]"
             onPress={() => router.push("/media/search")}
           >
             <CardBody className="">
