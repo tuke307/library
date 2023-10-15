@@ -18,7 +18,6 @@ export default function LoginForm() {
   });
 
   function handleChange(event: React.ChangeEvent<any>) {
-    // TODO: any weg
     setErrorText("");
     const { name, value } = event.target;
     setFormData((prevFormData) => {

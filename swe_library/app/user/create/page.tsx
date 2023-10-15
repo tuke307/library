@@ -1,5 +1,5 @@
 import React from "react";
-import { AddUserForm } from "../components/addUserForm";
+import AddUserForm from "../components/addUserForm";
 
 export default async function CreateUserPage() {
   return (
