@@ -46,15 +46,19 @@ Then you can use the vs code >>run and debug<< function.
 
 
 ## Database
-### local develoment (over docker)
+### local development (over docker)
 for local development, use a docker container:
 ```bash
 docker run -d -e POSTGRES_DB=librarydb -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -p "6500:5432" postgres
 ```
 
+update the `POSTGRES_PRISMA_URL` in your `.env.development.local` file;
+```
+POSTGRES_PRISMA_URL="postgresql://postgres:postgres@localhost:6500/librarydb?schema=public"
+```
 ### changing the `prisma.scheme`
 When you have to change the database models, you can do this by editing the `prisma.scheme`.
-You then have to apply (upload) the migrations to your database. There are two ways of doing this;
+You then have to apply (upload) these changes to your database. There are two ways of doing this;
 
 #### over migrations (slow and safe way):
 ```bash
