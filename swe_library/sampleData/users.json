@@ -1,0 +1,82 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "birthday": "1995-03-15T00:00:00.000Z",
+    "email": "john.doe@example.com",
+    "street": "456 Elm St",
+    "houseNumber": "42",
+    "plz": 67890,
+    "city": "Othertown"
+  },
+  {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "birthday": "1998-06-20T00:00:00.000Z",
+    "email": "jane.doe@example.com",
+    "street": "789 Oak St",
+    "houseNumber": "13",
+    "plz": 54321,
+    "city": "Somewhere"
+  },
+  {
+    "firstName": "Bob",
+    "lastName": "Smith",
+    "birthday": "1985-11-12T00:00:00.000Z",
+    "email": "bob.smith@example.com",
+    "street": "321 Maple St",
+    "houseNumber": "7",
+    "plz": 9876,
+    "city": "Nowhere"
+  },
+  {
+    "firstName": "Alice",
+    "lastName": "Johnson",
+    "birthday": "1976-02-01T00:00:00.000Z",
+    "email": "alice.johnson@example.com",
+    "street": "654 Pine St",
+    "houseNumber": "21",
+    "plz": 13579,
+    "city": "Everywhere"
+  },
+  {
+    "firstName": "Sarah",
+    "lastName": "Lee",
+    "birthday": "1990-08-07T00:00:00.000Z",
+    "email": "sarah.lee@example.com",
+    "street": "123 Main St",
+    "houseNumber": "1",
+    "plz": 45678,
+    "city": "Anywhere"
+  },
+  {
+    "firstName": "David",
+    "lastName": "Kim",
+    "birthday": "1988-12-25T00:00:00.000Z",
+    "email": "david.kim@example.com",
+    "street": "567 1st Ave",
+    "houseNumber": "3",
+    "plz": 98765,
+    "city": "Nowhere"
+  },
+  {
+    "firstName": "Emily",
+    "lastName": "Chen",
+    "birthday": "1993-05-30T00:00:00.000Z",
+    "email": "emily.chen@example.com",
+    "street": "890 2nd St",
+    "houseNumber": "5",
+    "plz": 12345,
+    "city": "Somewhere"
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Wang",
+    "birthday": "1980-09-08T00:00:00.000Z",
+    "email": "michael.wang@example.com",
+    "street": "246 3rd Ave",
+    "houseNumber": "8",
+    "plz": 13579,
+    "city": "Anywhere"
+  }
+]

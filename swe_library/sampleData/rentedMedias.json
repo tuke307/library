@@ -1,0 +1,62 @@
+[
+    {
+        "userId": 1,
+        "mediaId": "3f33a75a-9363-4f08-b7de-1e3c82a78745",
+        "rentedAt": "2022-10-27T18:00:00.000Z",
+        "returnedAt": "2022-10-27T18:00:00.000Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "7e3d0a38-27c7-4a91-911a-57875118e864",
+        "rentedAt": "2022-10-27T18:00:00.000Z",
+        "returnedAt": "2022-10-27T18:00:00.000Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "ad6e2187-94a0-4d5d-8e2f-b94703ecf3c7",
+        "rentedAt": "2022-10-27T18:00:00.000Z",
+        "returnedAt": "2022-10-27T18:00:00.000Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "b9dcb6a9-6b19-4f8b-9c87-e7a07e5b4f52",
+        "rentedAt": "2022-10-27T18:00:00.000Z",
+        "returnedAt": "2022-10-27T18:00:00.000Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "68e9a419-46d4-4e91-b744-1f9b9bba2602",
+        "rentedAt": "2022-10-27T18:00:00.000Z",
+        "returnedAt": "2022-10-27T18:00:00.000Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "132f5a17-9db7-470e-a3ef-2968ee6bde78",
+        "rentedAt": "2022-10-27T18:00:00.000Z",
+        "returnedAt": "2022-10-27T18:00:00.000Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "afe2a329-7ea1-457c-84cf-c15a9b06d95a",
+        "rentedAt": "2022-10-27T18:00:00.000Z",
+        "returnedAt": "2022-10-27T18:00:00.000Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "e206e197-0347-497e-b1a0-b8d2f5821417",
+        "rentedAt": "2022-10-27T18:00:00.000Z",
+        "returnedAt": "2022-10-27T18:00:00.000Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "6aa4fb57-483c-4f44-9c60-8e112e4f8d1e",
+        "rentedAt": "2022-10-27T18:00:00.000Z",
+        "returnedAt": "2022-10-27T18:00:00.000Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "e697b157-18d5-4f34-8e80-758f6e8d32a6",
+        "rentedAt": "2022-10-27T18:00:00.000Z",
+        "returnedAt": "2022-10-27T18:00:00.000Z"
+    }
+]

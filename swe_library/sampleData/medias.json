@@ -1,0 +1,122 @@
+[
+    {
+        "id": "3f33a75a-9363-4f08-b7de-1e3c82a78745",
+        "title": "The Great Gatsby",
+        "mediaType": "BOOK",
+        "createdAt": "2022-10-27T18:00:00.000Z",
+        "updatedAt": "2022-10-27T18:00:00.000Z",
+        "content": "A novel by F. Scott Fitzgerald",
+        "published": true,
+        "ISBN": "978-3-16-148410-0",
+        "authorId": 1,
+        "locationId": 1
+    },
+    {
+        "id": "7e3d0a38-27c7-4a91-911a-57875118e864",
+        "title": "The Catcher in the Rye",
+        "mediaType": "BOOK",
+        "createdAt": "2022-10-27T18:00:00.000Z",
+        "updatedAt": "2022-10-27T18:00:00.000Z",
+        "content": "A novel by J.D. Salinger",
+        "published": true,
+        "ISBN": "978-3-16-148410-1",
+        "authorId": 2,
+        "locationId": 2
+    },
+    {
+        "id": "ad6e2187-94a0-4d5d-8e2f-b94703ecf3c7",
+        "title": "To Kill a Mockingbird",
+        "mediaType": "BOOK",
+        "createdAt": "2022-10-27T18:00:00.000Z",
+        "updatedAt": "2022-10-27T18:00:00.000Z",
+        "content": "A novel by Harper Lee",
+        "published": true,
+        "ISBN": "978-3-16-148410-2",
+        "authorId": 3,
+        "locationId": 3
+    },
+    {
+        "id": "b9dcb6a9-6b19-4f8b-9c87-e7a07e5b4f52",
+        "title": "1984",
+        "mediaType": "BOOK",
+        "createdAt": "2022-10-27T18:00:00.000Z",
+        "updatedAt": "2022-10-27T18:00:00.000Z",
+        "content": "A novel by George Orwell",
+        "published": true,
+        "ISBN": "978-3-16-148410-3",
+        "authorId": 4,
+        "locationId": 4
+    },
+    {
+        "id": "68e9a419-46d4-4e91-b744-1f9b9bba2602",
+        "title": "The Lord of the Rings",
+        "mediaType": "BOOK",
+        "createdAt": "2022-10-27T18:00:00.000Z",
+        "updatedAt": "2022-10-27T18:00:00.000Z",
+        "content": "A novel by J.R.R. Tolkien",
+        "published": true,
+        "ISBN": "978-3-16-148410-4",
+        "authorId": 5,
+        "locationId": 5
+    },
+    {
+        "id": "132f5a17-9db7-470e-a3ef-2968ee6bde78",
+        "title": "The Hobbit",
+        "mediaType": "BOOK",
+        "createdAt": "2022-10-27T18:00:00.000Z",
+        "updatedAt": "2022-10-27T18:00:00.000Z",
+        "content": "A novel by J.R.R. Tolkien",
+        "published": true,
+        "ISBN": "978-3-16-148410-5",
+        "authorId": 5,
+        "locationId": 6
+    },
+    {
+        "id": "afe2a329-7ea1-457c-84cf-c15a9b06d95a",
+        "title": "The Da Vinci Code",
+        "mediaType": "BOOK",
+        "createdAt": "2022-10-27T18:00:00.000Z",
+        "updatedAt": "2022-10-27T18:00:00.000Z",
+        "content": "A novel by Dan Brown",
+        "published": true,
+        "ISBN": "978-3-16-148410-6",
+        "authorId": 6,
+        "locationId": 7
+    },
+    {
+        "id": "e206e197-0347-497e-b1a0-b8d2f5821417",
+        "title": "The Girl with the Dragon Tattoo",
+        "mediaType": "BOOK",
+        "createdAt": "2022-10-27T18:00:00.000Z",
+        "updatedAt": "2022-10-27T18:00:00.000Z",
+        "content": "A novel by Stieg Larsson",
+        "published": true,
+        "ISBN": "978-3-16-148410-7",
+        "authorId": 7,
+        "locationId": 8
+    },
+    {
+        "id": "6aa4fb57-483c-4f44-9c60-8e112e4f8d1e",
+        "title": "The Hunger Games",
+        "mediaType": "BOOK",
+        "createdAt": "2022-10-27T18:00:00.000Z",
+        "updatedAt": "2022-10-27T18:00:00.000Z",
+        "content": "A novel by Suzanne Collins",
+        "published": true,
+        "ISBN": "978-3-16-148410-8",
+        "authorId": 8,
+        "locationId": 9
+    },
+    {
+        "id": "e697b157-18d5-4f34-8e80-758f6e8d32a6",
+        "title": "Harry Potter and the Philosopher's Stone",
+        "mediaType": "BOOK",
+        "createdAt": "2022-10-27T18:00:00.000Z",
+        "updatedAt": "2022-10-27T18:00:00.000Z",
+        "content": "A novel by J.K. Rowling",
+        "published": true,
+        "ISBN": "978-3-16-148410-9",
+        "authorId": 9,
+        "locationId": 10
+    }
+]
