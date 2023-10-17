@@ -18,25 +18,25 @@ enum MediaType {
 }
 
 model Media {
-  id         Int           @id @default(autoincrement())
+  id         String        @id @default(uuid()) @db.Uuid
   mediaType  MediaType
   createdAt  DateTime      @default(now())
   updatedAt  DateTime      @updatedAt
-  title      String        @db.VarChar(255)
+  title      String
   content    String?
   published  Boolean       @default(false)
   ISBN       String?       @unique
   author     Author        @relation(fields: [authorId], references: [id])
   authorId   Int
   rentedBy   RentedMedia[]
-  location   Location?     @relation(fields: [locationId], references: [id])
-  locationId Int?
+  location   Location      @relation(fields: [locationId], references: [id])
+  locationId Int           @unique
 }
 
 model RentedMedia {
   id         Int       @id @default(autoincrement())
   media      Media     @relation(fields: [mediaId], references: [id])
-  mediaId    Int
+  mediaId    String    @db.Uuid
   user       User      @relation(fields: [userId], references: [id])
   userId     Int
   rentedAt   DateTime  @default(now())
@@ -44,9 +44,14 @@ model RentedMedia {
 }
 
 model Location {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  media     Media[]
+  id           Int      @id @default(autoincrement())
+  floor        Int
+  shelf        Int
+  shelfSection Int
+  createdAt    DateTime @default(now())
+  media        Media?
+
+  @@unique([floor, shelf, shelfSection])
 }
 
 model Author {
@@ -67,7 +72,7 @@ model User {
   lastName  String
   createdAt DateTime @default(now())
 
-  birthday    DateTime
+  birthday    DateTime?
   street      String
   houseNumber String
   plz         Int
