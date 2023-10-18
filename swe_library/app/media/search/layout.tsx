@@ -1,13 +1,13 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Medium suchen",
+};
+
 export default function MediaSearchLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <section className="">
-    <div className="">
-      {children}
-    </div>
-  </section>
-  );
+  return <section>{children}</section>;
 }
