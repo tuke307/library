@@ -45,6 +45,7 @@ async function createUsers() {
   for (const user of users) {
     const newUser = await prisma.user.create({
       data: {
+        id: user.id, // normally autoincremented
         firstName: user.firstName,
         lastName: user.lastName,
         birthday: user.birthday,
@@ -90,6 +91,7 @@ async function createLocations() {
   for (const location of locations) {
     const newLocation = await prisma.location.create({
       data: {
+        id: location.id, // normally autoincremented
         floor: location.floor,
         shelf: location.shelf,
         shelfSection: location.shelfSection,
@@ -106,7 +108,6 @@ async function createMedia() {
         id : medium.id, // normally autoincremented
         title: medium.title,
         mediaType: medium.mediaType,
-        createdAt: medium.createdAt,
         updatedAt: medium.updatedAt,
         content: medium.content,
         published: medium.published,
@@ -115,7 +116,7 @@ async function createMedia() {
         locationId: medium.locationId,
       },
     });
-    console.log(`Created meida with id: ${newMedium.id}`);
+    console.log(`Created media with id: ${newMedium.id}`);
   }
 }
 

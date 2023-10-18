@@ -78,7 +78,7 @@ dotenv -e .env.development.local npx prisma db push
 ### insert sample data (optional)
 if you want sample data, to use the full potential of the website, insert some sample data;
 ```bash
-dotenv -e .env.development.local npx ts-node sampleData/initial-database.ts
+dotenv -e .env.development.local npx ts-node sampleData/initialDatabase.ts
 ```
 
 ### Prisma Studio
