@@ -83,7 +83,7 @@ export default function MediaTable({
             base: "w-full sm:max-w-[44%]",
             inputWrapper: "border-1",
           }}
-          placeholder="Search by name..."
+          placeholder="Suche nach Titel..."
           size="sm"
           value={filterValue}
           variant="bordered"
