@@ -1,60 +1,32 @@
+"use server";
 import { PrismaClient, User } from "@prisma/client";
-import { revalidatePath } from "next/cache";
-import { z } from "zod";
+import { revalidatePath } from 'next/cache'
 
 // Create a new Prisma client instance for handling our database requests
 const prisma = new PrismaClient();
 
-export async function createUser(prevState: any, formData: FormData) {
-  try {
-    const schema = z.object({
-      firstName: z.string(),
-      lastName: z.string(),
-      birthdayDay: z.coerce.number(),
-      birthdayMonth: z.coerce.number(),
-      birthdayYear: z.coerce.number(),
-      email: z.coerce.string().email(),
-      street: z.string(),
-      houseNumber: z.string(),
-      plz: z.coerce.number(),
-      city: z.string(),
-    });
 
-    const data = schema.parse({
-      firstName: formData.get("firstName"),
-      lastName: formData.get("lastName"),
-      birthdayDay: formData.get("birthdayDay"),
-      birthdayMonth: formData.get("birthdayMonth"),
-      birthdayYear: formData.get("birthdayYear"),
-      email: formData.get("email"),
-      street: formData.get("street"),
-      houseNumber: formData.get("houseNumber"),
-      plz: formData.get("plz"),
-      city: formData.get("city"),
-    });
-
+export default async function createUser(formData: FormData): Promise<User | null> {
+  try {    
     const user = await prisma.user.create({
       data: {
-        firstName: data.firstName,
-        lastName: data.lastName,
-        birthday: new Date(
-          data.birthdayYear,
-          data.birthdayMonth,
-          data.birthdayDay,
-        ),
-        email: data.email,
-        street: data.street,
-        houseNumber: data.houseNumber,
-        plz: data.plz,
-        city: data.city,
+        firstName: formData.get('firstName') as string,
+        lastName: formData.get('lastName') as string,
+        email: formData.get('email') as string,
+        street: formData.get('street') as string,
+        houseNumber:  formData.get('houseNumber') as string,
+        plz: parseInt(formData.get('plz') as string),
+        city: formData.get('city') as string,
       },
     });
+    
+    //await submitForm()
+    revalidatePath('/')
 
-    revalidatePath("/user/create");
-
-    return { message: `Added user with id ${user.id}` };
+    return user;
   } catch (err) {
-    return { message: `Failed to create user: ${err}` };
+    console.log(err);
+    return null;
   }
 }
 
