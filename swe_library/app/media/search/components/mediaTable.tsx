@@ -11,6 +11,8 @@ import {
   Input,
   Chip,
   Button,
+  Link,
+  SortDescriptor,
 } from "@nextui-org/react";
 import React from "react";
 import { MediaTableProp } from "@/models/mediaTable";
@@ -22,7 +24,7 @@ export default function MediaTable({
 }) {
   const [filterValue, setFilterValue] = React.useState("");
   const [page, setPage] = React.useState(1);
-  const [sortDescriptor, setSortDescriptor] = React.useState({
+  const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
     column: "title",
     direction: "ascending",
   });
@@ -114,9 +116,9 @@ export default function MediaTable({
   }, [items.length, page, pages, hasSearchFilter]);
 
   return (
-    <section className="m-10">
+    <section>
       <Table
-        aria-label="Example table with dynamic content"
+        aria-label="Media Table"
         topContent={topContent}
         topContentPlacement="outside"
         bottomContent={bottomContent}
@@ -137,6 +139,9 @@ export default function MediaTable({
           <TableColumn key="rented" allowsSorting>
             Verfügbarkeit
           </TableColumn>
+          <TableColumn key="details">
+            Details
+          </TableColumn>
         </TableHeader>
         <TableBody>
           {sortedItems.map((item) => (
@@ -148,17 +153,26 @@ export default function MediaTable({
                 <Chip
                   className="gap-1 border-none capitalize text-default-600"
                   color={
-                    Boolean(getKeyValue(item, "rented"))
-                      ? "danger"
-                      : "success"
+                    Boolean(getKeyValue(item, "rented")) ? "danger" : "success"
                   }
                   size="sm"
                   variant="flat"
                 >
                   {Boolean(getKeyValue(item, "rented"))
-                    ? "vermietet"
+                    ? "ausgeliehen"
                     : "verfügbar"}
                 </Chip>
+              </TableCell>
+              <TableCell>
+                <Button
+                  href={`/media/${getKeyValue(item, "id")}`}
+                  as={Link}
+                  color="primary"
+                  showAnchorIcon
+                  variant="flat"
+                >
+                  Details
+                </Button>
               </TableCell>
             </TableRow>
           ))}
