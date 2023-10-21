@@ -5,22 +5,34 @@ import fs from "fs";
 const prisma = new PrismaClient();
 
 // 8 users
-const users = JSON.parse(fs.readFileSync(path.join(__dirname, "users.json"), "utf8"));
+const users = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "users.json"), "utf8"),
+);
 
 // 4 employees
-const employees = JSON.parse(fs.readFileSync(path.join(__dirname, "employees.json"), "utf8"));
+const employees = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "employees.json"), "utf8"),
+);
 
 // 10 authors
-const authors = JSON.parse(fs.readFileSync(path.join(__dirname, "authors.json"), "utf8"));
+const authors = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "authors.json"), "utf8"),
+);
 
 // 8 locations
-const locations = JSON.parse(fs.readFileSync(path.join(__dirname, "locations.json"), "utf8"));
+const locations = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "locations.json"), "utf8"),
+);
 
 // 10 media
-const media = JSON.parse(fs.readFileSync(path.join(__dirname, "medias.json"), "utf8"));
+const media = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "medias.json"), "utf8"),
+);
 
 // 10 rented media
-const rentedMedia = JSON.parse(fs.readFileSync(path.join(__dirname, "rentedMedias.json"), "utf8"));
+const rentedMedia = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "rentedMedias.json"), "utf8"),
+);
 
 async function main() {
   await createUsers();
@@ -45,7 +57,6 @@ async function createUsers() {
   for (const user of users) {
     const newUser = await prisma.user.create({
       data: {
-        id: user.id, // normally autoincremented
         firstName: user.firstName,
         lastName: user.lastName,
         birthday: user.birthday,
@@ -64,7 +75,6 @@ async function createEmployees() {
   for (const employee of employees) {
     const newEmployee = await prisma.employee.create({
       data: {
-        id: employee.id, // normally autoincremented
         firstName: employee.firstName,
         lastName: employee.lastName,
         password: employee.password,
@@ -91,7 +101,6 @@ async function createLocations() {
   for (const location of locations) {
     const newLocation = await prisma.location.create({
       data: {
-        id: location.id, // normally autoincremented
         floor: location.floor,
         shelf: location.shelf,
         shelfSection: location.shelfSection,
@@ -105,7 +114,7 @@ async function createMedia() {
   for (const medium of media) {
     const newMedium = await prisma.media.create({
       data: {
-        id : medium.id, // normally autoincremented
+        id: medium.id, // normally autoincremented
         title: medium.title,
         mediaType: medium.mediaType,
         updatedAt: medium.updatedAt,
