@@ -20,9 +20,9 @@ export async function createUser(prevState: any, formData: FormData) {
     });
     
     revalidatePath('/')
-    return { message: `${user.lastName} ${user.firstName} erfolgreich erstellt.` }
+    return { message: `User with ID: ${user.id} successfully created.` }
   } catch (err) {
     console.log(err);
-    return { message: 'Fehler beim erstellen des Kunden!' }
+    return { message: 'Error creating user!' }
   }
 }

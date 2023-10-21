@@ -75,6 +75,8 @@ export default function AddUserForm() {
 
       <div>
         <SubmitButton />
+
+        {/* sr-only: only for the browser, not seeable!  */}
         <p aria-live="polite" className="sr-only">
           {state?.message}
         </p>
