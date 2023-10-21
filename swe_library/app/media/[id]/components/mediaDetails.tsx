@@ -11,30 +11,16 @@ import {
 } from "@nextui-org/react";
 import React from "react";
 import { MediaDetails } from "@/models/mediaDetails";
-import { BsDisc, BsMap, BsNewspaper, BsBook } from "react-icons/bs";
+import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
 
 export default function MediaDetailsPage({
   mediaDetails,
 }: {
   mediaDetails: MediaDetails;
 }) {
-  let mediaTypeIcon;
-  switch (mediaDetails.mediaType) {
-    case "BOOK":
-      mediaTypeIcon = <BsBook className="m-2" />;
-      break;
-    case "CD":
-      mediaTypeIcon = <BsDisc className="m-2" />;
-      break;
-    case "MAP":
-      mediaTypeIcon = <BsMap className="m-2" />;
-      break;
-    case "MAGAZINE":
-      mediaTypeIcon = <BsNewspaper className="m-2" />;
-      break;
-    default:
-      mediaTypeIcon = <BsDisc className="m-2" />;
-  }
+  const mediaTypeIcon = mediaTypesWithIcons.find(
+    (mediaType) => mediaType.enum === mediaDetails.mediaType,
+  )?.icon;
 
   return (
     <section className="grid grid-cols-2 grid-rows-3 gap-3">
