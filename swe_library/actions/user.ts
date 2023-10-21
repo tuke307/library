@@ -1,12 +1,11 @@
 "use server";
-import { PrismaClient, User } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from 'next/cache'
 
-// Create a new Prisma client instance for handling our database requests
 const prisma = new PrismaClient();
 
 
-export default async function createUser(formData: FormData): Promise<User | null> {
+export async function createUser(prevState: any, formData: FormData) {
   try {    
     const user = await prisma.user.create({
       data: {
@@ -20,26 +19,10 @@ export default async function createUser(formData: FormData): Promise<User | nul
       },
     });
     
-    //await submitForm()
     revalidatePath('/')
-
-    return user;
+    return { message: `${user.lastName} ${user.firstName} erfolgreich erstellt.` }
   } catch (err) {
     console.log(err);
-    return null;
-  }
-}
-
-export async function getUserById(id: number) {
-  try {
-    const user = await prisma.user.findUnique({
-      where: {
-        id: id,
-      },
-    });
-
-    return user;
-  } catch (err) {
-    return { message: `Failed to get user: ${err}` };
+    return { message: 'Fehler beim erstellen des Kunden!' }
   }
 }

@@ -1,19 +1,19 @@
 "use client";
 import React from "react";
-import { Button, Input } from "@nextui-org/react";
-import { useFormState } from "react-dom";
+import { Input } from "@nextui-org/react";
+import { experimental_useFormState as useFormState } from "react-dom";
+import { createUser } from "@/actions/user";
 import { SubmitButton } from "./submitButton";
-import createUser from "@/actions/user";
 
 const initialState = {
   message: null,
-}
+};
 
 export default function AddUserForm() {
-  //const [state, formAction] = useFormState(createUser, initialState)
+  const [state, formAction] = useFormState(createUser, initialState);
 
   return (
-    <form action={createUser}>
+    <form action={formAction}>
       <div className="grid grid-cols-2 gap-2">
         <Input
           isRequired
@@ -73,9 +73,12 @@ export default function AddUserForm() {
         />
       </div>
 
-      <SubmitButton />
-
-      
+      <div>
+        <SubmitButton />
+        <p aria-live="polite" className="sr-only">
+          {state?.message}
+        </p>
+      </div>
     </form>
   );
 }
