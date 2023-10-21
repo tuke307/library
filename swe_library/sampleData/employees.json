@@ -1,26 +1,26 @@
 [
   {
-    "id": 1000,
+    "id": 1,
     "firstName": "John",
     "lastName": "Doe",
-    "password": "password1000"
+    "password": "password1"
   },
   {
-    "id": 1001,
+    "id": 2,
     "firstName": "Jane",
     "lastName": "Doe",
-    "password": "password1001"
+    "password": "password2"
   },
   {
-    "id": 1003,
+    "id": 3,
     "firstName": "Bob",
     "lastName": "Smith",
-    "password": "password1003"
+    "password": "password3"
   },
   {
-    "id": 1004,
+    "id": 3,
     "firstName": "Alice",
     "lastName": "Johnson",
-    "password": "password1004"
+    "password": "password4"
   }
 ]
