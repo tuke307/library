@@ -9,11 +9,5 @@ export default function MediaCreateLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <section className="">
-    <div className="">
-      {children}
-    </div>
-  </section>
-  );
+  return <section>{children}</section>;
 }
