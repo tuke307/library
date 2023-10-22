@@ -6,9 +6,17 @@ import os
 
 fake = Faker()
 
+fakeUsers = 1000
+fakeAuthors = 1000
+fakeLocations = 2000
+fakeMedias = 1000
+fakeRentedMedias = 100
+
+
+
 # Generate authors data
 authors = []
-for author_id in range(1, 1001):
+for author_id in range(1, fakeUsers+1):
     author = {
         "id": author_id,
         "firstName": fake.first_name(),
@@ -20,11 +28,11 @@ for author_id in range(1, 1001):
 # Generate locations data
 locations = []
 used_combinations = set()
-for location_id in range(1, 1001):
+for location_id in range(1, fakeLocations+1):
     while True:
-        floor = random.randint(1, 10)
-        shelf = random.randint(1, 10)
-        shelf_section = random.randint(1, 10)
+        floor = random.randint(1, fakeLocations/100)
+        shelf = random.randint(1, fakeLocations/100)
+        shelf_section = random.randint(1, fakeLocations/100)
         location = {
             "id": location_id,
             "floor": floor,
@@ -39,9 +47,9 @@ for location_id in range(1, 1001):
 
 # Generate media data
 media = []
-used_locations = set()
+used_combinations = set()
 media_types = ["BOOK", "CD", "MAP", "MAGAZINE"]
-for media_id in range(1, 1001):
+for media_id in range(1, fakeMedias+1):
     while True:
         book_title = fake.catch_phrase()
         author_id = random.choice(authors)["id"]
@@ -60,15 +68,15 @@ for media_id in range(1, 1001):
             "locationId": location_id,
         }
         
-        if location_id not in used_locations:
-            used_locations.add(location_id)
+        if location_id not in used_combinations:
+            used_combinations.add(location_id)
             media.append(media_entry)
             break
 
 # Generate user data
 users = []
-used_emails = set()
-for user_id in range(1, 1001):
+used_combinations = set()
+for user_id in range(1, fakeUsers+1):
      while True:
         email = fake.email()
         user = {
@@ -83,15 +91,15 @@ for user_id in range(1, 1001):
             "city": fake.city(),
         }
 
-        if email not in used_emails:
-            used_emails.add(email)
+        if email not in used_combinations:
+            used_combinations.add(email)
             users.append(user)
             break
         
 
 # Generate rented media data
 rented_media = []
-for rent_id in range(1, 101):  # Generate around 100 rented media entries
+for rent_id in range(1, fakeRentedMedias+1):  # Generate around 100 rented media entries
     user_id = random.choice(users)["id"]
     media_id = random.choice(media)["id"]
     rented_at = fake.date_time_this_decade().isoformat() + "Z"
