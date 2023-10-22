@@ -16,6 +16,7 @@ import {
 } from "@nextui-org/react";
 import React from "react";
 import { MediaTableProp } from "@/models/mediaTable";
+import { BsSearch } from "react-icons/bs";
 
 export default function MediaTable({
   mediaTableProps,
@@ -91,6 +92,7 @@ export default function MediaTable({
           variant="bordered"
           onClear={() => setFilterValue("")}
           onValueChange={onSearchChange}
+          startContent={<BsSearch className="m-1" />}
         />
       </div>
     );
