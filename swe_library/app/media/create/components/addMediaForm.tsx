@@ -162,7 +162,6 @@ export default function AddMediaForm({
             <div className="flex flex-row gap-2">
               <Input
                 isReadOnly
-                isDisabled
                 name="authorId"
                 type="text"
                 label="Id"
@@ -225,7 +224,6 @@ export default function AddMediaForm({
             <div className="flex flex-row gap-2">
               <Input
                 isReadOnly
-                isDisabled
                 name="locationId"
                 type="number"
                 label="Id"
