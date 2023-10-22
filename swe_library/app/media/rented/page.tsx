@@ -10,7 +10,6 @@ import {
   TableRow,
   TableCell,
 } from "@nextui-org/react";
-import { getUserById } from "@/actions/user";
 
 export default function UserLoginPage() {
   const [wrongCredentials, setWrongCredentials] = useState(false);
@@ -39,7 +38,7 @@ export default function UserLoginPage() {
     try {
       setLoading(true);
 
-      const user = await getUserById(formData.userId);
+      //const user = await getUserById(formData.userId);
       
       // todo: set user in session
 
