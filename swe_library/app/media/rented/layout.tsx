@@ -11,9 +11,7 @@ export default function RentedMediaLayout({
 }) {
   return (
     <section className="">
-    <div className="">
       {children}
-    </div>
-  </section>
+    </section>
   );
 }
