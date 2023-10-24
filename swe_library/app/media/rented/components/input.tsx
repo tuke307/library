@@ -25,16 +25,12 @@ export default function LoginForm({ onFetchSuccess }: LoginFormProps) {
 
   async function getUserIdState(): Promise<number> {
     const currentUserId = Number(userId);
-    console.log("Fetching for userId:", currentUserId);
     const result = await getRentedMediaByUserId(currentUserId);
-    // map Media to RentedMediaTableProp
 
     if (Array.isArray(result)) {
-      console.log(result);
       onFetchSuccess(result);
       return result.length;
     } else {
-      console.log(result);
       return 0;
     }
   }

@@ -44,7 +44,6 @@ export async function getRentedMediaByUserId(
 
     return rentedMediaTableProp;
   } catch (err) {
-    console.log(err);
     return null;
   }
 }
