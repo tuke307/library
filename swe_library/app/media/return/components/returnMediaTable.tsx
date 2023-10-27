@@ -15,7 +15,7 @@ import {
   SortDescriptor,
 } from "@nextui-org/react";
 import React from "react";
-import { RentedMediaTableProp } from "@/models/rentedMediaTable";
+import { RentedMediaTableProp } from "@/models/rentedMediaTabl";
 import { BsSearch } from "react-icons/bs";
 import { updateRentedMediaById } from "@/actions/rentedMedia";
 

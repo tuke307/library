@@ -1,5 +1,5 @@
 "use server";
-import { RentedMediaTableProp } from "@/models/rentedMediaTable";
+import { RentedMediaTableProp } from "@/models/rentedMediaTabl";
 import { Media, PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -50,9 +50,7 @@ export async function getRentedMediaByUserId(
   }
 }
 
-export async function updateRentedMediaById(
-  id: number
-): Promise<boolean> {
+export async function updateRentedMediaById(id: number): Promise<boolean> {
   try {
     await prisma.rentedMedia.update({
       where: {

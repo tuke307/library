@@ -3,7 +3,7 @@ import { useState } from "react";
 import React from "react";
 import RentedMediaTable from "./components/rentedMediaTable";
 import InputForm from "./components/inputForm";
-import { RentedMediaTableProp } from "@/models/rentedMediaTable";
+import { RentedMediaTableProp } from "@/models/rentedMediaTabl";
 
 
 export default async function rentedMediaPage() {
