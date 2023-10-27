@@ -1,7 +1,7 @@
 "use server";
 import React from "react";
 import MediaTable from "./components/mediaTable";
-import getMediaTable from "@/actions/mediaTable";
+import { getMediaTable } from "@/actions/media";
 
 export default async function MediaSearchPage() {
   const mediaTableProps = await getMediaTable();

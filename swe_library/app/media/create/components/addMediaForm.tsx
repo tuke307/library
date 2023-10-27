@@ -14,13 +14,13 @@ import {
   Switch,
 } from "@nextui-org/react";
 import { experimental_useFormState as useFormState } from "react-dom";
-import { createMedia } from "@/actions/mediaCreation";
 import { SubmitButton } from "./submitButton";
 import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
 import { Author, Location, MediaType } from "@prisma/client";
 import AuthorModal from "./authorModal";
 import LocationModal from "./locationModal";
 import { BsSearch } from "react-icons/bs";
+import { createMedia } from "@/actions/media";
 
 const initialState = {
   message: null,

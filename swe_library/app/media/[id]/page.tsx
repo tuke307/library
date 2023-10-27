@@ -1,6 +1,6 @@
 import React from "react";
 import MediaDetailsPage from "./components/mediaDetails";
-import { getMediaDetails } from "@/actions/mediaDetails";
+import { getMediaDetails } from "@/actions/media";
 
 export default async function DetailsPage({
   params,
