@@ -27,7 +27,7 @@ export default function RentedMediaTable({
 
       <TableBody emptyContent={"Keine ausgeliehenen Medien."}>
         {rentedMediaTableProp.map((media) => (
-          <TableRow key={media.mediaId}>
+          <TableRow key={media.id}>
             <TableCell>{media.mediaTitle}</TableCell>
             <TableCell>{media.mediaId}</TableCell>
             <TableCell>{media.rentedAt.toLocaleDateString()}</TableCell>

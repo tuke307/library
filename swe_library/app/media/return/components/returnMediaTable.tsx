@@ -106,7 +106,7 @@ export default function ReturnMediaTable({
         </TableHeader>
         <TableBody emptyContent={"keine ausgeliehenen Medien gefunden."}>
           {sortedItems.map((item) => (
-            <TableRow key={item.mediaId}>
+            <TableRow key={item.id}>
               <TableCell>{item.mediaTitle}</TableCell>
               <TableCell>{item.mediaId}</TableCell>
               <TableCell>{item.rentedAt.toLocaleDateString()}</TableCell>
