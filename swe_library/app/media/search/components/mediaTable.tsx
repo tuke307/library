@@ -21,7 +21,7 @@ import { BsSearch } from "react-icons/bs";
 export default function MediaTable({
   mediaTableProps,
 }: {
-  mediaTableProps: MediaTableProp[];
+  mediaTableProps: MediaTableProp[] | null;
 }) {
   const [filterValue, setFilterValue] = React.useState("");
   const [page, setPage] = React.useState(1);
@@ -34,10 +34,10 @@ export default function MediaTable({
   const rowsPerPage = 10;
   const hasSearchFilter = Boolean(filterValue);
 
-  const pages = Math.ceil(medias.length / rowsPerPage);
+  const pages = Math.ceil((medias?.length ?? 0) / rowsPerPage);
 
   const filteredItems = React.useMemo(() => {
-    let filteredUsers = [...medias];
+    let filteredUsers = [...(medias ?? [])];
 
     if (hasSearchFilter) {
       filteredUsers = filteredUsers.filter((media) =>
@@ -145,7 +145,7 @@ export default function MediaTable({
             Details
           </TableColumn>
         </TableHeader>
-        <TableBody>
+        <TableBody emptyContent={"keine Medien gefunden."}>
           {sortedItems.map((item) => (
             <TableRow key={item.id}>
               <TableCell>{getKeyValue(item, "title")}</TableCell>
