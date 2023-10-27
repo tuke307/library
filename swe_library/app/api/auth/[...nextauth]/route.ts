@@ -1,15 +1,11 @@
 import NextAuth from "next-auth";
-import type { NextAuthOptions } from "next-auth";
+import type { NextAuthOptions, Session, User } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-//import { PrismaAdapter } from "@auth/prisma-adapter";
 import { PrismaClient, Employee } from "@prisma/client";
 import { randomBytes, randomUUID } from "crypto";
 import { login } from "@/lib/auth";
 
-const prisma = new PrismaClient();
-
 const authOptions: NextAuthOptions = {
-  //adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       id: "credentials",
@@ -54,12 +50,12 @@ const authOptions: NextAuthOptions = {
     strategy: "jwt",
 
     // Seconds - How long until an idle session expires and is no longer valid.
-    maxAge: 60 * 5, // 5 minutes
+    maxAge: 60 * 15, // 15 minutes
 
     // Seconds - Throttle how frequently to write to database to extend a session.
     // Use it to limit write operations. Set to 0 to always update the database.
     // Note: This option is ignored if using JSON Web Tokens
-    updateAge: 24 * 60 * 60, // 24 hours
+    updateAge: 24 * 60, // 1 hour
 
     // The session token is usually either a random UUID or string, however if you
     // need a more customized session token string, you can define your own generate function.
@@ -77,7 +73,7 @@ const authOptions: NextAuthOptions = {
     async session({ session, user, token }) {
       return session;
     },
-    async jwt({ token, user, account, profile }) {
+    async jwt({ token, user, account, profile }) {      
       return token;
     },
   },
