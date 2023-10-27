@@ -1,16 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import { Input, Button } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import { LoginButton } from "./loginButton";
 import { getRentedMediaByUserId } from "@/actions/rentedMedia";
 import { experimental_useFormState as useFormState } from "react-dom";
-import { RentedMediaTableProp } from "@/models/rentedmediaTable";
+import { RentedMediaTableProp } from "@/models/rentedMediaTable";
 
 type LoginFormProps = {
   onFetchSuccess: (data: RentedMediaTableProp[]) => void;
 };
 
-export default function LoginForm({ onFetchSuccess }: LoginFormProps) {
+export default function InputForm({ onFetchSuccess }: LoginFormProps) {
   const [userId, setUserId] = useState<string>("");
   const [state, formAction] = useFormState<number>(getUserIdState, 0);
 
