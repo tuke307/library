@@ -8,55 +8,136 @@ import {
   CardBody,
   CardHeader,
   Divider,
+  Button,
 } from "@nextui-org/react";
 import React from "react";
 import { MediaDetails } from "@/models/mediaDetails";
 import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
+import { useSession } from "next-auth/react";
+import { AiFillEdit, AiOutlineSave, AiOutlineClose } from "react-icons/ai";
+import { updateMedia } from "@/actions/media";
+import { revalidatePath } from "next/cache";
 
 export default function MediaDetailsPage({
   mediaDetails,
 }: {
   mediaDetails: MediaDetails;
 }) {
+  const { data: session } = useSession();
+  const [editable, setEditable] = React.useState(false);
+  const [formData, setFormData] = React.useState({
+    ...mediaDetails,
+  });
+
   const mediaTypeIcon = mediaTypesWithIcons.find(
     (mediaType) => mediaType.enum === mediaDetails.mediaType,
   )?.icon;
 
+  const handleChange = (event: React.ChangeEvent<any>) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [name]: value,
+      };
+    });
+  };
+
+  // create component, if session, then show edit button
+  function EditButton() {
+    const handleSave = () => {
+      updateMedia(
+        formData.id,
+        formData.title,
+        formData.content ? formData.content : "",
+      );
+      setEditable(false);
+    };
+
+    const handleDiscard = () => {
+      setEditable(false);
+    };
+
+    return session ? (
+      <div className="flex gap-3">
+        {editable ? (
+          <>
+            <Button
+              color="success"
+              variant="flat"
+              startContent={<AiOutlineSave />}
+              onClick={handleSave}
+            >
+              Speichern
+            </Button>
+            <Button
+              color="danger"
+              variant="flat"
+              startContent={<AiOutlineClose />}
+              onClick={handleDiscard}
+            >
+              Abbrechen
+            </Button>
+          </>
+        ) : (
+          <Button
+            color="primary"
+            variant="flat"
+            startContent={<AiFillEdit />}
+            onClick={() => setEditable(true)}
+          >
+            Bearbeiten
+          </Button>
+        )}
+      </div>
+    ) : null;
+  }
+
   return (
     <section className="grid grid-cols-2 grid-rows-3 gap-3">
       <Card shadow="md" className="row-span-3">
-        <CardHeader className="flex gap-3">
-          <h1 className="text-3xl">Medium</h1>
-          <Chip startContent={mediaTypeIcon} variant="flat" color="default">
-            {mediaDetails.mediaType}
-          </Chip>
-          <Chip
-            variant="flat"
-            color={mediaDetails.published ? "success" : "warning"}
-          >
-            {mediaDetails.published ? "Veröffentlicht" : "Nicht veröffentlicht"}
-          </Chip>
+        <CardHeader className="flex justify-between gap-3">
+          <div className="flex gap-3">
+            <h1 className="text-3xl">Medium</h1>
+            <Chip startContent={mediaTypeIcon} variant="flat" color="default">
+              {mediaDetails.mediaType}
+            </Chip>
+            <Chip
+              variant="flat"
+              color={mediaDetails.published ? "success" : "warning"}
+            >
+              {mediaDetails.published
+                ? "Veröffentlicht"
+                : "Nicht veröffentlicht"}
+            </Chip>
+          </div>
+
+          <EditButton />
         </CardHeader>
         <Divider />
         <CardBody>
           <Input
-            isReadOnly
+            isReadOnly={!editable}
             type="text"
             label="Titel"
+            name="title"
             variant="bordered"
             className="max-w"
-            value={mediaDetails.title}
+            onChange={handleChange}
+            value={formData.title}
           />
 
           <Spacer y={2} />
 
           <Textarea
-            isReadOnly
+            isReadOnly={!editable}
             type="text"
             label="Inhaltsausschnitt"
+            name="content"
             variant="bordered"
             className="max-w"
-            value={mediaDetails.content ?? ""}
+            onChange={handleChange}
+            value={formData.content ?? ""}
           />
 
           <Spacer y={7} />
@@ -67,7 +148,7 @@ export default function MediaDetailsPage({
             label="ISBN"
             variant="bordered"
             className="max-w"
-            value={mediaDetails.ISBN ?? ""}
+            value={formData.ISBN ?? ""}
           />
 
           <Spacer y={3} />
@@ -81,11 +162,11 @@ export default function MediaDetailsPage({
               className="max-w"
               value={
                 (
-                  mediaDetails.createdAt.getDay() +
+                  formData.createdAt.getDay() +
                   "." +
-                  mediaDetails.createdAt.getMonth() +
+                  formData.createdAt.getMonth() +
                   "." +
-                  mediaDetails.createdAt.getFullYear()
+                  formData.createdAt.getFullYear()
                 ).toString() ?? ""
               }
             />
@@ -97,11 +178,11 @@ export default function MediaDetailsPage({
               className="max-w"
               value={
                 (
-                  mediaDetails.updatedAt.getDay() +
+                  formData.updatedAt.getDay() +
                   "." +
-                  mediaDetails.updatedAt.getMonth() +
+                  formData.updatedAt.getMonth() +
                   "." +
-                  mediaDetails.updatedAt.getFullYear()
+                  formData.updatedAt.getFullYear()
                 ).toString() ?? ""
               }
             />
@@ -122,7 +203,7 @@ export default function MediaDetailsPage({
               label="Nachname"
               variant="bordered"
               className="max-w"
-              value={mediaDetails.author.lastName}
+              value={formData.author.lastName}
             />
             <Input
               isReadOnly
@@ -130,7 +211,7 @@ export default function MediaDetailsPage({
               label="Vorname"
               variant="bordered"
               className="max-w"
-              value={mediaDetails.author.firstName}
+              value={formData.author.firstName}
             />
           </div>
 
@@ -142,7 +223,7 @@ export default function MediaDetailsPage({
             label="Email"
             variant="bordered"
             className="max-w"
-            value={mediaDetails.author.email ?? ""}
+            value={formData.author.email ?? ""}
           />
 
           <Spacer y={3} />
@@ -155,11 +236,11 @@ export default function MediaDetailsPage({
             className="max-w"
             value={
               (
-                mediaDetails.author.birthday?.getDay() +
+                formData.author.birthday?.getDay() +
                 "." +
-                mediaDetails.author.birthday?.getMonth() +
+                formData.author.birthday?.getMonth() +
                 "." +
-                mediaDetails.author.birthday?.getFullYear()
+                formData.author.birthday?.getFullYear()
               ).toString() ?? ""
             }
           />
@@ -179,7 +260,7 @@ export default function MediaDetailsPage({
               label="Etage"
               variant="bordered"
               className="max-w"
-              value={mediaDetails.location?.floor.toString() ?? ""}
+              value={formData.location?.floor.toString() ?? ""}
             />
             <Input
               isReadOnly
@@ -187,7 +268,7 @@ export default function MediaDetailsPage({
               label="Regal"
               variant="bordered"
               className="max-w"
-              value={mediaDetails.location?.shelf.toString() ?? ""}
+              value={formData.location?.shelf.toString() ?? ""}
             />
             <Input
               isReadOnly
@@ -195,7 +276,7 @@ export default function MediaDetailsPage({
               label="Regalabschnitt"
               variant="bordered"
               className="max-w"
-              value={mediaDetails.location?.shelfSection.toString() ?? ""}
+              value={formData.location?.shelfSection.toString() ?? ""}
             />
           </div>
         </CardBody>

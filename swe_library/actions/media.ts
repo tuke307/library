@@ -1,5 +1,5 @@
 "use server";
-import { MediaType, PrismaClient } from "@prisma/client";
+import { Media, MediaType, PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { MediaDetails } from "@/models/mediaDetails";
 import { MediaTableProp } from "@/models/mediaTable";
@@ -143,4 +143,22 @@ export async function getMediaTable(): Promise<MediaTableProp[] | null> {
   }));
 
   return mediaTableProps;
+}
+
+export async function updateMedia(id: string, title: string, content: string): Promise<Media> {
+  const media = await prisma.media.update({
+    where: {
+      id: id,
+    },
+    data: {
+      title: title,
+      content: content,
+    },
+  });
+
+  if (!media) {
+    throw new Error("Media not updated!");
+  }
+
+  return media;
 }
