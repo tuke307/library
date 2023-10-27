@@ -4,7 +4,7 @@ import { Input } from "@nextui-org/react";
 import { LoginButton } from "./loginButton";
 import { getRentedMediaByUserId } from "@/actions/rentedMedia";
 import { experimental_useFormState as useFormState } from "react-dom";
-import { RentedMediaTableProp } from "@/models/rentedMediaTabl";
+import { RentedMediaTableProp } from "@/models/rentedMediaTable";
 
 type LoginFormProps = {
   onFetchSuccess: (data: RentedMediaTableProp[]) => void;

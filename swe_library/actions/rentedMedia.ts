@@ -1,5 +1,5 @@
 "use server";
-import { RentedMediaTableProp } from "@/models/rentedMediaTabl";
+import { RentedMediaTableProp } from "@/models/rentedMediaTable";
 import { Media, PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();

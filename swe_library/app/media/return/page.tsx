@@ -2,7 +2,7 @@
 import React from "react";
 import InputForm from "./components/inputForm";
 import ReturnMediaTable from "./components/returnMediaTable";
-import { RentedMediaTableProp } from "@/models/rentedMediaTabl";
+import { RentedMediaTableProp } from "@/models/rentedMediaTable";
 
 
 export default function ReturnMediaPage() {

@@ -9,7 +9,7 @@ import {
   Pagination,
 } from "@nextui-org/react";
 import React from "react";
-import { RentedMediaTableProp } from "@/models/rentedMediaTabl";
+import { RentedMediaTableProp } from "@/models/rentedMediaTable";
 
 export default function RentedMediaTable({
   rentedMediaTableProp,
