@@ -1,5 +1,5 @@
 "use server";
-import { RentedMediaTableProp } from "@/models/rentedmediaTable";
+import { RentedMediaTableProp } from "@/models/rentedMediaTable";
 import { Media, PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -16,6 +16,7 @@ export async function getRentedMediaByUserId(
       },
 
       select: {
+        id: true,
         mediaId: true,
         rentedAt: true,
         returnedAt: true,
@@ -33,8 +34,9 @@ export async function getRentedMediaByUserId(
 
     const rentedMediaTableProp: RentedMediaTableProp[] = rentedMedias.map(
       (rentedMedia) => ({
+        id: rentedMedia.id,
         mediaId: rentedMedia.mediaId,
-        title: rentedMedia.media.title,
+        mediaTitle: rentedMedia.media.title,
         rentedAt: new Date(rentedMedia.rentedAt),
         returnedAt: rentedMedia.returnedAt
           ? new Date(rentedMedia.returnedAt)
@@ -45,5 +47,24 @@ export async function getRentedMediaByUserId(
     return rentedMediaTableProp;
   } catch (err) {
     return null;
+  }
+}
+
+export async function updateRentedMediaById(
+  id: number
+): Promise<boolean> {
+  try {
+    await prisma.rentedMedia.update({
+      where: {
+        id: id,
+      },
+      data: {
+        returnedAt: new Date(),
+      },
+    });
+
+    return true;
+  } catch (err) {
+    return false;
   }
 }

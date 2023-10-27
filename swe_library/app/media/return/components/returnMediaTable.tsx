@@ -1,0 +1,137 @@
+"use client";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+  getKeyValue,
+  Pagination,
+  Input,
+  Chip,
+  Button,
+  Link,
+  SortDescriptor,
+} from "@nextui-org/react";
+import React from "react";
+import { RentedMediaTableProp } from "@/models/rentedMediaTable";
+import { BsSearch } from "react-icons/bs";
+import { updateRentedMediaById } from "@/actions/rentedMedia";
+
+export default function ReturnMediaTable({
+  returnMediaTableProps,
+}: {
+  returnMediaTableProps: RentedMediaTableProp[] | null;
+}) {
+  const [page, setPage] = React.useState(1);
+  const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
+    column: "status",
+    direction: "descending",
+  });
+
+  const medias = returnMediaTableProps;
+  const rowsPerPage = 10;
+
+  const pages = Math.ceil((medias?.length ?? 0) / rowsPerPage);
+
+  const items = React.useMemo(() => {
+    const start = (page - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+
+    return medias?.slice(start, end) ?? [];
+  }, [page, medias, rowsPerPage]);
+
+  const sortedItems = React.useMemo(() => {
+    return [...items].sort((a, b) => {
+      const first =
+        a[sortDescriptor.column as keyof RentedMediaTableProp] ?? "";
+      const second =
+        b[sortDescriptor.column as keyof RentedMediaTableProp] ?? "";
+      const cmp = first < second ? -1 : first > second ? 1 : 0;
+
+      return sortDescriptor.direction === "descending" ? -cmp : cmp;
+    });
+  }, [sortDescriptor, items]);
+
+  const bottomContent = React.useMemo(() => {
+    return (
+      <div className="flex items-center justify-between px-2 py-2">
+        <Pagination
+          showControls
+          classNames={{
+            cursor: "bg-foreground text-background",
+          }}
+          color="default"
+          page={page}
+          total={pages}
+          variant="light"
+          onChange={setPage}
+        />
+      </div>
+    );
+  }, [items.length, page, pages]);
+
+  async function updateRentedMedia(id: number) {
+    await updateRentedMediaById(id);
+
+    // TODO: trigger submit
+    //formAction();
+  }
+
+  return (
+    <section>
+      <Table
+        aria-label="return media table"
+        topContentPlacement="outside"
+        bottomContent={bottomContent}
+        bottomContentPlacement="outside"
+        sortDescriptor={sortDescriptor}
+        onSortChange={setSortDescriptor}
+      >
+        <TableHeader>
+          <TableColumn key="title" allowsSorting>
+            Titel
+          </TableColumn>
+          <TableColumn key="mediaId" allowsSorting>
+            Media ID
+          </TableColumn>
+          <TableColumn key="rentedAt" allowsSorting>
+            Ausgeliehen am
+          </TableColumn>
+          <TableColumn key="status" allowsSorting>
+            Status
+          </TableColumn>
+          <TableColumn key="action">Aktion</TableColumn>
+        </TableHeader>
+        <TableBody emptyContent={"keine ausgeliehenen Medien gefunden."}>
+          {sortedItems.map((item) => (
+            <TableRow key={item.mediaId}>
+              <TableCell>{item.mediaTitle}</TableCell>
+              <TableCell>{item.mediaId}</TableCell>
+              <TableCell>{item.rentedAt.toLocaleDateString()}</TableCell>
+              <TableCell>
+                {item.returnedAt
+                  ? item.returnedAt.toLocaleDateString()
+                  : "Nicht zurückgegeben"}
+              </TableCell>
+              <TableCell>
+                {item.returnedAt ? (
+                  "-"
+                ) : (
+                  <Button
+                    onPress={() => updateRentedMedia(item.id)}
+                    color="primary"
+                    variant="flat"
+                  >
+                    zurückgegeben
+                  </Button>
+                )}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </section>
+  );
+}

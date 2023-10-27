@@ -1,6 +1,7 @@
 export type RentedMediaTableProp = {
+  id: number;
   mediaId: string;
-  title: string;
+  mediaTitle: string;
   rentedAt: Date;
   returnedAt: Date | null;
 };

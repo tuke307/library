@@ -1,14 +1,17 @@
 "use client";
-import { Link } from "@nextui-org/link";
 import React from "react";
- 
+import InputForm from "./components/inputForm";
+import ReturnMediaTable from "./components/returnMediaTable";
+import { RentedMediaTableProp } from "@/models/rentedMediaTable";
+
 
 export default function ReturnMediaPage() {
+  const [rentedMediaData, setRentedMediaData] = React.useState<RentedMediaTableProp[]>([]);
+
   return (
-    <section>
-      <Link color="primary" href="/">
-        zurück
-      </Link>
+    <section className="m-10 flex flex-col gap-5">
+      <InputForm onFetchSuccess={setRentedMediaData} />
+      <ReturnMediaTable returnMediaTableProps={rentedMediaData} />
     </section>
   );
 }
