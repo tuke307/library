@@ -6,12 +6,13 @@ import os
 
 fake = Faker()
 
-fakeUsers = 1000
-fakeAuthors = 1000
-fakeLocations = 2000
-fakeMedias = 1000
-fakeRentedMedias = 100
 
+# SETTINGS
+fakeUsers = 20
+fakeAuthors = 500
+fakeLocations = 2000
+fakeMedias = 2000 # must be equal to fakeLocations
+fakeRentedMedias = 500
 
 
 # Generate authors data

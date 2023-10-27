@@ -4,32 +4,26 @@ import fs from "fs";
 
 const prisma = new PrismaClient();
 
-// 8 users
 const users = JSON.parse(
   fs.readFileSync(path.join(__dirname, "users.json"), "utf8"),
 );
 
-// 4 employees
 const employees = JSON.parse(
   fs.readFileSync(path.join(__dirname, "employees.json"), "utf8"),
 );
 
-// 10 authors
 const authors = JSON.parse(
   fs.readFileSync(path.join(__dirname, "authors.json"), "utf8"),
 );
 
-// 8 locations
 const locations = JSON.parse(
   fs.readFileSync(path.join(__dirname, "locations.json"), "utf8"),
 );
 
-// 10 media
 const media = JSON.parse(
   fs.readFileSync(path.join(__dirname, "medias.json"), "utf8"),
 );
 
-// 10 rented media
 const rentedMedia = JSON.parse(
   fs.readFileSync(path.join(__dirname, "rentedMedias.json"), "utf8"),
 );

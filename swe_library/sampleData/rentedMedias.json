@@ -1,602 +1,3002 @@
 [
     {
-        "userId": 747,
-        "mediaId": "364e47ba-263e-4141-aa7c-dcd73bbdf58c",
-        "rentedAt": "2020-02-07T16:01:41Z",
-        "returnedAt": "2020-11-06T17:17:57Z"
-    },
-    {
-        "userId": 432,
-        "mediaId": "8fd6b965-634f-4446-bfef-8b3c26ac0f59",
-        "rentedAt": "2020-11-10T10:30:58Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 728,
-        "mediaId": "cacfeb1b-cdc2-4362-89ef-b59156a754f5",
-        "rentedAt": "2021-03-13T07:31:18Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 372,
-        "mediaId": "9b600a8d-a7a4-46a9-a865-c4c5d09ea71d",
-        "rentedAt": "2021-01-05T05:48:34Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 45,
-        "mediaId": "ae78de29-df55-40a9-98df-2aea6f2fee00",
-        "rentedAt": "2023-08-23T20:39:37Z",
-        "returnedAt": "2021-06-02T13:34:32Z"
-    },
-    {
-        "userId": 84,
-        "mediaId": "4fd86c46-3b88-427d-8d0c-3d44a31cd424",
-        "rentedAt": "2022-11-24T16:15:00Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 412,
-        "mediaId": "73c50570-5aef-4f75-9478-b452684814e1",
-        "rentedAt": "2021-04-21T08:21:34Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 895,
-        "mediaId": "00d54fc6-ea95-49ea-bc53-955f7acb0b75",
-        "rentedAt": "2023-04-14T00:51:09Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 657,
-        "mediaId": "8ab1b941-bc56-45d8-a2e9-4986b260aaf5",
-        "rentedAt": "2021-07-24T23:56:56Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 743,
-        "mediaId": "44008398-f756-4a7d-b39a-5cde5a8ea7b7",
-        "rentedAt": "2023-09-15T08:18:35Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 381,
-        "mediaId": "c940264e-a392-4633-a8ca-e62307fb351c",
-        "rentedAt": "2021-05-18T07:02:24Z",
-        "returnedAt": "2022-08-18T13:21:22Z"
-    },
-    {
-        "userId": 128,
-        "mediaId": "208bd72c-106d-4275-9f5d-f34e5fad4b25",
-        "rentedAt": "2022-01-28T08:32:09Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 739,
-        "mediaId": "8e04063d-f87a-478a-804e-e64055635f17",
-        "rentedAt": "2022-09-14T10:52:06Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 570,
-        "mediaId": "5d3cc280-203b-4146-bd05-64cd86a40acb",
-        "rentedAt": "2022-03-25T13:18:04Z",
-        "returnedAt": "2023-01-08T17:40:50Z"
-    },
-    {
-        "userId": 326,
-        "mediaId": "42a6cadd-2814-4c41-b605-c7efb631bb45",
-        "rentedAt": "2023-02-07T09:27:46Z",
-        "returnedAt": "2020-09-30T18:07:52Z"
-    },
-    {
-        "userId": 481,
-        "mediaId": "e80c0562-34f8-4281-9933-a2bde2bc6ec8",
-        "rentedAt": "2022-02-26T10:39:53Z",
-        "returnedAt": "2022-08-09T20:53:36Z"
-    },
-    {
-        "userId": 841,
-        "mediaId": "02033214-fd2d-4070-b57f-81b2ee831318",
-        "rentedAt": "2021-05-06T20:34:19Z",
-        "returnedAt": "2022-05-02T10:32:18Z"
-    },
-    {
-        "userId": 384,
-        "mediaId": "1acd7cfc-c354-43bf-a533-9f68cf1a9df0",
-        "rentedAt": "2021-01-17T20:17:22Z",
-        "returnedAt": "2022-11-14T06:39:04Z"
-    },
-    {
-        "userId": 818,
-        "mediaId": "c50a7d18-991e-4dad-91f1-f089ceacb6ee",
-        "rentedAt": "2023-02-04T22:39:08Z",
-        "returnedAt": "2021-11-19T14:21:53Z"
-    },
-    {
-        "userId": 598,
-        "mediaId": "4442a175-efb7-48e5-bfb3-b0c611242a32",
-        "rentedAt": "2021-03-30T06:03:43Z",
-        "returnedAt": "2020-09-05T06:30:42Z"
-    },
-    {
-        "userId": 462,
-        "mediaId": "d52d4f60-8a2e-48c8-af6e-1da440bbac69",
-        "rentedAt": "2022-07-27T20:52:16Z",
-        "returnedAt": "2022-01-18T15:52:40Z"
-    },
-    {
-        "userId": 566,
-        "mediaId": "dbc81486-b7f4-4187-87d6-e24a1c8d635c",
-        "rentedAt": "2022-09-02T01:30:26Z",
-        "returnedAt": "2023-01-06T12:03:07Z"
-    },
-    {
-        "userId": 863,
-        "mediaId": "def8dea4-2545-4562-9331-4325596eaf91",
-        "rentedAt": "2022-04-22T22:15:33Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 469,
-        "mediaId": "d696a533-a5a6-45b2-b6ab-d3eb2e41e303",
-        "rentedAt": "2022-08-05T18:58:05Z",
-        "returnedAt": "2021-01-21T08:46:30Z"
-    },
-    {
-        "userId": 469,
-        "mediaId": "ceb061ad-bbdd-4452-b951-65eb50cb5074",
-        "rentedAt": "2023-05-09T22:06:36Z",
-        "returnedAt": null
+        "userId": 13,
+        "mediaId": "e71b996a-cda1-44b4-8ca2-60fe6239d57e",
+        "rentedAt": "2021-10-13T08:24:47Z",
+        "returnedAt": "2023-07-13T01:57:34Z"
     },
     {
         "userId": 16,
-        "mediaId": "dc6d5fde-a9cb-4b08-8e21-0f21a1599aea",
-        "rentedAt": "2021-08-17T03:15:53Z",
+        "mediaId": "32f29a7d-35e7-4588-ad1e-ef74eca63b77",
+        "rentedAt": "2021-07-26T11:50:27Z",
+        "returnedAt": "2021-12-08T13:56:12Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "5510a579-4c8b-434e-bfd4-e2f8b2439ca3",
+        "rentedAt": "2022-09-18T04:39:10Z",
+        "returnedAt": "2023-10-10T11:42:19Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "aec08530-8f80-4476-8567-0bede3cbbd0f",
+        "rentedAt": "2020-12-13T03:31:07Z",
+        "returnedAt": "2023-08-12T14:32:19Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "8cfdbf15-d85e-461f-a8e3-4076e3cbcbfe",
+        "rentedAt": "2021-01-28T12:49:27Z",
         "returnedAt": null
     },
     {
-        "userId": 498,
-        "mediaId": "22c7ff83-b0be-4545-ab24-e27515c910b4",
-        "rentedAt": "2021-07-02T03:42:34Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 811,
-        "mediaId": "35182720-797b-4549-9e4f-a5cf99924b80",
-        "rentedAt": "2022-01-18T17:39:19Z",
-        "returnedAt": "2021-03-13T19:42:01Z"
-    },
-    {
-        "userId": 421,
-        "mediaId": "b983a625-7aa5-4197-a91c-9d60e88bca62",
-        "rentedAt": "2021-06-29T01:52:52Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 252,
-        "mediaId": "288b36ac-f906-4444-844f-1a72cca99666",
-        "rentedAt": "2020-06-20T12:34:27Z",
-        "returnedAt": "2020-04-05T08:25:59Z"
-    },
-    {
-        "userId": 493,
-        "mediaId": "7c606059-4ce1-4026-af24-6531b109b62d",
-        "rentedAt": "2022-11-11T06:20:19Z",
-        "returnedAt": "2023-01-12T22:51:38Z"
-    },
-    {
-        "userId": 744,
-        "mediaId": "e962b3a7-9ac8-46dc-8b5e-1451fb947485",
-        "rentedAt": "2022-05-29T08:14:43Z",
-        "returnedAt": "2020-05-26T09:22:53Z"
-    },
-    {
-        "userId": 590,
-        "mediaId": "51e5a6a3-90ce-4442-afbe-74d48618742e",
-        "rentedAt": "2020-02-05T14:22:57Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 927,
-        "mediaId": "3a649e72-13c9-4a29-bdb0-1707e9945a1a",
-        "rentedAt": "2023-08-03T13:33:38Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 829,
-        "mediaId": "5d1f44ac-d607-4b6c-b649-3e70c087576d",
-        "rentedAt": "2022-12-09T14:30:19Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 91,
-        "mediaId": "c1ca6bc2-1ce5-408b-9e9a-3f414d9e6553",
-        "rentedAt": "2020-09-05T12:15:57Z",
-        "returnedAt": "2020-02-04T12:59:53Z"
-    },
-    {
-        "userId": 724,
-        "mediaId": "47107889-6d82-49a9-b6a8-136672cb8e10",
-        "rentedAt": "2022-03-30T01:32:28Z",
-        "returnedAt": "2020-07-10T07:58:49Z"
-    },
-    {
-        "userId": 415,
-        "mediaId": "5b30697a-567c-4b14-b690-f2bbd180b132",
-        "rentedAt": "2022-05-23T01:03:25Z",
-        "returnedAt": "2020-10-30T12:52:56Z"
-    },
-    {
-        "userId": 396,
-        "mediaId": "4ba08940-1d36-4293-9811-91af9de16776",
-        "rentedAt": "2020-03-25T00:21:48Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 242,
-        "mediaId": "3809abd5-66d0-417b-934e-3fdb49a5f79e",
-        "rentedAt": "2020-06-21T02:16:26Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 73,
-        "mediaId": "2a065848-fe34-414e-8aa0-c7e32fe6b0c9",
-        "rentedAt": "2022-07-23T05:51:57Z",
-        "returnedAt": "2022-12-22T18:34:00Z"
-    },
-    {
-        "userId": 381,
-        "mediaId": "7ea24ff6-593b-4756-8606-eef2d11484b3",
-        "rentedAt": "2020-10-23T06:02:27Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 337,
-        "mediaId": "4b8f5325-007e-4f71-a59a-a8dac52da574",
-        "rentedAt": "2022-11-20T18:43:16Z",
-        "returnedAt": "2020-02-14T19:43:56Z"
-    },
-    {
-        "userId": 684,
-        "mediaId": "18e6d4c3-40f9-45ab-9c34-44d8c62d09bd",
-        "rentedAt": "2021-10-28T22:59:20Z",
-        "returnedAt": "2022-04-16T10:55:25Z"
-    },
-    {
-        "userId": 598,
-        "mediaId": "14516fbf-d1bc-42cb-b780-9fa14ef28499",
-        "rentedAt": "2022-10-27T16:58:55Z",
-        "returnedAt": "2021-12-04T11:53:15Z"
-    },
-    {
-        "userId": 651,
-        "mediaId": "00566dcb-29c2-4179-afb7-b291c9b7815d",
-        "rentedAt": "2022-06-02T23:03:42Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 593,
-        "mediaId": "428365ed-fcc1-4390-b065-e68cb0f9b8d5",
-        "rentedAt": "2023-04-07T06:27:29Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 742,
-        "mediaId": "07724dae-7c03-4bce-89d1-30ec3391d288",
-        "rentedAt": "2020-09-26T06:11:40Z",
-        "returnedAt": "2020-01-26T02:04:59Z"
-    },
-    {
-        "userId": 633,
-        "mediaId": "c12d5a19-8de3-4fdb-ada9-1a84d4cf891a",
-        "rentedAt": "2021-11-13T12:37:09Z",
-        "returnedAt": "2023-05-27T21:20:49Z"
-    },
-    {
-        "userId": 874,
-        "mediaId": "5bf61e9e-f072-40b8-a1c2-ecfcb9deb421",
-        "rentedAt": "2021-12-19T02:20:52Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 369,
-        "mediaId": "97e296a0-3dbc-461f-a1fa-619fdbeb67a9",
-        "rentedAt": "2021-10-22T19:22:24Z",
-        "returnedAt": "2022-12-31T22:55:03Z"
-    },
-    {
-        "userId": 844,
-        "mediaId": "cc089de8-2614-4ef2-be71-176f65d478f8",
-        "rentedAt": "2023-09-07T06:10:46Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 269,
-        "mediaId": "fe91d18b-b3fa-43f7-956a-55a8ef140048",
-        "rentedAt": "2020-10-04T05:41:24Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 918,
-        "mediaId": "f51bec55-b9bd-4a0d-8313-796e9d18dcbf",
-        "rentedAt": "2021-07-15T23:00:07Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 725,
-        "mediaId": "59716b3f-32d4-4229-85dd-a726f472385e",
-        "rentedAt": "2021-08-17T17:55:04Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 80,
-        "mediaId": "aa0f3af8-c576-4f68-abfa-0bf92cda74f4",
-        "rentedAt": "2022-06-15T03:53:14Z",
-        "returnedAt": "2020-10-17T16:42:44Z"
-    },
-    {
-        "userId": 924,
-        "mediaId": "4b8f5325-007e-4f71-a59a-a8dac52da574",
-        "rentedAt": "2023-07-06T11:09:46Z",
-        "returnedAt": "2022-01-26T00:28:05Z"
-    },
-    {
-        "userId": 119,
-        "mediaId": "c9357984-3221-45d3-8852-6b05c5690486",
-        "rentedAt": "2023-02-25T02:34:37Z",
-        "returnedAt": "2023-02-25T03:01:06Z"
-    },
-    {
-        "userId": 354,
-        "mediaId": "1d811049-07aa-4b0e-ab4c-21f4e60b1f30",
-        "rentedAt": "2020-07-18T23:18:18Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 854,
-        "mediaId": "0e2af8c6-cafd-41fd-843c-85262bea38dc",
-        "rentedAt": "2020-10-26T23:07:03Z",
-        "returnedAt": "2023-05-16T07:05:48Z"
-    },
-    {
-        "userId": 427,
-        "mediaId": "cf6515d2-ce38-4645-a9e5-ae529df17d3b",
-        "rentedAt": "2020-06-07T04:52:53Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 379,
-        "mediaId": "3cfaaf47-3006-4a40-9979-de3f29e0aa6b",
-        "rentedAt": "2023-04-22T12:10:16Z",
-        "returnedAt": "2023-08-04T17:02:39Z"
-    },
-    {
-        "userId": 720,
-        "mediaId": "6fb1c88a-4b21-45d9-9010-ed8c1572bc03",
-        "rentedAt": "2021-11-01T05:47:52Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 262,
-        "mediaId": "27a08fbd-1f87-46d9-88ee-f60348447459",
-        "rentedAt": "2022-06-03T00:47:21Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 522,
-        "mediaId": "b20d907e-95a6-43fd-9560-eee6728440d2",
-        "rentedAt": "2020-08-09T11:27:06Z",
-        "returnedAt": "2022-07-24T08:41:05Z"
-    },
-    {
-        "userId": 502,
-        "mediaId": "ca9a0bd3-512d-4fdc-9a70-8f62d62d237e",
-        "rentedAt": "2023-01-24T03:49:53Z",
-        "returnedAt": "2020-12-03T23:02:38Z"
-    },
-    {
-        "userId": 253,
-        "mediaId": "a3639ff5-e836-481f-a315-b1c9b5a2c185",
-        "rentedAt": "2020-07-04T14:22:04Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 748,
-        "mediaId": "9d07c088-3036-4dc4-ba21-49e8914ce31c",
-        "rentedAt": "2021-01-29T20:38:00Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 526,
-        "mediaId": "25d9dce6-9252-42c9-b163-1035096c15c9",
-        "rentedAt": "2023-09-18T06:14:30Z",
-        "returnedAt": "2020-09-06T10:52:32Z"
-    },
-    {
-        "userId": 37,
-        "mediaId": "ce900488-eb9e-4ed9-86f7-bcb424ad0456",
-        "rentedAt": "2021-10-11T05:18:01Z",
-        "returnedAt": "2020-03-09T05:58:49Z"
-    },
-    {
-        "userId": 183,
-        "mediaId": "dc857ea9-a680-4b59-9a7a-337454ef6586",
-        "rentedAt": "2023-09-04T19:59:58Z",
-        "returnedAt": "2021-11-26T15:41:53Z"
-    },
-    {
-        "userId": 145,
-        "mediaId": "d21cceb3-bdb2-4ad7-9174-130b27eebc48",
-        "rentedAt": "2023-04-11T06:18:23Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 502,
-        "mediaId": "ddfe9eb0-f24d-4485-8ca2-849ac0c576d6",
-        "rentedAt": "2020-05-13T11:17:48Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 16,
-        "mediaId": "9dc2fee9-9a74-418d-b494-dfc5dfd39e2e",
-        "rentedAt": "2023-04-12T00:17:28Z",
-        "returnedAt": "2021-05-24T19:20:51Z"
-    },
-    {
-        "userId": 213,
-        "mediaId": "1062dc02-1369-496c-b503-ee79b949daad",
-        "rentedAt": "2023-02-27T05:46:09Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 488,
-        "mediaId": "aa0f3af8-c576-4f68-abfa-0bf92cda74f4",
-        "rentedAt": "2020-07-17T22:56:32Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 828,
-        "mediaId": "90b4bb78-4462-4340-b1eb-28004b8fb34d",
-        "rentedAt": "2021-04-12T14:44:45Z",
-        "returnedAt": "2023-08-23T02:48:57Z"
-    },
-    {
-        "userId": 198,
-        "mediaId": "db4e76b9-0f44-409f-b9e6-ee9584984200",
-        "rentedAt": "2022-06-07T13:20:50Z",
-        "returnedAt": "2023-09-24T14:07:23Z"
-    },
-    {
-        "userId": 701,
-        "mediaId": "5386d13e-8abb-4cb2-a871-809702338a24",
-        "rentedAt": "2022-07-27T05:00:12Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 847,
-        "mediaId": "a79b0cb8-692d-47b1-b51f-6791378323b1",
-        "rentedAt": "2020-10-29T07:31:59Z",
-        "returnedAt": "2023-03-19T14:35:40Z"
-    },
-    {
-        "userId": 481,
-        "mediaId": "4862e6d7-d1b4-4a5d-a326-374794a4344d",
-        "rentedAt": "2022-01-19T06:20:48Z",
-        "returnedAt": "2023-04-17T22:38:05Z"
-    },
-    {
-        "userId": 93,
-        "mediaId": "00a72bd3-1124-470b-802a-9516e1a93b61",
-        "rentedAt": "2021-04-21T02:31:24Z",
-        "returnedAt": "2021-11-12T13:29:59Z"
-    },
-    {
-        "userId": 767,
-        "mediaId": "de94d66b-4fed-46e8-a4c5-98c9d339d032",
-        "rentedAt": "2020-01-30T16:51:40Z",
-        "returnedAt": "2020-06-28T05:43:43Z"
-    },
-    {
-        "userId": 476,
-        "mediaId": "3b3d57be-e14e-4ea9-9e56-1ad0ce02c679",
-        "rentedAt": "2021-01-20T22:27:58Z",
-        "returnedAt": "2020-07-07T22:53:16Z"
-    },
-    {
-        "userId": 925,
-        "mediaId": "50e3491b-162d-48eb-8da5-bfcc91e38274",
-        "rentedAt": "2020-03-12T08:05:24Z",
-        "returnedAt": "2021-10-06T05:08:16Z"
-    },
-    {
-        "userId": 57,
-        "mediaId": "bb1a793e-1052-41eb-adbb-15a91d1f5e5e",
-        "rentedAt": "2022-06-02T20:01:00Z",
-        "returnedAt": "2021-02-01T21:19:15Z"
-    },
-    {
-        "userId": 815,
-        "mediaId": "b1d25729-6e02-47a7-b212-8ee597e36961",
-        "rentedAt": "2021-11-29T13:41:54Z",
-        "returnedAt": "2020-05-27T06:37:04Z"
-    },
-    {
-        "userId": 202,
-        "mediaId": "9b3c25de-bb4b-429e-9d19-51f6615618d2",
-        "rentedAt": "2021-12-14T09:52:31Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 614,
-        "mediaId": "a9f9c723-e364-421a-a137-286f152c59ac",
-        "rentedAt": "2023-08-01T03:22:34Z",
-        "returnedAt": "2023-03-24T04:39:55Z"
-    },
-    {
-        "userId": 500,
-        "mediaId": "e1fadf5a-9289-4bfa-a5d7-896baee223a6",
-        "rentedAt": "2023-02-20T01:22:53Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 53,
-        "mediaId": "0b018736-cfa7-4af2-87f3-30bc9986665e",
-        "rentedAt": "2023-10-18T13:08:32Z",
-        "returnedAt": "2020-01-07T20:21:37Z"
-    },
-    {
-        "userId": 773,
-        "mediaId": "d6142886-2fc5-4dba-af3e-9ba1c4f19482",
-        "rentedAt": "2020-05-17T11:55:42Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 409,
-        "mediaId": "8e04063d-f87a-478a-804e-e64055635f17",
-        "rentedAt": "2021-05-09T18:03:39Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 548,
-        "mediaId": "d666ea42-6019-4390-9fad-acf1065e1cb3",
-        "rentedAt": "2021-08-13T02:25:02Z",
-        "returnedAt": "2023-04-13T01:41:25Z"
-    },
-    {
-        "userId": 345,
-        "mediaId": "3b4d72cb-7b0f-4ae6-9bb6-87882b534e9c",
-        "rentedAt": "2022-04-08T18:22:09Z",
-        "returnedAt": "2022-12-04T08:19:44Z"
-    },
-    {
-        "userId": 532,
-        "mediaId": "baaa6dcb-80ab-4d1a-b73c-5c61b5d59d08",
-        "rentedAt": "2022-05-30T07:02:52Z",
-        "returnedAt": "2023-07-02T07:12:55Z"
-    },
-    {
-        "userId": 32,
-        "mediaId": "a8d1d657-c3f8-4917-abf2-9db0a6c2d28c",
-        "rentedAt": "2021-07-17T08:05:29Z",
-        "returnedAt": null
-    },
-    {
-        "userId": 659,
-        "mediaId": "f3175977-5068-4700-93b7-67877d003b37",
-        "rentedAt": "2021-05-26T04:12:21Z",
-        "returnedAt": "2020-09-18T06:12:01Z"
+        "userId": 15,
+        "mediaId": "23454ca2-5356-4703-9b07-3ff7555cb71e",
+        "rentedAt": "2022-10-23T20:09:12Z",
+        "returnedAt": "2023-05-08T19:02:09Z"
     },
     {
         "userId": 2,
-        "mediaId": "5b83431b-9a4c-403b-bbec-be45f5b4dff9",
-        "rentedAt": "2021-01-05T18:28:50Z",
-        "returnedAt": "2022-07-07T12:28:03Z"
+        "mediaId": "98133003-f37c-4c9d-8ed4-a06565b2cceb",
+        "rentedAt": "2020-07-24T09:46:20Z",
+        "returnedAt": null
     },
     {
-        "userId": 521,
-        "mediaId": "7cd5c53a-9ae1-4472-a73c-10cd388d6441",
-        "rentedAt": "2022-04-24T04:15:59Z",
-        "returnedAt": "2022-10-21T06:06:19Z"
+        "userId": 19,
+        "mediaId": "bc4b7b51-50f4-4dca-bb47-4cdc3e1cf23a",
+        "rentedAt": "2022-06-07T18:22:44Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 10,
+        "mediaId": "c780ad1a-848f-4dd7-85dd-5e1bb4656575",
+        "rentedAt": "2021-12-14T02:18:28Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "35928d8f-374b-495a-843a-4ec1395fdf74",
+        "rentedAt": "2021-09-09T06:24:02Z",
+        "returnedAt": "2021-12-20T11:19:53Z"
+    },
+    {
+        "userId": 16,
+        "mediaId": "f54e573d-e5ff-4104-a07e-d11ff5331c78",
+        "rentedAt": "2022-10-26T21:11:01Z",
+        "returnedAt": "2023-08-20T07:20:57Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "32a2014f-304f-40b3-8e22-4234387a05f4",
+        "rentedAt": "2021-07-24T13:57:26Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "eed1614b-8ac7-49eb-9a9c-6d2267fdc442",
+        "rentedAt": "2020-07-06T08:37:18Z",
+        "returnedAt": "2021-11-10T11:16:50Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "43169c03-f3af-4a1a-b01a-9e9d47802f1b",
+        "rentedAt": "2020-05-04T05:58:11Z",
+        "returnedAt": "2023-09-11T00:16:59Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "15e978bf-a2d6-40d2-b1f3-62de7f2ca89d",
+        "rentedAt": "2023-03-03T22:15:03Z",
+        "returnedAt": "2022-03-15T12:03:01Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "814ef9cd-862b-429f-9594-f59da6a27b50",
+        "rentedAt": "2022-04-23T13:25:05Z",
+        "returnedAt": "2023-04-28T19:27:46Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "9b0f1805-c2bc-4bfc-86de-d6729a0c4f18",
+        "rentedAt": "2022-12-01T20:42:04Z",
+        "returnedAt": "2022-10-30T10:34:45Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "546fb873-2876-4b65-9809-81a90d0195af",
+        "rentedAt": "2022-01-14T09:36:20Z",
+        "returnedAt": "2022-08-14T16:54:27Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "aacc24e1-fffc-40fc-bb25-1b9ee4eb52ee",
+        "rentedAt": "2021-12-14T18:42:50Z",
+        "returnedAt": "2020-07-26T23:44:49Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "82f360c2-f5c6-445d-910d-0a7b9583914d",
+        "rentedAt": "2022-07-25T23:48:37Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "85b7192c-ce49-42bb-a83b-c4e24d6ef91d",
+        "rentedAt": "2021-07-29T10:13:48Z",
+        "returnedAt": "2022-01-08T14:59:28Z"
+    },
+    {
+        "userId": 16,
+        "mediaId": "570d43a6-8b70-41f1-b4cd-b90b3745eb3c",
+        "rentedAt": "2022-09-05T19:39:08Z",
+        "returnedAt": "2022-01-27T23:28:19Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "65470420-29b4-4509-8d73-bc4331ed7ab3",
+        "rentedAt": "2021-10-06T05:56:17Z",
+        "returnedAt": "2022-05-17T06:30:59Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "08fe82ab-bce5-4014-8ff8-b85d088c0145",
+        "rentedAt": "2023-03-09T06:41:25Z",
+        "returnedAt": "2021-11-11T09:24:41Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "3d33b1aa-6234-4e43-8216-536ad7a59dfb",
+        "rentedAt": "2022-10-06T09:27:29Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "712b0a0a-1cfe-497d-9d3a-57b92a919f7f",
+        "rentedAt": "2023-07-25T22:35:22Z",
+        "returnedAt": "2023-08-19T10:42:50Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "5b0aeaed-cbf6-4610-b1c6-a0bb5a2e7981",
+        "rentedAt": "2023-02-11T15:47:33Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 1,
+        "mediaId": "b6bd5c40-9d5e-4ca0-b7b7-c019588a049c",
+        "rentedAt": "2020-07-15T18:48:21Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "98465e14-c86b-42e5-8809-18f5cb70dc7c",
+        "rentedAt": "2022-03-29T04:06:19Z",
+        "returnedAt": "2020-08-12T04:59:50Z"
+    },
+    {
+        "userId": 17,
+        "mediaId": "90a3c503-930c-4174-836a-9f08d54befea",
+        "rentedAt": "2022-12-14T22:00:18Z",
+        "returnedAt": "2022-04-15T04:31:59Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "9ca2f544-4ca5-439c-8f1b-69646b4fb438",
+        "rentedAt": "2023-10-08T13:28:54Z",
+        "returnedAt": "2021-05-09T01:49:06Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "7d10be9a-99c4-439f-a47a-8d8d23c07195",
+        "rentedAt": "2023-09-14T01:28:24Z",
+        "returnedAt": "2020-07-13T12:22:30Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "e947ca72-93c6-413b-8b86-6fc73c78fb5a",
+        "rentedAt": "2021-11-09T21:29:19Z",
+        "returnedAt": "2021-11-11T21:16:47Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "7d63e7b0-896e-436b-9149-42a2c8efacac",
+        "rentedAt": "2020-04-03T20:44:58Z",
+        "returnedAt": "2022-10-01T19:06:09Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "089b8797-d678-4987-9e57-9692b53ad5cd",
+        "rentedAt": "2020-06-27T21:04:28Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "08e4166e-b468-4b5b-93f8-8e8cdffe0843",
+        "rentedAt": "2021-11-20T23:04:40Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "3daa8111-aa13-420d-b17e-f9980d9bd6ee",
+        "rentedAt": "2021-05-13T21:24:14Z",
+        "returnedAt": "2022-05-03T19:09:29Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "af730bb1-cbce-4b79-b3b9-c379f93d3a50",
+        "rentedAt": "2023-02-09T23:36:49Z",
+        "returnedAt": "2021-02-11T17:34:52Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "ad37542e-2a45-4459-8b29-a543d1756d12",
+        "rentedAt": "2023-10-08T16:44:35Z",
+        "returnedAt": "2020-12-05T05:45:25Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "6d0578fe-e212-46df-ba08-051d36203d56",
+        "rentedAt": "2023-06-20T08:27:27Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "1d342143-3fc1-4a42-82fa-83d424fe708e",
+        "rentedAt": "2023-10-20T23:16:28Z",
+        "returnedAt": "2022-02-12T11:15:18Z"
+    },
+    {
+        "userId": 14,
+        "mediaId": "92b444cd-fd82-4a38-a864-6fc331d2513f",
+        "rentedAt": "2020-11-28T20:36:43Z",
+        "returnedAt": "2021-09-11T20:15:00Z"
+    },
+    {
+        "userId": 17,
+        "mediaId": "73e4cf67-c634-4b53-b5fc-54b5d52a5930",
+        "rentedAt": "2021-07-30T19:24:20Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 10,
+        "mediaId": "50c35e05-6e8d-4a34-a9fe-15713c92fc54",
+        "rentedAt": "2020-08-14T17:40:54Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "62a3017f-50d7-42fb-9860-46383b2cfeae",
+        "rentedAt": "2023-05-28T10:41:03Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 1,
+        "mediaId": "f23ac006-b264-41b6-ba9d-17a65a0d36e3",
+        "rentedAt": "2020-03-18T09:38:40Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "ae248e73-bf49-4eca-bb38-3e03fdcc5d51",
+        "rentedAt": "2023-02-03T09:10:12Z",
+        "returnedAt": "2020-12-08T08:27:01Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "e947ca72-93c6-413b-8b86-6fc73c78fb5a",
+        "rentedAt": "2023-06-05T19:50:03Z",
+        "returnedAt": "2023-06-28T04:09:07Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "aa1cbc23-cef9-4a95-b64a-201a03a6aa61",
+        "rentedAt": "2023-04-25T11:18:09Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "0e950602-e5e2-4730-918f-aeeddc282542",
+        "rentedAt": "2020-12-31T07:48:52Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "b0f7d388-fd46-48a3-a07a-e7161fa567bb",
+        "rentedAt": "2022-01-08T13:39:30Z",
+        "returnedAt": "2021-11-12T04:23:54Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "9c710c5b-36df-4bc8-9469-ca20d8321523",
+        "rentedAt": "2023-03-07T07:28:09Z",
+        "returnedAt": "2021-03-07T01:31:33Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "99eff8ae-fafe-47b7-98ba-92ddf1219b0b",
+        "rentedAt": "2023-02-19T17:00:28Z",
+        "returnedAt": "2023-08-14T18:29:27Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "0860ac7e-959e-4f9f-8926-1a899f439aa7",
+        "rentedAt": "2021-07-30T00:38:22Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "79159f69-fac8-4b74-98ff-5be6546fbaa3",
+        "rentedAt": "2023-01-03T13:30:27Z",
+        "returnedAt": "2022-10-01T12:07:15Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "324ab735-26c1-44f9-b6fc-9402f10a68fe",
+        "rentedAt": "2020-03-19T23:06:52Z",
+        "returnedAt": "2023-03-18T19:38:34Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "a0325eed-18a4-43b7-823d-f4553c22f9be",
+        "rentedAt": "2023-08-03T19:28:18Z",
+        "returnedAt": "2020-06-26T05:46:51Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "dd763b78-aa4d-47de-bf59-d76859626973",
+        "rentedAt": "2021-12-03T08:33:02Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 4,
+        "mediaId": "11253403-9e23-480a-8561-6376e738cfcd",
+        "rentedAt": "2022-03-17T20:01:32Z",
+        "returnedAt": "2020-04-21T05:42:09Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "83113a84-a203-41e7-9b64-22a4ea5687dd",
+        "rentedAt": "2020-09-16T05:40:47Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "f0b9a1a5-aaba-44f1-ac86-517689142d12",
+        "rentedAt": "2021-12-19T15:19:41Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "c450725f-2036-4dbd-b3aa-112666b7a34a",
+        "rentedAt": "2020-04-24T13:24:52Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "9f1a19ea-87fe-4761-aa5e-c7f9f4ba71b2",
+        "rentedAt": "2023-03-06T23:09:47Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "cea34dd9-4f87-487d-bdfc-c3356f8ec29e",
+        "rentedAt": "2020-07-19T22:39:06Z",
+        "returnedAt": "2021-04-29T11:28:28Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "9e72e12d-421b-478c-a793-6dd2be377fe2",
+        "rentedAt": "2021-07-24T11:51:05Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "6cc85709-5ca9-47e8-baf0-8f00d8ca0b37",
+        "rentedAt": "2020-12-25T18:27:02Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "357957b3-a2ec-428f-98b9-36eed397e7ca",
+        "rentedAt": "2021-10-06T10:46:15Z",
+        "returnedAt": "2021-11-25T09:19:35Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "7df476f1-64b8-42bb-8282-2bb99d05577b",
+        "rentedAt": "2022-09-11T11:58:50Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "abbac648-6563-4bda-8237-df3e05d966c4",
+        "rentedAt": "2023-06-22T17:53:55Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "e3e81002-6bad-4a2f-a0b0-f103fee6c52b",
+        "rentedAt": "2020-11-07T08:58:26Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "674b9625-c46d-431c-baf9-88175d097b36",
+        "rentedAt": "2022-12-04T14:14:49Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "d48f293d-46ac-4413-84c7-b25057f44146",
+        "rentedAt": "2022-10-25T22:00:17Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 15,
+        "mediaId": "9274cebb-00eb-466e-9f36-d5f85cbf0508",
+        "rentedAt": "2022-11-15T04:18:16Z",
+        "returnedAt": "2022-11-16T19:52:14Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "5236c213-326a-4010-9d3a-9a9f0296c2dc",
+        "rentedAt": "2022-11-01T14:46:16Z",
+        "returnedAt": "2020-05-09T15:20:32Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "e188081b-75cd-4010-83cb-4e43cb15b7a5",
+        "rentedAt": "2023-03-11T15:32:25Z",
+        "returnedAt": "2023-02-24T02:05:53Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "ea17eb71-c77b-40cf-ae84-99fd08656ac7",
+        "rentedAt": "2020-02-02T06:34:34Z",
+        "returnedAt": "2020-06-19T12:01:40Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "525c271b-d257-4c13-9a1c-4bca343efbc8",
+        "rentedAt": "2023-07-23T18:12:30Z",
+        "returnedAt": "2023-03-01T09:38:29Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "d8d0a91c-585b-4599-96f2-342c88b36291",
+        "rentedAt": "2021-09-03T04:51:19Z",
+        "returnedAt": "2022-07-06T09:53:45Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "d7e1abcf-9c19-4b80-a734-068afb5ae714",
+        "rentedAt": "2023-01-10T10:54:59Z",
+        "returnedAt": "2022-02-01T16:55:30Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "ced5c646-1bd4-4138-bef4-c0c3b4237062",
+        "rentedAt": "2020-11-06T09:46:55Z",
+        "returnedAt": "2022-12-02T23:24:16Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "56d0347e-74d9-4ea6-9893-be91d9f86112",
+        "rentedAt": "2022-10-02T02:23:01Z",
+        "returnedAt": "2022-02-21T22:38:10Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "c2b4d586-3efa-42fe-b03b-245f1f81556c",
+        "rentedAt": "2020-06-17T11:34:38Z",
+        "returnedAt": "2022-06-04T17:33:27Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "b9b66ab8-da50-417d-af8e-1eccecf079c2",
+        "rentedAt": "2021-08-05T19:56:41Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "ac711d1f-e36c-4a10-995c-273e1d5a8308",
+        "rentedAt": "2020-07-27T09:40:53Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 10,
+        "mediaId": "6a3c0e8a-a721-436e-9a41-5502a3b6eb2c",
+        "rentedAt": "2020-07-18T15:35:06Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 10,
+        "mediaId": "79d4dae2-3a51-432a-b45e-937d40a70520",
+        "rentedAt": "2021-02-22T11:33:10Z",
+        "returnedAt": "2022-10-31T23:46:57Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "38c920aa-3f53-4603-b199-44347282c5df",
+        "rentedAt": "2023-10-23T19:42:52Z",
+        "returnedAt": "2023-08-14T12:28:01Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "09bd810e-4e47-47dd-9eb8-2e8673297e33",
+        "rentedAt": "2021-09-09T02:58:40Z",
+        "returnedAt": "2022-04-29T17:37:07Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "cfc936b6-ad9e-4f0d-b2f2-f2d26db7cc57",
+        "rentedAt": "2021-02-24T15:23:04Z",
+        "returnedAt": "2020-02-24T19:03:24Z"
+    },
+    {
+        "userId": 20,
+        "mediaId": "3b95d9d4-23f8-4ead-b660-56b74daacf4a",
+        "rentedAt": "2020-12-01T04:56:23Z",
+        "returnedAt": "2023-10-07T09:19:36Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "9eb73784-3b0c-4d1e-b4de-23341485b5d1",
+        "rentedAt": "2023-08-09T09:39:41Z",
+        "returnedAt": "2021-02-20T09:02:14Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "bef03aae-bfa5-4392-8d16-96c58ae12b0e",
+        "rentedAt": "2020-06-30T20:01:40Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "fe2fc690-5dfd-4285-b20a-4f34dc4dcabf",
+        "rentedAt": "2023-02-11T20:37:21Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 7,
+        "mediaId": "d84541dd-bbb0-4f3a-b06a-956304be2ead",
+        "rentedAt": "2023-05-12T20:30:38Z",
+        "returnedAt": "2021-11-14T08:36:59Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "0accf788-bc2e-4159-9ee9-5444d4874fc8",
+        "rentedAt": "2023-10-17T20:26:12Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "6430b727-eac4-43dd-9dc4-bd90c19de591",
+        "rentedAt": "2020-08-25T19:37:03Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "ac888dea-57fe-4e9a-8a0c-9f7eb651fd27",
+        "rentedAt": "2020-11-20T15:40:33Z",
+        "returnedAt": "2021-01-14T20:21:05Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "fc236e53-0790-4256-b8d6-f6cbca1ebd49",
+        "rentedAt": "2023-06-09T00:56:57Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "c260408a-661f-484e-9c9b-f97de440b94f",
+        "rentedAt": "2020-09-09T05:55:48Z",
+        "returnedAt": "2022-07-07T17:59:16Z"
+    },
+    {
+        "userId": 20,
+        "mediaId": "b98016f2-131a-48a5-8bbb-0ffa36ed1d99",
+        "rentedAt": "2022-12-06T09:04:35Z",
+        "returnedAt": "2022-04-25T01:51:27Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "864f75ce-1dab-4dda-b545-074308728943",
+        "rentedAt": "2020-10-07T12:46:56Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "94db4b67-d01d-4cc3-a0a9-648e9810b07d",
+        "rentedAt": "2020-05-26T23:01:58Z",
+        "returnedAt": "2021-12-16T16:28:55Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "9781507d-16f6-47b3-a865-ae3e5c15333c",
+        "rentedAt": "2021-11-09T08:36:20Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "13c8a23a-a294-4680-9a6f-ecb35790a1b1",
+        "rentedAt": "2020-02-19T12:58:27Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "b8dfcee7-bd08-4695-9611-329fe465c8d6",
+        "rentedAt": "2021-05-11T19:04:06Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "fed838a7-340f-4eb2-9de8-8110d1b0b5f0",
+        "rentedAt": "2023-07-05T02:00:33Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 7,
+        "mediaId": "22ba0a38-64a8-4a1d-8a20-4a5e179a277d",
+        "rentedAt": "2020-01-10T01:28:10Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "22ba0a38-64a8-4a1d-8a20-4a5e179a277d",
+        "rentedAt": "2023-05-23T00:18:44Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 12,
+        "mediaId": "81d5522b-1bd9-44cc-8115-123249f77a27",
+        "rentedAt": "2022-02-19T19:48:53Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 4,
+        "mediaId": "4944ef32-819a-48f4-8d30-497f77991e92",
+        "rentedAt": "2020-11-28T18:49:17Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "b2f8d170-73cc-46f5-9f97-701feb57db38",
+        "rentedAt": "2020-01-03T03:50:48Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "656fe710-90a8-495c-80d0-2ce120b8701a",
+        "rentedAt": "2023-09-02T21:44:41Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "9bb0a6be-5837-4f3f-b3fb-95a5a909e0a8",
+        "rentedAt": "2023-08-31T11:28:46Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 7,
+        "mediaId": "42182c7c-0104-4240-8732-ca84a1b469f4",
+        "rentedAt": "2022-05-23T06:37:54Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 19,
+        "mediaId": "b9629e10-858f-466a-b286-96469657abd1",
+        "rentedAt": "2023-06-09T18:41:19Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 15,
+        "mediaId": "6c161d6e-7551-436a-90d4-8daf34fb3dd7",
+        "rentedAt": "2023-02-15T13:19:29Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "9d18a814-f522-4d68-b9b7-6136ba69ca9a",
+        "rentedAt": "2022-07-17T08:29:10Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 19,
+        "mediaId": "56c078a6-c122-4eb4-b23a-af2db0f9a323",
+        "rentedAt": "2021-11-30T13:43:42Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 3,
+        "mediaId": "859e624c-041a-4cb0-8c56-95840d38303b",
+        "rentedAt": "2023-07-13T20:33:20Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "1fe23c1b-1463-4ad2-9752-4b5f059ce1d5",
+        "rentedAt": "2020-09-23T04:32:07Z",
+        "returnedAt": "2022-12-12T08:27:52Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "bcdfe171-66b4-4c4d-821c-fe5225c3c01b",
+        "rentedAt": "2020-11-23T04:22:49Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 12,
+        "mediaId": "8981ddb7-18f7-43fd-a8e2-c1765bffad89",
+        "rentedAt": "2021-12-07T02:51:56Z",
+        "returnedAt": "2022-08-02T14:42:50Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "7ac9a969-d17f-41d2-a246-1968358a3417",
+        "rentedAt": "2023-10-05T10:14:45Z",
+        "returnedAt": "2020-10-31T05:54:17Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "c2b94c74-870d-42d4-b619-e3b943ddbe4d",
+        "rentedAt": "2021-03-16T06:25:39Z",
+        "returnedAt": "2022-11-29T14:35:34Z"
+    },
+    {
+        "userId": 17,
+        "mediaId": "f60f4fa4-9169-4edd-bbfc-6c5b94d9d02f",
+        "rentedAt": "2022-12-04T14:48:10Z",
+        "returnedAt": "2022-01-24T05:02:15Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "2b211783-b967-4db8-bae0-f488a0ddb6a4",
+        "rentedAt": "2022-11-29T22:59:20Z",
+        "returnedAt": "2021-05-24T16:58:00Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "b90eeec2-a800-43c7-815c-9e3f0e7cb3e1",
+        "rentedAt": "2021-05-27T15:26:18Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 4,
+        "mediaId": "71d08d5c-39ae-4e6f-981e-2689c8148291",
+        "rentedAt": "2022-01-29T01:17:57Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "1a48ac80-c8a9-47a3-ad2e-fbf8c7e9fe51",
+        "rentedAt": "2023-08-11T01:16:50Z",
+        "returnedAt": "2021-01-28T20:27:21Z"
+    },
+    {
+        "userId": 14,
+        "mediaId": "af730bb1-cbce-4b79-b3b9-c379f93d3a50",
+        "rentedAt": "2020-03-02T22:46:08Z",
+        "returnedAt": "2021-04-11T12:04:41Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "93347632-aae0-454d-a187-6e4677a8a69f",
+        "rentedAt": "2023-02-19T04:21:19Z",
+        "returnedAt": "2023-01-15T09:15:28Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "38e38f1f-6b81-4a1f-a359-af536c66f499",
+        "rentedAt": "2021-11-22T21:23:24Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "ca02377a-e88a-4b17-a615-84d874efc9a9",
+        "rentedAt": "2023-09-05T06:20:45Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 12,
+        "mediaId": "39c20e6f-30d5-4c3e-9153-faca4750bb70",
+        "rentedAt": "2020-03-09T02:53:30Z",
+        "returnedAt": "2023-07-23T20:51:23Z"
+    },
+    {
+        "userId": 17,
+        "mediaId": "58f1f539-4042-4562-a09c-4a5b472963e2",
+        "rentedAt": "2020-12-18T10:15:07Z",
+        "returnedAt": "2020-05-01T08:46:04Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "a2adcdfe-7d05-4e7a-b9b2-425b8c3b826b",
+        "rentedAt": "2021-12-19T15:19:00Z",
+        "returnedAt": "2020-08-12T21:32:01Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "42d25e39-fe9f-47ce-b546-08f5568b3b12",
+        "rentedAt": "2021-03-13T03:08:50Z",
+        "returnedAt": "2020-02-05T22:43:47Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "0266acd5-ccc2-4de7-87f3-c979595d1a17",
+        "rentedAt": "2023-03-06T05:10:12Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "bf60bfa0-441e-450b-b468-bd02e4072c4e",
+        "rentedAt": "2022-09-14T08:43:30Z",
+        "returnedAt": "2021-05-30T03:21:33Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "55c4ad28-f1d1-4b64-90f4-0b4a28e3dbae",
+        "rentedAt": "2023-02-28T08:16:54Z",
+        "returnedAt": "2022-10-15T18:07:06Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "de3e3bab-fff0-4475-b094-66243f332e8a",
+        "rentedAt": "2022-08-21T21:33:27Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "619dc908-bff8-4daa-b9df-c0fd86950971",
+        "rentedAt": "2022-01-30T13:54:46Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 15,
+        "mediaId": "51eec9fe-326c-47df-ad0a-cbf6558932fb",
+        "rentedAt": "2021-03-18T10:43:30Z",
+        "returnedAt": "2022-05-31T22:21:30Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "70b6b849-8325-43ea-aaa8-a969ee333129",
+        "rentedAt": "2022-10-09T10:02:20Z",
+        "returnedAt": "2022-08-01T09:02:28Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "9274cebb-00eb-466e-9f36-d5f85cbf0508",
+        "rentedAt": "2022-09-17T02:22:35Z",
+        "returnedAt": "2023-09-30T19:43:59Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "3740d1e4-c3bc-40e2-8ea2-cee3a42430eb",
+        "rentedAt": "2022-08-14T11:16:59Z",
+        "returnedAt": "2022-07-21T00:29:11Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "20874ce3-a1c8-4c74-941d-fb29bf90d825",
+        "rentedAt": "2023-06-16T09:44:59Z",
+        "returnedAt": "2020-11-20T02:53:34Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "d40d01fe-616c-48c0-8a03-602d0619bfb8",
+        "rentedAt": "2023-09-30T11:59:53Z",
+        "returnedAt": "2022-09-07T07:29:18Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "ac50e3cd-fef2-42b2-a741-5a515d893509",
+        "rentedAt": "2021-11-02T09:58:12Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "37bae71a-89ed-4eb2-b272-572899c1a022",
+        "rentedAt": "2020-02-07T19:42:52Z",
+        "returnedAt": "2022-01-23T14:42:51Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "e188081b-75cd-4010-83cb-4e43cb15b7a5",
+        "rentedAt": "2021-12-31T04:45:20Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "3e796c00-2057-479f-8277-e55cd343f4f9",
+        "rentedAt": "2020-05-23T02:36:23Z",
+        "returnedAt": "2020-10-23T00:23:10Z"
+    },
+    {
+        "userId": 16,
+        "mediaId": "6edcced7-21bb-47f4-a150-90d4a2e6f596",
+        "rentedAt": "2022-06-19T06:08:27Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "6714810c-7d71-4f34-8057-58712d1dacd0",
+        "rentedAt": "2020-05-04T12:05:25Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 12,
+        "mediaId": "ad7184ba-5c7b-4f29-af91-f476d743bbb5",
+        "rentedAt": "2022-07-31T15:35:58Z",
+        "returnedAt": "2021-08-18T04:44:08Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "89a82cb3-6109-452d-9018-1ee8dada9ce8",
+        "rentedAt": "2021-06-13T10:43:46Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "c6c752ff-8da7-4820-828d-db3be2649086",
+        "rentedAt": "2023-06-05T21:31:27Z",
+        "returnedAt": "2022-09-17T16:36:42Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "cdd858e5-b7b1-49b0-b1f2-8a987ea12e93",
+        "rentedAt": "2021-03-03T00:56:05Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 3,
+        "mediaId": "c8a67d24-7bdc-4dcd-a111-54bdfe0233f2",
+        "rentedAt": "2020-09-15T15:46:12Z",
+        "returnedAt": "2021-02-07T01:13:08Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "68ca4ea4-6bae-4be5-8730-e931c3604ece",
+        "rentedAt": "2022-10-20T11:16:45Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 8,
+        "mediaId": "2172e36f-3558-4752-92f3-bd09ace9c548",
+        "rentedAt": "2022-03-25T01:14:01Z",
+        "returnedAt": "2020-05-01T13:13:47Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "ea17eb71-c77b-40cf-ae84-99fd08656ac7",
+        "rentedAt": "2021-11-18T07:34:00Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "740faec9-cbcd-48fb-9d9e-a0a3b0a64593",
+        "rentedAt": "2020-03-14T21:42:05Z",
+        "returnedAt": "2020-11-15T11:01:58Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "7d567779-74e2-4dc1-9409-8bf1864d6c87",
+        "rentedAt": "2021-06-06T21:06:39Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "f2ff574e-5624-4d05-b6e2-c3ad475f7b84",
+        "rentedAt": "2023-02-05T21:40:56Z",
+        "returnedAt": "2022-11-16T17:27:00Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "9c7406a4-41b9-4b84-91c1-4b87e0e8a4e9",
+        "rentedAt": "2021-08-22T01:21:10Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "c246243b-99e2-41b3-adf5-aa8d1915dcee",
+        "rentedAt": "2021-06-06T20:51:58Z",
+        "returnedAt": "2020-03-04T19:29:23Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "68ca4ea4-6bae-4be5-8730-e931c3604ece",
+        "rentedAt": "2022-07-21T12:50:42Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 8,
+        "mediaId": "3711e7aa-38d4-4fff-a800-3243651ff80c",
+        "rentedAt": "2021-07-26T14:35:12Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "eca23a63-befb-4108-8f6e-91cbe403b81c",
+        "rentedAt": "2020-03-09T07:36:00Z",
+        "returnedAt": "2022-05-12T00:56:02Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "d3f6696e-5bb0-4f16-a29e-9d148db9c4d3",
+        "rentedAt": "2022-01-06T04:04:07Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 19,
+        "mediaId": "12da6df3-effb-4326-9d8e-018bc820c3ab",
+        "rentedAt": "2023-04-11T02:20:39Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "8c416d25-ccd5-46be-8f81-8abf38de53cb",
+        "rentedAt": "2020-11-05T05:01:31Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "51f7ee89-ce42-4a68-8394-7d565934ef81",
+        "rentedAt": "2022-03-26T05:38:39Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "69f2c587-e836-447e-a653-e946878b5008",
+        "rentedAt": "2021-07-20T14:48:06Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "da88ae0e-75a0-4b0e-8bce-6809eabd0761",
+        "rentedAt": "2023-02-19T18:33:58Z",
+        "returnedAt": "2022-12-24T23:37:33Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "3f40e5b5-abb0-476e-be5e-abbfc32fafc3",
+        "rentedAt": "2020-08-08T14:59:59Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "182a1f19-a368-4632-ad9d-e4937f312b97",
+        "rentedAt": "2020-03-25T13:53:15Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "0ea0ae04-ff4a-46a1-b525-0bcb2a690a43",
+        "rentedAt": "2021-10-01T11:23:00Z",
+        "returnedAt": "2020-02-05T19:49:58Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "2297373d-f073-4326-a13e-a5c4dc3283b1",
+        "rentedAt": "2022-07-05T21:55:58Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 10,
+        "mediaId": "4588125e-fd8b-44a5-a390-4b18f362abde",
+        "rentedAt": "2020-03-03T05:44:26Z",
+        "returnedAt": "2021-08-04T12:58:50Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "77dc7450-ed9a-43cd-ad93-b1088a02162f",
+        "rentedAt": "2020-05-08T04:06:08Z",
+        "returnedAt": "2022-05-23T15:49:38Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "a519dfb6-a3af-4af2-9579-239a2c99a015",
+        "rentedAt": "2020-03-09T00:07:27Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "32f58349-e082-40eb-827d-864a493af84d",
+        "rentedAt": "2023-01-17T05:10:18Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 10,
+        "mediaId": "a6185ab5-3be8-4fdb-aa09-48ca2086c9a7",
+        "rentedAt": "2021-04-26T03:38:16Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "b02186fa-2437-4d5a-8f77-babf4551fdbf",
+        "rentedAt": "2020-04-15T07:31:22Z",
+        "returnedAt": "2020-10-11T16:38:10Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "38917cc5-7a87-4127-89a0-4ec59725323c",
+        "rentedAt": "2022-11-02T11:52:05Z",
+        "returnedAt": "2021-03-06T11:30:21Z"
+    },
+    {
+        "userId": 14,
+        "mediaId": "5a0e538f-0fc8-48a7-9b86-ce27927c7a6a",
+        "rentedAt": "2021-08-30T18:20:39Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "8a307f59-9099-4555-a37f-87022c07e8b1",
+        "rentedAt": "2021-05-18T09:53:28Z",
+        "returnedAt": "2020-04-21T05:37:49Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "02dd5e07-d063-45ea-8409-713fb969467b",
+        "rentedAt": "2023-09-14T11:15:07Z",
+        "returnedAt": "2022-12-21T20:52:18Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "ea4acaaa-54f4-41fc-9400-bf6a7842e168",
+        "rentedAt": "2021-02-03T07:08:49Z",
+        "returnedAt": "2021-05-12T02:06:45Z"
+    },
+    {
+        "userId": 17,
+        "mediaId": "0735893b-a1fc-4f6b-b522-bdff92e795c8",
+        "rentedAt": "2020-12-24T09:41:00Z",
+        "returnedAt": "2022-11-30T00:37:26Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "4addd01a-2a5a-4c24-ab90-472d4975e2ec",
+        "rentedAt": "2022-07-06T03:47:19Z",
+        "returnedAt": "2023-08-15T05:15:53Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "36ef875f-6c1b-421a-964f-45ae44703129",
+        "rentedAt": "2022-07-15T22:49:25Z",
+        "returnedAt": "2021-11-30T07:46:07Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "3f4db0d9-a0ba-45ee-9804-da016c5f5e79",
+        "rentedAt": "2022-12-12T22:44:35Z",
+        "returnedAt": "2020-01-28T15:15:10Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "69f207f9-a098-400c-a120-8e01397c964d",
+        "rentedAt": "2022-06-09T21:40:38Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "e6c6d6fd-0b54-409b-a3b4-07cbad976c08",
+        "rentedAt": "2022-05-04T04:32:04Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "06b4f1e7-8ebb-43e9-8e50-3f3f66ff08e4",
+        "rentedAt": "2022-05-24T23:00:02Z",
+        "returnedAt": "2022-10-07T21:14:18Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "90433613-12b3-4d06-b52e-a38837f4852c",
+        "rentedAt": "2022-08-02T14:55:15Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "f0ae4767-4d32-43fb-91e7-e5e59944e2a3",
+        "rentedAt": "2023-01-23T15:33:26Z",
+        "returnedAt": "2020-03-07T06:16:21Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "70b6b849-8325-43ea-aaa8-a969ee333129",
+        "rentedAt": "2021-10-26T22:19:01Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "311d86b8-6a49-48bf-b9d7-0811d3c1543a",
+        "rentedAt": "2020-06-19T22:21:41Z",
+        "returnedAt": "2023-07-07T03:39:10Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "b16bee2b-60ac-4007-b8bc-ba585bc89e6b",
+        "rentedAt": "2021-03-28T09:20:31Z",
+        "returnedAt": "2021-06-18T23:35:48Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "5b1004d5-ea7a-4879-96f5-a4c95ad8e882",
+        "rentedAt": "2022-11-13T15:50:33Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "4d7b3a2f-44f6-4975-ad5e-db2df50eac05",
+        "rentedAt": "2022-11-23T13:21:01Z",
+        "returnedAt": "2022-12-15T01:07:57Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "161b4f30-f645-44cb-aa99-7c5bd96acdbe",
+        "rentedAt": "2020-04-30T16:11:13Z",
+        "returnedAt": "2021-10-01T01:22:10Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "d70cbade-ddc9-4735-b933-9f8f11a09847",
+        "rentedAt": "2021-05-23T08:53:01Z",
+        "returnedAt": "2020-07-25T13:26:43Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "c92da7a0-cdbb-4691-a548-0b2de9d9cc35",
+        "rentedAt": "2020-06-04T18:15:09Z",
+        "returnedAt": "2022-11-11T22:12:55Z"
+    },
+    {
+        "userId": 16,
+        "mediaId": "b9629e10-858f-466a-b286-96469657abd1",
+        "rentedAt": "2021-10-18T12:50:04Z",
+        "returnedAt": "2022-08-20T12:51:29Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "b6bd5c40-9d5e-4ca0-b7b7-c019588a049c",
+        "rentedAt": "2023-09-27T22:18:36Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "42d25e39-fe9f-47ce-b546-08f5568b3b12",
+        "rentedAt": "2021-02-20T06:21:17Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "a09057fe-6126-4ead-8609-0399daa20b52",
+        "rentedAt": "2022-11-27T14:16:24Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "43c8ff62-2eda-4223-80d9-95aa26be8a21",
+        "rentedAt": "2020-07-23T00:16:24Z",
+        "returnedAt": "2021-10-08T15:38:09Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "9bfe5c1f-b977-4ea2-848b-9064670aac65",
+        "rentedAt": "2023-02-17T06:50:34Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "e627c87b-346b-4aae-b67e-c7645a81a3b5",
+        "rentedAt": "2022-01-18T13:19:05Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "6c429d6d-ad59-4fa8-9d31-a255e728f017",
+        "rentedAt": "2023-05-30T17:56:52Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 19,
+        "mediaId": "083bbb84-987d-4bea-a3f0-ba6fe713a23f",
+        "rentedAt": "2020-07-07T00:07:57Z",
+        "returnedAt": "2020-10-19T19:28:13Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "9e72e12d-421b-478c-a793-6dd2be377fe2",
+        "rentedAt": "2020-08-08T20:14:12Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "4a5bca2a-b7a4-4e2e-9b7a-2d1ed846cf14",
+        "rentedAt": "2022-01-09T20:56:35Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 15,
+        "mediaId": "d90da38c-a672-4a6e-86ef-26c450d3b8cc",
+        "rentedAt": "2021-01-21T12:43:36Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "41aa10ec-1a06-4a1a-a39e-ffdea6ea64f2",
+        "rentedAt": "2021-08-04T06:15:56Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 1,
+        "mediaId": "d5ec9713-032c-4f0e-af00-d7ff1f97dbf6",
+        "rentedAt": "2020-03-28T11:52:40Z",
+        "returnedAt": "2022-08-16T23:38:34Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "d7ceecb1-29b4-4ae9-ae76-15041b3d64a5",
+        "rentedAt": "2023-04-09T06:23:15Z",
+        "returnedAt": "2021-07-09T16:36:39Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "bd2c9591-725a-43d0-908e-b89feb2213a8",
+        "rentedAt": "2020-06-27T22:15:09Z",
+        "returnedAt": "2021-12-23T07:22:53Z"
+    },
+    {
+        "userId": 17,
+        "mediaId": "45ac4484-dce6-433b-b882-7074402550a7",
+        "rentedAt": "2023-02-19T13:14:08Z",
+        "returnedAt": "2021-12-27T00:50:12Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "e2d00fad-a15c-4002-bc04-0f00c3c538a9",
+        "rentedAt": "2020-03-22T08:04:27Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "52ba3d5f-c249-47ae-9d21-27bb519fe836",
+        "rentedAt": "2020-08-02T01:35:19Z",
+        "returnedAt": "2020-01-03T08:45:33Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "520641d5-0521-42c5-9f0d-19e4ca7b6f80",
+        "rentedAt": "2023-06-04T17:39:48Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "32a2014f-304f-40b3-8e22-4234387a05f4",
+        "rentedAt": "2022-07-17T14:58:19Z",
+        "returnedAt": "2023-02-23T02:18:18Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "cab08cfb-c448-4e4b-b182-1f359c55d782",
+        "rentedAt": "2020-09-03T22:15:30Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 8,
+        "mediaId": "6155c567-7b34-45ad-bb36-1b7cfc86a6ea",
+        "rentedAt": "2022-03-03T09:23:20Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "daafed8e-5ec4-40fb-952f-b46736c23be4",
+        "rentedAt": "2020-04-14T19:06:04Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 7,
+        "mediaId": "ae33c1e0-b61a-4e09-80fc-7e4045d5d678",
+        "rentedAt": "2023-01-17T09:03:42Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 10,
+        "mediaId": "29d9c680-64e2-4411-96cc-9e099ed0e49d",
+        "rentedAt": "2023-02-06T00:45:12Z",
+        "returnedAt": "2022-11-01T13:26:46Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "4fc8ae33-e47f-40ef-b3f5-929aa03c5646",
+        "rentedAt": "2020-01-17T19:38:47Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 3,
+        "mediaId": "c1f81d78-c049-4169-a7a1-20b755496b7d",
+        "rentedAt": "2023-08-23T02:22:42Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "2d34f48c-061f-45d6-a6fa-d2afa3f2a9cb",
+        "rentedAt": "2020-02-06T02:03:51Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 7,
+        "mediaId": "1bb13816-3409-4543-81f9-8b18afd78b94",
+        "rentedAt": "2023-06-05T01:37:07Z",
+        "returnedAt": "2023-05-28T02:42:28Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "9f63c258-5f3e-4fbd-954e-1be404dc6da4",
+        "rentedAt": "2022-01-15T23:54:03Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "0e810050-d698-45b3-905b-467f257f11c7",
+        "rentedAt": "2020-08-23T01:11:08Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 15,
+        "mediaId": "709c28cd-38c5-4e05-b2d6-c7509ca567f3",
+        "rentedAt": "2020-03-02T17:16:14Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "fa83ca34-88d3-4f90-82d3-c97104f4c60d",
+        "rentedAt": "2022-04-14T04:35:06Z",
+        "returnedAt": "2020-06-19T17:07:28Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "fa9c14a6-f500-4bd6-b6c5-d942b63c5105",
+        "rentedAt": "2021-08-10T15:20:01Z",
+        "returnedAt": "2022-03-07T17:32:13Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "79159f69-fac8-4b74-98ff-5be6546fbaa3",
+        "rentedAt": "2022-04-15T01:53:41Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 12,
+        "mediaId": "d469e06e-c53f-475d-a05f-6b0d37e1bfd4",
+        "rentedAt": "2020-12-14T19:28:06Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "23801938-5267-4c2f-9cd3-785340ffe02f",
+        "rentedAt": "2023-04-15T21:48:09Z",
+        "returnedAt": "2023-04-15T01:12:00Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "7ee4e610-e12b-4be6-94b8-55772b6071ea",
+        "rentedAt": "2022-07-08T16:54:09Z",
+        "returnedAt": "2022-11-23T17:02:29Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "4d21eed6-9610-4c39-80d7-835514e454c1",
+        "rentedAt": "2021-09-11T18:31:16Z",
+        "returnedAt": "2021-09-19T04:26:06Z"
+    },
+    {
+        "userId": 16,
+        "mediaId": "42d25e39-fe9f-47ce-b546-08f5568b3b12",
+        "rentedAt": "2020-05-11T02:08:58Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "d7e1abcf-9c19-4b80-a734-068afb5ae714",
+        "rentedAt": "2021-07-13T01:53:59Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "9ca2f544-4ca5-439c-8f1b-69646b4fb438",
+        "rentedAt": "2021-02-19T00:04:12Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "faeba19d-9efa-409a-ad23-15576170cb36",
+        "rentedAt": "2022-07-08T19:29:51Z",
+        "returnedAt": "2022-11-02T03:27:11Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "8f382cc8-f29d-4b5c-bf9c-ec0a6867dd58",
+        "rentedAt": "2022-03-06T22:58:55Z",
+        "returnedAt": "2021-08-06T16:34:56Z"
+    },
+    {
+        "userId": 14,
+        "mediaId": "ecbecafe-a6aa-40ac-ab7b-fabb1262f108",
+        "rentedAt": "2021-04-26T12:06:46Z",
+        "returnedAt": "2021-07-11T11:18:00Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "3bc30cbd-dce6-4f40-a5e5-b416935c25ae",
+        "rentedAt": "2022-11-08T13:38:35Z",
+        "returnedAt": "2023-04-13T09:12:43Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "f7cf3dac-bbe8-43ae-9d29-f0b920ec2d2c",
+        "rentedAt": "2023-05-20T13:34:47Z",
+        "returnedAt": "2020-06-29T06:50:57Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "72052a03-9c1f-415b-bba5-e5d943ece3f8",
+        "rentedAt": "2020-12-07T00:33:03Z",
+        "returnedAt": "2020-03-08T19:36:05Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "c87d8155-6a5a-4dcb-a0a2-dc867cb4da97",
+        "rentedAt": "2022-03-06T12:42:45Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "f07a7cd7-6975-4e5d-b020-fb0879b59902",
+        "rentedAt": "2022-02-20T10:46:12Z",
+        "returnedAt": "2022-05-15T05:58:24Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "4f25367a-2104-47e8-b59d-db7ffe34be01",
+        "rentedAt": "2023-09-27T04:28:33Z",
+        "returnedAt": "2022-04-27T11:38:50Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "b6f3657f-a03c-4dd3-92a9-4610ac1d992b",
+        "rentedAt": "2020-06-09T02:09:14Z",
+        "returnedAt": "2022-12-06T09:26:27Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "0fcb9a36-028d-4e89-924b-8e43b0c61239",
+        "rentedAt": "2023-05-03T12:40:57Z",
+        "returnedAt": "2020-08-08T13:01:22Z"
+    },
+    {
+        "userId": 17,
+        "mediaId": "aee56600-4836-4158-969b-d557fc04e629",
+        "rentedAt": "2020-04-21T23:27:21Z",
+        "returnedAt": "2020-09-17T20:51:55Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "38c511e8-a070-49c4-8897-c715a310a183",
+        "rentedAt": "2021-04-28T18:24:46Z",
+        "returnedAt": "2022-08-24T14:49:27Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "9f1a19ea-87fe-4761-aa5e-c7f9f4ba71b2",
+        "rentedAt": "2021-03-01T04:51:43Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "d863901b-34c7-4d8c-9b0e-130d7c72ceaa",
+        "rentedAt": "2022-07-19T13:10:28Z",
+        "returnedAt": "2021-05-27T12:13:57Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "a2709bf2-61ee-4120-b7e4-abca50d6bf33",
+        "rentedAt": "2021-07-06T05:36:16Z",
+        "returnedAt": "2020-05-22T00:33:42Z"
+    },
+    {
+        "userId": 16,
+        "mediaId": "e3e865ac-2ba5-4f7f-9df1-7e4955caf80b",
+        "rentedAt": "2023-08-16T13:48:21Z",
+        "returnedAt": "2021-03-08T00:25:56Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "11280298-d9e7-4f8b-b658-366d5c449a9e",
+        "rentedAt": "2022-07-29T07:45:05Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "21207134-47c6-4d69-9c0f-b204331ebea7",
+        "rentedAt": "2022-05-02T04:21:13Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "643dd990-3384-4227-bc24-022d316b71a7",
+        "rentedAt": "2020-12-10T08:30:31Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "3c1d0d5a-a199-446e-aa6b-1fbf3f82ac03",
+        "rentedAt": "2021-06-28T20:54:17Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "73f48bc8-cc3e-490d-8d6b-6589ccc620d8",
+        "rentedAt": "2022-11-30T13:41:23Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 3,
+        "mediaId": "74da75e3-6f52-4f83-a08c-3d6fb4c2e788",
+        "rentedAt": "2022-08-06T13:24:04Z",
+        "returnedAt": "2021-05-05T20:35:44Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "61bd0285-1b96-43fa-88a7-846462996e46",
+        "rentedAt": "2023-05-28T22:43:15Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 7,
+        "mediaId": "d3b30149-7d03-45c6-ad24-1c9d065f1409",
+        "rentedAt": "2020-12-19T19:50:32Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 8,
+        "mediaId": "9e526eae-6697-48b8-98d1-1c93ccf7d91e",
+        "rentedAt": "2023-02-06T23:10:52Z",
+        "returnedAt": "2023-07-06T00:42:47Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "266f672f-1aa4-40a3-937e-f15d3faca6fe",
+        "rentedAt": "2022-06-07T08:35:04Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "bb54ff93-17ab-4557-9e87-a0f4539825f3",
+        "rentedAt": "2020-09-23T22:34:23Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "08fa8689-189e-4333-bb00-4fbda67e5fa7",
+        "rentedAt": "2022-06-19T02:34:40Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "e07d816f-e4e5-4401-8d21-8803f4061082",
+        "rentedAt": "2021-12-04T08:06:48Z",
+        "returnedAt": "2020-09-21T19:22:06Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "6dd8576a-f5bc-49d6-b55f-8613bf9b7d43",
+        "rentedAt": "2023-04-27T19:45:00Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "4c3b9444-2917-48f9-80af-7a03db193b3a",
+        "rentedAt": "2020-08-27T13:58:52Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 10,
+        "mediaId": "e4627d80-4649-447a-9cd7-04a4a3c1810f",
+        "rentedAt": "2022-01-20T15:19:26Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "b0479198-9b04-4d15-91ee-5110fd2c592e",
+        "rentedAt": "2021-01-30T04:52:22Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "c1600257-8095-497a-80b6-a6c90b9b103a",
+        "rentedAt": "2022-11-24T00:23:19Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 8,
+        "mediaId": "d5f11819-41ed-43cc-acb1-5897c7b6bad7",
+        "rentedAt": "2020-05-21T00:11:44Z",
+        "returnedAt": "2022-08-30T20:13:09Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "db55bfb7-93d9-4347-9b18-eddc3493327f",
+        "rentedAt": "2021-11-07T21:26:29Z",
+        "returnedAt": "2023-08-04T02:38:37Z"
+    },
+    {
+        "userId": 16,
+        "mediaId": "e8c9a966-c9df-478b-8276-355d8b073fa7",
+        "rentedAt": "2021-03-21T04:48:44Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "8e4053cb-32e6-426e-933b-bf5c2a726a68",
+        "rentedAt": "2020-12-15T22:14:38Z",
+        "returnedAt": "2020-01-20T02:10:53Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "56a16772-30c0-4ddc-a1a2-9d97ea74c1ef",
+        "rentedAt": "2023-10-16T13:23:17Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "18d881b0-deda-46cc-b644-460d7ed8cf0d",
+        "rentedAt": "2021-06-29T08:24:09Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 4,
+        "mediaId": "92de8930-8e82-44a1-a078-82d6267cb2fe",
+        "rentedAt": "2023-07-22T08:06:23Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "47ac5e65-87d4-4c8d-a673-3f3a2d66ac1a",
+        "rentedAt": "2020-03-15T08:17:01Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 10,
+        "mediaId": "35ea3406-ac17-4217-b89f-a225115af358",
+        "rentedAt": "2023-10-07T22:16:54Z",
+        "returnedAt": "2022-02-10T02:12:33Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "4b59ce00-7985-4480-9c34-56afd1af10a1",
+        "rentedAt": "2023-10-21T08:02:50Z",
+        "returnedAt": "2021-02-11T11:40:13Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "51b71991-1b84-4c5c-94c8-3d2bd1d5e423",
+        "rentedAt": "2022-04-03T01:39:56Z",
+        "returnedAt": "2020-05-03T09:02:49Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "09b475e3-24d8-4878-a812-e231e6f8671f",
+        "rentedAt": "2023-09-19T23:53:06Z",
+        "returnedAt": "2021-04-14T01:13:50Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "50b02560-0809-44bc-b457-932fef8d98a9",
+        "rentedAt": "2023-01-06T12:18:25Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 12,
+        "mediaId": "9a6a115a-dd0c-4ac4-85e5-48e676b3a6a4",
+        "rentedAt": "2022-08-01T17:20:35Z",
+        "returnedAt": "2022-05-03T16:52:10Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "eaa1854c-1637-4428-b88b-206aef8c3a23",
+        "rentedAt": "2023-02-28T11:28:23Z",
+        "returnedAt": "2023-08-12T14:53:50Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "f23ac006-b264-41b6-ba9d-17a65a0d36e3",
+        "rentedAt": "2020-01-08T03:42:55Z",
+        "returnedAt": "2023-05-27T05:17:20Z"
+    },
+    {
+        "userId": 17,
+        "mediaId": "b2a02ba2-1cad-4347-bca9-2f5b223a584c",
+        "rentedAt": "2021-06-19T19:07:32Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "dface2eb-e682-4dfe-a3d4-ae08320e8756",
+        "rentedAt": "2022-09-01T21:02:41Z",
+        "returnedAt": "2020-07-07T14:47:13Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "26290a96-897a-4f77-9443-1ee3ed1eda5f",
+        "rentedAt": "2020-10-25T14:22:00Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 4,
+        "mediaId": "39c20e6f-30d5-4c3e-9153-faca4750bb70",
+        "rentedAt": "2023-07-04T01:11:18Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 7,
+        "mediaId": "385b534d-cfdc-4dfc-9e90-0eceb9df5da3",
+        "rentedAt": "2020-11-17T01:27:32Z",
+        "returnedAt": "2020-09-16T01:44:08Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "cc56ab53-4058-45ae-a2c4-f8639012fd71",
+        "rentedAt": "2022-07-03T23:12:50Z",
+        "returnedAt": "2022-01-05T23:44:18Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "22ede5ef-68e6-4a33-bd23-3ce58484cee5",
+        "rentedAt": "2020-04-16T17:01:48Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "1a70dd58-6b44-4aaf-8f1e-3a5a4fa31a03",
+        "rentedAt": "2021-10-24T09:20:34Z",
+        "returnedAt": "2020-11-28T14:00:55Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "e26f36cd-0969-481b-8caa-3ff044bccea5",
+        "rentedAt": "2020-01-10T00:40:14Z",
+        "returnedAt": "2023-04-22T13:43:38Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "d286a08f-9959-4845-bf45-0690d03a0629",
+        "rentedAt": "2020-03-21T20:53:47Z",
+        "returnedAt": "2023-08-04T01:37:45Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "86b2aa07-6c65-4edd-9edf-17b7932be89b",
+        "rentedAt": "2020-08-14T18:27:26Z",
+        "returnedAt": "2022-02-04T15:01:35Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "e71b996a-cda1-44b4-8ca2-60fe6239d57e",
+        "rentedAt": "2023-02-09T15:44:38Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 1,
+        "mediaId": "a513769f-e904-4738-99f8-ebd815ba1c14",
+        "rentedAt": "2021-12-08T12:02:52Z",
+        "returnedAt": "2022-08-01T07:45:08Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "24ae4f6d-220d-449c-ae56-a43de25cca3e",
+        "rentedAt": "2023-06-13T20:50:02Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "793738df-4591-41f9-9487-90ab42d3ce74",
+        "rentedAt": "2022-03-27T06:12:41Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "e324e0c8-076d-4d6e-a14b-40c4cfd191f9",
+        "rentedAt": "2021-02-06T05:03:45Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "7cda6714-76b5-4aae-a5e7-6cf34dcb0458",
+        "rentedAt": "2022-01-17T15:02:23Z",
+        "returnedAt": "2022-11-04T22:16:09Z"
+    },
+    {
+        "userId": 20,
+        "mediaId": "bfc2c7d1-a2c9-4e8b-9a6c-8b9804d7d141",
+        "rentedAt": "2023-08-13T12:45:21Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "5a0f536c-1519-4e0d-bb60-43e6e090caf4",
+        "rentedAt": "2022-01-04T15:30:21Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "28a5124f-ea6e-49bf-929d-d812b99c9e95",
+        "rentedAt": "2022-11-05T17:20:09Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 1,
+        "mediaId": "237ccc54-ca13-4c9c-887b-3c34530c91f5",
+        "rentedAt": "2021-04-08T18:40:50Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 4,
+        "mediaId": "6c08dd53-10dd-4ffe-af0d-340743616698",
+        "rentedAt": "2022-08-12T17:58:08Z",
+        "returnedAt": "2021-12-15T13:51:59Z"
+    },
+    {
+        "userId": 14,
+        "mediaId": "ce223758-16d0-41fc-8651-f9dbaa224cfe",
+        "rentedAt": "2022-04-29T08:34:35Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "fa76d8a8-afaa-4e42-a68f-abd4f9dea0e9",
+        "rentedAt": "2022-10-20T05:09:30Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 1,
+        "mediaId": "9ea32d5e-6c16-4988-b6cf-981054ef5dcf",
+        "rentedAt": "2021-10-22T23:45:11Z",
+        "returnedAt": "2022-03-28T14:04:02Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "c6611f19-974e-497d-aea9-6634fc4c1b44",
+        "rentedAt": "2022-11-23T21:11:07Z",
+        "returnedAt": "2020-06-02T14:22:06Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "6e21b864-0dde-49f9-ac5a-04979fbf96a9",
+        "rentedAt": "2023-06-10T20:39:11Z",
+        "returnedAt": "2023-03-07T10:19:31Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "b56103bc-b1f8-4ad2-940b-5fd93c26c6eb",
+        "rentedAt": "2023-04-12T11:03:52Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "52cd2456-af7a-4bd8-8e14-6e79b8a8c2ed",
+        "rentedAt": "2020-05-31T12:47:44Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 19,
+        "mediaId": "9faf3532-2870-4221-a212-3c4de89051f7",
+        "rentedAt": "2020-09-16T12:17:48Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 19,
+        "mediaId": "999bd5bf-6ba9-464d-909f-d419620942dd",
+        "rentedAt": "2021-09-18T15:09:18Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "b6af417b-2bc3-488a-b7f8-00af1e5bc3ee",
+        "rentedAt": "2022-03-08T18:52:18Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 1,
+        "mediaId": "b66bcbd1-8271-418f-82b9-1000306412a8",
+        "rentedAt": "2021-12-01T19:23:24Z",
+        "returnedAt": "2021-06-14T01:20:08Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "f31210b2-812a-4bbe-8bb9-eb49c9ccfcbf",
+        "rentedAt": "2020-06-16T00:57:14Z",
+        "returnedAt": "2022-05-27T04:09:47Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "e178ecd9-77ea-41bb-a0a9-0780ab3dcdef",
+        "rentedAt": "2023-04-23T02:06:29Z",
+        "returnedAt": "2021-10-14T06:43:49Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "60b0ea58-46ee-4e3b-89b5-24a79160f45e",
+        "rentedAt": "2022-11-03T06:51:13Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 12,
+        "mediaId": "61c94540-de52-43ce-896b-cc309b5da54f",
+        "rentedAt": "2021-07-07T09:22:04Z",
+        "returnedAt": "2022-05-23T19:28:53Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "ecbecafe-a6aa-40ac-ab7b-fabb1262f108",
+        "rentedAt": "2021-10-17T15:53:09Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "c78fa0e4-d490-4311-a385-6bbdf1f47bdc",
+        "rentedAt": "2021-03-17T18:36:22Z",
+        "returnedAt": "2021-03-30T10:10:30Z"
+    },
+    {
+        "userId": 14,
+        "mediaId": "caea20af-d3cc-419d-9f0c-4aec62bf61da",
+        "rentedAt": "2022-08-29T04:39:06Z",
+        "returnedAt": "2023-01-21T03:18:12Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "0e18467a-2fcb-4c28-a0e2-90bec97a1fc0",
+        "rentedAt": "2023-06-06T08:53:36Z",
+        "returnedAt": "2020-10-22T03:29:19Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "a3d566b3-c368-40b8-8849-5655139084a8",
+        "rentedAt": "2023-01-05T19:26:34Z",
+        "returnedAt": "2020-08-09T10:20:18Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "7d63e7b0-896e-436b-9149-42a2c8efacac",
+        "rentedAt": "2020-03-09T13:27:04Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "ced5c646-1bd4-4138-bef4-c0c3b4237062",
+        "rentedAt": "2022-02-17T02:53:55Z",
+        "returnedAt": "2021-08-29T19:54:54Z"
+    },
+    {
+        "userId": 5,
+        "mediaId": "4a1cf310-df9d-4edc-b7cc-ba378b628d1b",
+        "rentedAt": "2021-05-26T16:38:41Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 8,
+        "mediaId": "1e7caf48-2e2d-4055-8034-d2ab5e29d862",
+        "rentedAt": "2022-09-18T09:01:40Z",
+        "returnedAt": "2023-05-25T19:18:07Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "aa136125-f44d-4f0c-98a4-7e7dee5c4450",
+        "rentedAt": "2021-10-04T06:24:46Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 19,
+        "mediaId": "14b17eff-1690-4200-9091-6b01063286a6",
+        "rentedAt": "2022-02-06T22:30:16Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "b39abedf-1e9e-46bd-b8ca-dca70b7605da",
+        "rentedAt": "2023-05-26T06:14:25Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 15,
+        "mediaId": "9b8984a1-4ce2-4e17-8740-bb6ebd0f0c8f",
+        "rentedAt": "2023-10-01T00:36:04Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "06ae0c8d-7394-4b54-b26b-c4ec62209b2a",
+        "rentedAt": "2021-03-23T19:03:01Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "51eb4228-4270-4ce0-b587-97c647984e33",
+        "rentedAt": "2022-09-25T22:14:44Z",
+        "returnedAt": "2020-12-16T02:47:14Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "36785586-e61a-449b-b996-e5867d477b6e",
+        "rentedAt": "2023-04-19T17:42:52Z",
+        "returnedAt": "2022-01-29T21:19:44Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "2a201533-047e-40db-bb81-696de04274f0",
+        "rentedAt": "2022-11-27T04:36:10Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 1,
+        "mediaId": "ba6641d9-c6b8-49b3-9bab-8dd0b116e6b9",
+        "rentedAt": "2020-07-12T11:52:46Z",
+        "returnedAt": "2023-07-05T04:44:44Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "b4a75715-bf3b-4367-80f4-763c5900b93d",
+        "rentedAt": "2023-06-04T15:47:06Z",
+        "returnedAt": "2021-03-07T13:53:18Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "3d33b1aa-6234-4e43-8216-536ad7a59dfb",
+        "rentedAt": "2020-10-12T03:49:17Z",
+        "returnedAt": "2021-05-28T07:43:39Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "d90da38c-a672-4a6e-86ef-26c450d3b8cc",
+        "rentedAt": "2020-08-19T23:03:47Z",
+        "returnedAt": "2021-07-16T02:13:23Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "43c8ff62-2eda-4223-80d9-95aa26be8a21",
+        "rentedAt": "2020-10-07T02:45:38Z",
+        "returnedAt": "2023-05-10T20:15:31Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "d863901b-34c7-4d8c-9b0e-130d7c72ceaa",
+        "rentedAt": "2023-10-16T00:22:07Z",
+        "returnedAt": "2020-03-03T18:26:15Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "ec0aba3a-ff9f-4794-a9da-bb0768c0a0f4",
+        "rentedAt": "2022-03-12T16:20:39Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "db476c6b-9333-434b-b0cd-3fd84fbd0468",
+        "rentedAt": "2021-04-26T11:26:25Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 19,
+        "mediaId": "607941fa-a690-494c-bdbd-a33ce3fee77b",
+        "rentedAt": "2021-01-30T01:07:34Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "41a482ea-1cbe-40b5-9099-c20978023213",
+        "rentedAt": "2021-01-26T18:19:21Z",
+        "returnedAt": "2021-11-22T23:56:04Z"
+    },
+    {
+        "userId": 17,
+        "mediaId": "68e46702-c45e-4312-89d5-70f8605a39ab",
+        "rentedAt": "2020-06-02T11:24:38Z",
+        "returnedAt": "2021-11-20T06:34:27Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "4f7d0e70-2674-4229-a612-d8dd8509f147",
+        "rentedAt": "2023-09-10T20:29:26Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "d40d01fe-616c-48c0-8a03-602d0619bfb8",
+        "rentedAt": "2023-04-02T20:09:22Z",
+        "returnedAt": "2023-10-10T20:16:42Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "ad2f10d6-39f0-4cd9-9169-77092ed3280a",
+        "rentedAt": "2023-05-03T01:58:40Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "4944ef32-819a-48f4-8d30-497f77991e92",
+        "rentedAt": "2023-03-01T02:52:21Z",
+        "returnedAt": "2022-06-13T03:17:11Z"
+    },
+    {
+        "userId": 16,
+        "mediaId": "09bd810e-4e47-47dd-9eb8-2e8673297e33",
+        "rentedAt": "2021-12-05T08:19:35Z",
+        "returnedAt": "2022-04-05T00:23:20Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "00771388-7f02-41ca-a149-28005916b859",
+        "rentedAt": "2020-10-01T03:45:11Z",
+        "returnedAt": "2020-10-09T14:37:42Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "7674995d-e12c-495f-8465-92e366ee4e7d",
+        "rentedAt": "2020-05-20T04:04:50Z",
+        "returnedAt": "2020-12-30T20:11:14Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "0accf788-bc2e-4159-9ee9-5444d4874fc8",
+        "rentedAt": "2020-12-31T15:23:15Z",
+        "returnedAt": "2021-09-30T23:31:25Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "6ef99d80-b97d-4f28-8a8e-f047d9ac4d42",
+        "rentedAt": "2023-09-02T08:28:33Z",
+        "returnedAt": "2022-04-30T18:35:27Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "84bd29ed-630b-4366-8916-ec04f37770b7",
+        "rentedAt": "2021-05-10T16:05:09Z",
+        "returnedAt": "2023-04-12T01:46:38Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "67666ae4-0d0e-4ca7-a31a-2875f59fde89",
+        "rentedAt": "2020-07-12T06:27:29Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "7d817fa9-de30-4977-ab23-43de7a3a0a5a",
+        "rentedAt": "2020-09-16T16:10:44Z",
+        "returnedAt": "2021-06-15T03:47:19Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "54986828-1110-4bc9-ba26-d283dc938d96",
+        "rentedAt": "2020-06-06T13:24:35Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "99f62edb-c6ec-43eb-aaa0-c6ac7ed46dcd",
+        "rentedAt": "2020-08-29T15:56:31Z",
+        "returnedAt": "2022-05-19T15:04:50Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "daafed8e-5ec4-40fb-952f-b46736c23be4",
+        "rentedAt": "2021-11-20T06:37:30Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "a513769f-e904-4738-99f8-ebd815ba1c14",
+        "rentedAt": "2020-12-08T14:44:06Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "7426dcd0-af47-4dc1-ad14-1657012e99a8",
+        "rentedAt": "2022-11-18T00:24:12Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "615b9491-c353-4a1c-b144-a5b4694e559b",
+        "rentedAt": "2021-01-28T18:16:01Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "ba815c23-e299-489c-8f73-bf0f02d835e9",
+        "rentedAt": "2022-08-19T09:35:52Z",
+        "returnedAt": "2022-05-30T14:25:32Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "809d88a0-c7c8-4c99-b8ed-54c14ab8988e",
+        "rentedAt": "2020-09-13T00:52:13Z",
+        "returnedAt": "2022-04-25T08:39:01Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "78fe0b3b-c62d-494f-bb7a-34a419228c7f",
+        "rentedAt": "2021-08-04T17:47:54Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "0b3457b5-5e79-405c-96a0-6a4f57717ab5",
+        "rentedAt": "2022-02-19T00:36:41Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 4,
+        "mediaId": "f26d88cd-2bc7-415d-b3d4-e33bb04cb1a1",
+        "rentedAt": "2023-08-04T04:00:32Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "d106e17e-9c26-47de-a4e3-133082b864ac",
+        "rentedAt": "2021-02-18T15:53:09Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "34ec6450-d55e-42ae-aa41-2c58ab7986b1",
+        "rentedAt": "2021-07-08T03:51:30Z",
+        "returnedAt": "2020-03-31T09:17:51Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "289a4487-08ff-4c0c-ad68-b5156d17fc1f",
+        "rentedAt": "2021-08-07T14:30:45Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "f926a5d0-74f5-454d-a0a4-b88a273cb1de",
+        "rentedAt": "2021-04-16T09:11:36Z",
+        "returnedAt": "2021-10-13T09:53:29Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "cd29103a-a3ff-4e9f-bab9-5e9058f0851d",
+        "rentedAt": "2023-01-29T01:15:08Z",
+        "returnedAt": "2020-11-28T22:21:31Z"
+    },
+    {
+        "userId": 17,
+        "mediaId": "8b91414d-3373-45bc-b259-bc664b9091d0",
+        "rentedAt": "2021-04-13T11:53:21Z",
+        "returnedAt": "2023-01-15T11:42:28Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "9f02bada-f09f-48f1-b2d4-3f5dc316e62a",
+        "rentedAt": "2021-01-01T21:14:30Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "c6baa022-3b67-443d-b0ca-bab1c6160a62",
+        "rentedAt": "2020-10-14T18:07:10Z",
+        "returnedAt": "2023-05-04T16:47:07Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "817fc331-ee8b-458a-96e8-83dc674093f7",
+        "rentedAt": "2020-12-18T17:10:43Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 1,
+        "mediaId": "689490b5-f4ae-4e6a-ad9e-2fbe94aeb93c",
+        "rentedAt": "2023-01-19T19:17:49Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "d469e06e-c53f-475d-a05f-6b0d37e1bfd4",
+        "rentedAt": "2023-01-16T22:46:50Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 7,
+        "mediaId": "64c05b92-8211-4dc1-8b91-bd347708c560",
+        "rentedAt": "2021-07-30T03:55:35Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 19,
+        "mediaId": "aaf7f962-5453-43e8-9853-b4cb5d4f5cdf",
+        "rentedAt": "2021-01-28T19:43:27Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 1,
+        "mediaId": "3a82dfe1-5f21-4339-a121-6979decc93cc",
+        "rentedAt": "2022-04-16T00:22:22Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "2e5c6892-249c-4839-a928-79cd7ba38311",
+        "rentedAt": "2021-08-16T06:42:37Z",
+        "returnedAt": "2020-05-01T19:52:56Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "f0ae4767-4d32-43fb-91e7-e5e59944e2a3",
+        "rentedAt": "2022-05-15T09:17:27Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 18,
+        "mediaId": "9b8f9bf4-9ad3-4217-96d6-a57fda2983fb",
+        "rentedAt": "2023-10-14T14:32:37Z",
+        "returnedAt": "2022-04-27T23:39:25Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "0b047d99-93ef-4287-b7b8-22ef41c099c5",
+        "rentedAt": "2021-03-08T02:04:52Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "bef03aae-bfa5-4392-8d16-96c58ae12b0e",
+        "rentedAt": "2023-06-23T09:50:50Z",
+        "returnedAt": "2020-05-21T11:36:22Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "62249593-da23-4b6b-ae1f-4ef68be4e046",
+        "rentedAt": "2022-06-22T08:02:01Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 3,
+        "mediaId": "609c32e9-a905-4723-95fb-0009d7de022a",
+        "rentedAt": "2022-07-23T14:19:01Z",
+        "returnedAt": "2020-04-04T22:17:27Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "804bd870-c77a-48f9-8c04-96147f67c22b",
+        "rentedAt": "2021-09-21T15:38:54Z",
+        "returnedAt": "2022-11-06T19:17:39Z"
+    },
+    {
+        "userId": 14,
+        "mediaId": "2f0b1a75-9c06-4026-b4cb-76838f0662cf",
+        "rentedAt": "2021-07-21T15:11:07Z",
+        "returnedAt": "2022-06-17T17:31:12Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "0fb9b40f-4658-4231-80a7-a71e884f2f2f",
+        "rentedAt": "2022-05-13T21:06:42Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 3,
+        "mediaId": "f5b6645a-ed96-44b8-afa0-fe55fe3805d8",
+        "rentedAt": "2021-05-23T10:29:33Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "39c20e6f-30d5-4c3e-9153-faca4750bb70",
+        "rentedAt": "2022-12-17T21:07:56Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "9a6a115a-dd0c-4ac4-85e5-48e676b3a6a4",
+        "rentedAt": "2020-11-20T22:25:39Z",
+        "returnedAt": "2021-06-11T17:32:14Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "50b02560-0809-44bc-b457-932fef8d98a9",
+        "rentedAt": "2023-08-22T03:28:49Z",
+        "returnedAt": "2021-06-05T19:08:56Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "55c4ad28-f1d1-4b64-90f4-0b4a28e3dbae",
+        "rentedAt": "2020-05-09T23:36:07Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "e6c6d6fd-0b54-409b-a3b4-07cbad976c08",
+        "rentedAt": "2023-02-28T17:28:55Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 10,
+        "mediaId": "aca048af-5a80-4a87-bdad-3bab0d414be4",
+        "rentedAt": "2023-04-18T14:56:34Z",
+        "returnedAt": "2021-06-16T20:35:35Z"
+    },
+    {
+        "userId": 17,
+        "mediaId": "3119a6d2-2379-4982-b2a4-53ae97c7817f",
+        "rentedAt": "2020-08-11T01:08:02Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "e96f2f24-11ca-4a39-a84f-eb988b9c045a",
+        "rentedAt": "2023-04-27T16:10:41Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "4b211840-3d1d-4bce-b289-c3904129f66f",
+        "rentedAt": "2022-12-26T11:48:42Z",
+        "returnedAt": "2022-09-23T23:42:12Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "b0f7d388-fd46-48a3-a07a-e7161fa567bb",
+        "rentedAt": "2022-05-23T18:41:47Z",
+        "returnedAt": "2021-05-18T21:34:57Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "4a44fc67-a432-40e0-ae95-78f94440f7ef",
+        "rentedAt": "2022-01-18T15:57:32Z",
+        "returnedAt": "2021-09-17T21:06:19Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "e7c0cc4d-4cb4-4a10-b976-5051890a1119",
+        "rentedAt": "2020-05-07T19:35:10Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 15,
+        "mediaId": "0f5f3a1f-a754-4dbd-8b8e-03fc548e3e80",
+        "rentedAt": "2021-08-28T06:53:17Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "dface2eb-e682-4dfe-a3d4-ae08320e8756",
+        "rentedAt": "2023-09-04T13:29:40Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 19,
+        "mediaId": "b08d5a50-5c75-44dd-b52f-51b896274f26",
+        "rentedAt": "2020-01-08T23:27:55Z",
+        "returnedAt": "2023-08-07T07:52:49Z"
+    },
+    {
+        "userId": 8,
+        "mediaId": "a2709bf2-61ee-4120-b7e4-abca50d6bf33",
+        "rentedAt": "2021-01-16T07:32:12Z",
+        "returnedAt": "2021-01-08T21:14:06Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "ad5b4462-8ee7-4e9c-b5ec-ae3b823d59f6",
+        "rentedAt": "2023-01-21T21:03:24Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 15,
+        "mediaId": "fb356bf1-0868-406d-9910-b9679a3a0bc7",
+        "rentedAt": "2023-08-25T03:00:30Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 4,
+        "mediaId": "84529209-8ea1-431d-a953-66506599e82c",
+        "rentedAt": "2023-01-29T23:18:28Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "56deed40-7510-4530-b1a4-a47993bbd3f9",
+        "rentedAt": "2023-06-27T17:44:09Z",
+        "returnedAt": "2022-09-02T08:04:56Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "79d4dae2-3a51-432a-b45e-937d40a70520",
+        "rentedAt": "2022-09-22T07:24:39Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "48260824-cae7-4a53-a55b-bda9986f955a",
+        "rentedAt": "2021-03-18T19:44:13Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "aec08530-8f80-4476-8567-0bede3cbbd0f",
+        "rentedAt": "2020-11-15T02:34:20Z",
+        "returnedAt": "2023-06-03T14:48:41Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "277f4dd5-dbf1-44fc-af8d-968228e3333e",
+        "rentedAt": "2020-03-22T18:31:09Z",
+        "returnedAt": "2023-02-14T19:57:15Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "2a0b0916-b6b9-4262-8183-9c9e45fb1b69",
+        "rentedAt": "2022-08-09T18:57:15Z",
+        "returnedAt": "2022-01-29T03:30:12Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "a2715ff9-05b1-499d-aa1b-a11fc172c926",
+        "rentedAt": "2021-01-13T11:15:35Z",
+        "returnedAt": "2023-02-25T22:14:18Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "5236c213-326a-4010-9d3a-9a9f0296c2dc",
+        "rentedAt": "2020-03-12T14:49:18Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "eb236bf2-ad21-42be-9415-3b6c646007f2",
+        "rentedAt": "2021-08-03T23:53:20Z",
+        "returnedAt": "2020-12-24T15:58:35Z"
+    },
+    {
+        "userId": 20,
+        "mediaId": "9b8984a1-4ce2-4e17-8740-bb6ebd0f0c8f",
+        "rentedAt": "2022-01-22T09:01:15Z",
+        "returnedAt": "2023-02-12T04:51:34Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "cb4f73c3-bb91-4433-b9eb-cc7478676003",
+        "rentedAt": "2022-06-19T02:43:44Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 5,
+        "mediaId": "69f207f9-a098-400c-a120-8e01397c964d",
+        "rentedAt": "2021-04-19T11:48:25Z",
+        "returnedAt": "2022-02-16T05:28:08Z"
+    },
+    {
+        "userId": 9,
+        "mediaId": "5bf41a34-ae38-495b-a5e6-d678a7b99ccc",
+        "rentedAt": "2020-07-24T20:07:58Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "deb6c646-ae37-4b3d-b9cb-adb95836c4b7",
+        "rentedAt": "2021-02-12T22:24:13Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "9b8984a1-4ce2-4e17-8740-bb6ebd0f0c8f",
+        "rentedAt": "2022-10-03T16:19:20Z",
+        "returnedAt": "2020-12-12T22:09:37Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "37f6b191-08b2-4c15-a14d-ea6f82addaca",
+        "rentedAt": "2022-01-26T19:49:37Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 1,
+        "mediaId": "4e13f9c7-bcbf-4a78-a718-b709ef0925c1",
+        "rentedAt": "2020-01-09T18:59:32Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 17,
+        "mediaId": "00da405f-6b71-4b3d-a6e5-10729d5a913e",
+        "rentedAt": "2022-05-30T18:07:52Z",
+        "returnedAt": "2023-09-23T17:12:16Z"
+    },
+    {
+        "userId": 11,
+        "mediaId": "45ac4484-dce6-433b-b882-7074402550a7",
+        "rentedAt": "2021-01-07T23:45:01Z",
+        "returnedAt": "2021-01-01T16:48:41Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "8c2c4be9-0fb2-481f-9f0d-5426f9e8d740",
+        "rentedAt": "2020-06-15T17:48:47Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "18c626b8-1bf5-4cac-9016-3d08aeb86fe6",
+        "rentedAt": "2020-07-22T02:13:48Z",
+        "returnedAt": "2020-07-28T18:50:31Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "ecf7bcac-4af5-44bf-85cb-5db55870b083",
+        "rentedAt": "2021-08-04T16:04:28Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "5b1004d5-ea7a-4879-96f5-a4c95ad8e882",
+        "rentedAt": "2021-07-14T10:30:03Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "5b2a4a49-533e-444e-a29b-33da7502b0e7",
+        "rentedAt": "2023-02-14T20:20:19Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 6,
+        "mediaId": "52f6ef84-b4dc-4bb2-9e96-fa08811de8d8",
+        "rentedAt": "2021-01-23T19:59:49Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 20,
+        "mediaId": "f2a2b1fc-9ca0-4085-ab35-27ac94b840cc",
+        "rentedAt": "2022-08-31T12:45:47Z",
+        "returnedAt": "2021-01-04T04:40:54Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "7dedfd7e-dddc-434a-acb5-04ffe62f6131",
+        "rentedAt": "2020-04-06T15:04:00Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 16,
+        "mediaId": "ef82649e-7aa9-4696-a31d-d515d70f0dd9",
+        "rentedAt": "2020-05-10T18:06:56Z",
+        "returnedAt": "2021-01-25T06:29:09Z"
+    },
+    {
+        "userId": 18,
+        "mediaId": "58f3b369-f49f-4e41-9a7d-cd485a650a63",
+        "rentedAt": "2022-03-06T18:12:24Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "bfb0ca18-b3c3-43fc-a1d7-8f383a0217e1",
+        "rentedAt": "2023-07-04T20:21:05Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 10,
+        "mediaId": "fed838a7-340f-4eb2-9de8-8110d1b0b5f0",
+        "rentedAt": "2023-07-26T21:50:20Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 8,
+        "mediaId": "e96f2f24-11ca-4a39-a84f-eb988b9c045a",
+        "rentedAt": "2022-09-14T05:38:08Z",
+        "returnedAt": "2021-04-29T22:13:29Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "48a68be5-f658-41f0-86b0-e1c623303e35",
+        "rentedAt": "2020-01-23T15:32:42Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 2,
+        "mediaId": "13c8a23a-a294-4680-9a6f-ecb35790a1b1",
+        "rentedAt": "2023-08-04T16:04:10Z",
+        "returnedAt": "2022-06-19T01:42:03Z"
+    },
+    {
+        "userId": 13,
+        "mediaId": "15a833e8-38a2-444d-b5c4-c5801d31b4fe",
+        "rentedAt": "2022-02-17T10:31:27Z",
+        "returnedAt": "2020-02-23T02:26:23Z"
+    },
+    {
+        "userId": 16,
+        "mediaId": "c29d2751-da90-4f29-9856-51a1ae4f7d50",
+        "rentedAt": "2020-10-20T04:43:18Z",
+        "returnedAt": "2021-09-09T10:52:11Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "e87ab1ce-68cd-4bf0-b388-bb42cbc96981",
+        "rentedAt": "2023-06-06T09:01:45Z",
+        "returnedAt": "2021-09-24T11:18:13Z"
+    },
+    {
+        "userId": 1,
+        "mediaId": "b2805892-a522-4ddd-823f-50a97779dc66",
+        "rentedAt": "2023-02-07T15:36:26Z",
+        "returnedAt": "2021-01-06T01:12:01Z"
+    },
+    {
+        "userId": 20,
+        "mediaId": "4ed9a6fe-38ce-4606-93a6-21c2bb27936e",
+        "rentedAt": "2021-01-09T03:47:33Z",
+        "returnedAt": "2022-09-11T22:42:27Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "1daf5fa9-8ca7-4285-b70d-55d98d660bd5",
+        "rentedAt": "2020-04-21T12:20:57Z",
+        "returnedAt": "2022-07-29T22:23:39Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "6a791358-f953-4620-8354-dd346671c7a9",
+        "rentedAt": "2020-09-14T12:26:18Z",
+        "returnedAt": "2021-07-05T22:13:34Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "82f360c2-f5c6-445d-910d-0a7b9583914d",
+        "rentedAt": "2021-05-16T12:21:28Z",
+        "returnedAt": "2022-07-22T22:54:15Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "f66aa44e-3da1-4b16-b820-636413b05c92",
+        "rentedAt": "2021-03-01T08:42:08Z",
+        "returnedAt": "2022-06-28T04:24:58Z"
+    },
+    {
+        "userId": 10,
+        "mediaId": "deff037c-ef29-4e6c-8d9c-2fd142b080ba",
+        "rentedAt": "2020-04-02T19:44:47Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 9,
+        "mediaId": "4dafd1d7-4b85-4408-a26b-61518420b4e1",
+        "rentedAt": "2020-07-29T09:13:56Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 8,
+        "mediaId": "965e40a3-5b58-49b2-83d6-6a06864fa41a",
+        "rentedAt": "2020-04-10T23:11:30Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 8,
+        "mediaId": "fe3e1da9-2833-4856-841e-b1d9b45e3346",
+        "rentedAt": "2023-09-18T00:20:54Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 13,
+        "mediaId": "27dfefee-8f8e-442a-b76b-b10abc10b13d",
+        "rentedAt": "2022-04-26T12:44:33Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 8,
+        "mediaId": "48260824-cae7-4a53-a55b-bda9986f955a",
+        "rentedAt": "2022-08-28T15:40:37Z",
+        "returnedAt": "2022-01-19T11:20:00Z"
+    },
+    {
+        "userId": 19,
+        "mediaId": "a72e62a2-9777-4cfc-977a-871a24e749b2",
+        "rentedAt": "2020-11-12T14:46:27Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 15,
+        "mediaId": "2b4106d5-b3bc-4539-a6a8-3e201bf6b967",
+        "rentedAt": "2020-06-13T14:02:28Z",
+        "returnedAt": "2020-09-20T08:23:14Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "15654912-073b-4faa-bfac-88aacd3b5668",
+        "rentedAt": "2021-09-03T19:12:40Z",
+        "returnedAt": "2022-08-31T20:18:07Z"
+    },
+    {
+        "userId": 20,
+        "mediaId": "71943f1a-360f-4920-b2de-d278a831c179",
+        "rentedAt": "2021-10-13T14:16:27Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 14,
+        "mediaId": "c19fb765-0c11-47c0-a5ac-493d6414e5f5",
+        "rentedAt": "2020-03-06T15:35:39Z",
+        "returnedAt": "2021-09-05T05:42:56Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "f0b9a1a5-aaba-44f1-ac86-517689142d12",
+        "rentedAt": "2021-05-05T17:21:01Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 11,
+        "mediaId": "1e7caf48-2e2d-4055-8034-d2ab5e29d862",
+        "rentedAt": "2021-08-20T15:55:02Z",
+        "returnedAt": "2021-10-29T02:41:26Z"
+    },
+    {
+        "userId": 20,
+        "mediaId": "6b238b7a-eba1-44bd-9288-fffc8bbf1c10",
+        "rentedAt": "2022-11-22T14:27:32Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 10,
+        "mediaId": "3470ee61-75f5-433f-87e2-db183b8e9f9b",
+        "rentedAt": "2020-10-02T22:39:52Z",
+        "returnedAt": "2023-05-28T01:45:46Z"
+    },
+    {
+        "userId": 15,
+        "mediaId": "abbac648-6563-4bda-8237-df3e05d966c4",
+        "rentedAt": "2021-03-04T08:38:36Z",
+        "returnedAt": "2022-05-11T06:22:17Z"
+    },
+    {
+        "userId": 4,
+        "mediaId": "4b750565-263f-44d0-b4c8-3e39684b91fd",
+        "rentedAt": "2022-07-26T18:28:32Z",
+        "returnedAt": "2020-04-21T00:44:51Z"
+    },
+    {
+        "userId": 6,
+        "mediaId": "fb356bf1-0868-406d-9910-b9679a3a0bc7",
+        "rentedAt": "2022-05-28T06:29:17Z",
+        "returnedAt": null
+    },
+    {
+        "userId": 15,
+        "mediaId": "bd2c9591-725a-43d0-908e-b89feb2213a8",
+        "rentedAt": "2020-05-23T12:55:27Z",
+        "returnedAt": "2020-07-17T06:15:08Z"
+    },
+    {
+        "userId": 12,
+        "mediaId": "d643fea2-c366-49c2-9040-c2fcf9cb8143",
+        "rentedAt": "2023-03-02T08:46:24Z",
+        "returnedAt": "2022-11-18T09:14:47Z"
+    },
+    {
+        "userId": 2,
+        "mediaId": "d52079d8-046d-4116-9e50-c1a917553e10",
+        "rentedAt": "2021-04-08T01:47:43Z",
+        "returnedAt": "2022-02-19T00:50:11Z"
+    },
+    {
+        "userId": 3,
+        "mediaId": "6a3c0e8a-a721-436e-9a41-5502a3b6eb2c",
+        "rentedAt": "2021-09-18T02:22:01Z",
+        "returnedAt": "2022-11-24T12:04:07Z"
+    },
+    {
+        "userId": 7,
+        "mediaId": "a6733a6f-6ee5-4342-bbbf-af52138d3c21",
+        "rentedAt": "2021-04-07T12:20:08Z",
+        "returnedAt": "2022-03-03T15:10:36Z"
     }
 ]
