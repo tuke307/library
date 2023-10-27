@@ -26,7 +26,7 @@ export default function ReturnMediaTable({
 }) {
   const [page, setPage] = React.useState(1);
   const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
-    column: "status",
+    column: "returnedAt",
     direction: "descending",
   });
 
@@ -90,7 +90,7 @@ export default function ReturnMediaTable({
         onSortChange={setSortDescriptor}
       >
         <TableHeader>
-          <TableColumn key="title" allowsSorting>
+          <TableColumn key="mediaTitle" allowsSorting>
             Titel
           </TableColumn>
           <TableColumn key="mediaId" allowsSorting>
@@ -99,28 +99,28 @@ export default function ReturnMediaTable({
           <TableColumn key="rentedAt" allowsSorting>
             Ausgeliehen am
           </TableColumn>
-          <TableColumn key="status" allowsSorting>
-            Status
+          <TableColumn key="returnedAt" allowsSorting>
+            Zurückgegeben am
           </TableColumn>
           <TableColumn key="action">Aktion</TableColumn>
         </TableHeader>
         <TableBody emptyContent={"keine ausgeliehenen Medien gefunden."}>
           {sortedItems.map((item) => (
             <TableRow key={item.id}>
-              <TableCell>{item.mediaTitle}</TableCell>
-              <TableCell>{item.mediaId}</TableCell>
-              <TableCell>{item.rentedAt.toLocaleDateString()}</TableCell>
+              <TableCell>{getKeyValue(item, "mediaTitle")}</TableCell>
+              <TableCell>{getKeyValue(item, "mediaId")}</TableCell>
+              <TableCell>{getKeyValue(item, "rentedAt").toLocaleDateString()}</TableCell>
               <TableCell>
-                {item.returnedAt
-                  ? item.returnedAt.toLocaleDateString()
-                  : "Nicht zurückgegeben"}
+                {getKeyValue(item, "returnedAt")
+                  ? getKeyValue(item, "returnedAt").toLocaleDateString()
+                  : "-"}
               </TableCell>
               <TableCell>
-                {item.returnedAt ? (
-                  "-"
-                ) : (
+                {getKeyValue(item, "returnedAt") 
+                ? "-"
+                : (
                   <Button
-                    onPress={() => updateRentedMedia(item.id)}
+                    onPress={() => updateRentedMedia(getKeyValue(item, "id"))}
                     color="primary"
                     variant="flat"
                   >
