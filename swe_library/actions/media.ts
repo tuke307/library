@@ -162,3 +162,17 @@ export async function updateMedia(id: string, title: string, content: string): P
 
   return media;
 }
+
+export async function deleteMedia(id: string): Promise<Boolean> {
+  try {
+    await prisma.media.delete({
+      where: {
+        id: id,
+      },
+    });
+    return true;
+  } catch (err) {
+    //console.log(err);
+    return false;
+  }
+}

@@ -14,15 +14,17 @@ import React from "react";
 import { MediaDetails } from "@/models/mediaDetails";
 import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
 import { useSession } from "next-auth/react";
-import { AiFillEdit, AiOutlineSave, AiOutlineClose } from "react-icons/ai";
-import { updateMedia } from "@/actions/media";
+import { AiOutlineEdit, AiOutlineSave, AiOutlineClose, AiOutlineDelete } from "react-icons/ai";
+import { deleteMedia, updateMedia } from "@/actions/media";
 import { revalidatePath } from "next/cache";
+import { useRouter } from "next/navigation";
 
 export default function MediaDetailsPage({
   mediaDetails,
 }: {
   mediaDetails: MediaDetails;
 }) {
+  const router = useRouter();
   const { data: session } = useSession();
   const [editable, setEditable] = React.useState(false);
   const [formData, setFormData] = React.useState({
@@ -59,7 +61,7 @@ export default function MediaDetailsPage({
     };
 
     return session ? (
-      <div className="flex gap-3">
+      <div className="flex gap-3 justify-end">
         {editable ? (
           <>
             <Button
@@ -70,6 +72,7 @@ export default function MediaDetailsPage({
             >
               Speichern
             </Button>
+
             <Button
               color="danger"
               variant="flat"
@@ -80,207 +83,222 @@ export default function MediaDetailsPage({
             </Button>
           </>
         ) : (
-          <Button
-            color="primary"
-            variant="flat"
-            startContent={<AiFillEdit />}
-            onClick={() => setEditable(true)}
-          >
-            Bearbeiten
-          </Button>
+          <>
+            <Button
+              color="danger"
+              variant="flat"
+              startContent={<AiOutlineEdit />}
+              onClick={() => setEditable(true)}
+            >
+              Bearbeiten
+            </Button>
+
+            <Button
+              color="primary"
+              variant="flat"
+              startContent={<AiOutlineDelete />}
+              onClick={() =>
+                deleteMedia(formData.id).then(() => router.back())
+              }
+            >
+              Löschen
+            </Button>
+          </>
         )}
       </div>
     ) : null;
   }
 
   return (
-    <section className="grid grid-cols-2 grid-rows-3 gap-3">
-      <Card shadow="md" className="row-span-3">
-        <CardHeader className="flex justify-between gap-3">
-          <div className="flex gap-3">
-            <h1 className="text-3xl">Medium</h1>
-            <Chip startContent={mediaTypeIcon} variant="flat" color="default">
-              {mediaDetails.mediaType}
-            </Chip>
-            <Chip
-              variant="flat"
-              color={mediaDetails.published ? "success" : "warning"}
-            >
-              {mediaDetails.published
-                ? "Veröffentlicht"
-                : "Nicht veröffentlicht"}
-            </Chip>
-          </div>
+    <section className="flex flex-col gap-3">
+      <div className="grid grid-cols-2 grid-rows-3 gap-3">
+        <Card shadow="md" className="row-span-3">
+          <CardHeader className="flex justify-between gap-3">
+            <div className="flex gap-3">
+              <h1 className="text-3xl">Medium</h1>
+              <Chip startContent={mediaTypeIcon} variant="flat" color="default">
+                {mediaDetails.mediaType}
+              </Chip>
+              <Chip
+                variant="flat"
+                color={mediaDetails.published ? "success" : "warning"}
+              >
+                {mediaDetails.published
+                  ? "Veröffentlicht"
+                  : "Nicht veröffentlicht"}
+              </Chip>
+            </div>
+          </CardHeader>
+          <Divider />
+          <CardBody>
+            <Input
+              isReadOnly={!editable}
+              type="text"
+              label="Titel"
+              name="title"
+              variant="bordered"
+              className="max-w"
+              onChange={handleChange}
+              value={formData.title}
+            />
 
-          <EditButton />
-        </CardHeader>
-        <Divider />
-        <CardBody>
-          <Input
-            isReadOnly={!editable}
-            type="text"
-            label="Titel"
-            name="title"
-            variant="bordered"
-            className="max-w"
-            onChange={handleChange}
-            value={formData.title}
-          />
+            <Spacer y={2} />
 
-          <Spacer y={2} />
+            <Textarea
+              isReadOnly={!editable}
+              type="text"
+              label="Inhaltsausschnitt"
+              name="content"
+              variant="bordered"
+              className="max-w"
+              onChange={handleChange}
+              value={formData.content ?? ""}
+            />
 
-          <Textarea
-            isReadOnly={!editable}
-            type="text"
-            label="Inhaltsausschnitt"
-            name="content"
-            variant="bordered"
-            className="max-w"
-            onChange={handleChange}
-            value={formData.content ?? ""}
-          />
+            <Spacer y={7} />
 
-          <Spacer y={7} />
-
-          <Input
-            isReadOnly
-            type="text"
-            label="ISBN"
-            variant="bordered"
-            className="max-w"
-            value={formData.ISBN ?? ""}
-          />
-
-          <Spacer y={3} />
-
-          <div className="grid grid-cols-2 gap-2">
             <Input
               isReadOnly
               type="text"
-              label="hinzugefügt am"
+              label="ISBN"
+              variant="bordered"
+              className="max-w"
+              value={formData.ISBN ?? ""}
+            />
+
+            <Spacer y={3} />
+
+            <div className="grid grid-cols-2 gap-2">
+              <Input
+                isReadOnly
+                type="text"
+                label="hinzugefügt am"
+                variant="bordered"
+                className="max-w"
+                value={
+                  (
+                    formData.createdAt.getDay() +
+                    "." +
+                    formData.createdAt.getMonth() +
+                    "." +
+                    formData.createdAt.getFullYear()
+                  ).toString() ?? ""
+                }
+              />
+              <Input
+                isReadOnly
+                type="text"
+                label="letztes Update"
+                variant="bordered"
+                className="max-w"
+                value={
+                  (
+                    formData.updatedAt.getDay() +
+                    "." +
+                    formData.updatedAt.getMonth() +
+                    "." +
+                    formData.updatedAt.getFullYear()
+                  ).toString() ?? ""
+                }
+              />
+            </div>
+          </CardBody>
+        </Card>
+
+        <Card shadow="md" className="row-span-2">
+          <CardHeader className="flex gap-3">
+            <h1 className="text-3xl">Author</h1>
+          </CardHeader>
+          <Divider />
+          <CardBody>
+            <div className="grid grid-cols-2 gap-2">
+              <Input
+                isReadOnly
+                type="text"
+                label="Nachname"
+                variant="bordered"
+                className="max-w"
+                value={formData.author.lastName}
+              />
+              <Input
+                isReadOnly
+                type="text"
+                label="Vorname"
+                variant="bordered"
+                className="max-w"
+                value={formData.author.firstName}
+              />
+            </div>
+
+            <Spacer y={5} />
+
+            <Input
+              isReadOnly
+              type="email"
+              label="Email"
+              variant="bordered"
+              className="max-w"
+              value={formData.author.email ?? ""}
+            />
+
+            <Spacer y={3} />
+
+            <Input
+              isReadOnly
+              type="text"
+              label="Geburtsdatum"
               variant="bordered"
               className="max-w"
               value={
                 (
-                  formData.createdAt.getDay() +
+                  formData.author.birthday?.getDay() +
                   "." +
-                  formData.createdAt.getMonth() +
+                  formData.author.birthday?.getMonth() +
                   "." +
-                  formData.createdAt.getFullYear()
+                  formData.author.birthday?.getFullYear()
                 ).toString() ?? ""
               }
             />
-            <Input
-              isReadOnly
-              type="text"
-              label="letztes Update"
-              variant="bordered"
-              className="max-w"
-              value={
-                (
-                  formData.updatedAt.getDay() +
-                  "." +
-                  formData.updatedAt.getMonth() +
-                  "." +
-                  formData.updatedAt.getFullYear()
-                ).toString() ?? ""
-              }
-            />
-          </div>
-        </CardBody>
-      </Card>
+          </CardBody>
+        </Card>
 
-      <Card shadow="md" className="row-span-2">
-        <CardHeader className="flex gap-3">
-          <h1 className="text-3xl">Author</h1>
-        </CardHeader>
-        <Divider />
-        <CardBody>
-          <div className="grid grid-cols-2 gap-2">
-            <Input
-              isReadOnly
-              type="text"
-              label="Nachname"
-              variant="bordered"
-              className="max-w"
-              value={formData.author.lastName}
-            />
-            <Input
-              isReadOnly
-              type="text"
-              label="Vorname"
-              variant="bordered"
-              className="max-w"
-              value={formData.author.firstName}
-            />
-          </div>
+        <Card shadow="md">
+          <CardHeader className="flex gap-3">
+            <h1 className="text-3xl">Lokation</h1>
+          </CardHeader>
+          <Divider />
+          <CardBody>
+            <div className="grid grid-cols-3 gap-2">
+              <Input
+                isReadOnly
+                type="text"
+                label="Etage"
+                variant="bordered"
+                className="max-w"
+                value={formData.location?.floor.toString() ?? ""}
+              />
+              <Input
+                isReadOnly
+                type="text"
+                label="Regal"
+                variant="bordered"
+                className="max-w"
+                value={formData.location?.shelf.toString() ?? ""}
+              />
+              <Input
+                isReadOnly
+                type="text"
+                label="Regalabschnitt"
+                variant="bordered"
+                className="max-w"
+                value={formData.location?.shelfSection.toString() ?? ""}
+              />
+            </div>
+          </CardBody>
+        </Card>
+      </div>
 
-          <Spacer y={5} />
-
-          <Input
-            isReadOnly
-            type="email"
-            label="Email"
-            variant="bordered"
-            className="max-w"
-            value={formData.author.email ?? ""}
-          />
-
-          <Spacer y={3} />
-
-          <Input
-            isReadOnly
-            type="text"
-            label="Geburtsdatum"
-            variant="bordered"
-            className="max-w"
-            value={
-              (
-                formData.author.birthday?.getDay() +
-                "." +
-                formData.author.birthday?.getMonth() +
-                "." +
-                formData.author.birthday?.getFullYear()
-              ).toString() ?? ""
-            }
-          />
-        </CardBody>
-      </Card>
-
-      <Card shadow="md">
-        <CardHeader className="flex gap-3">
-          <h1 className="text-3xl">Lokation</h1>
-        </CardHeader>
-        <Divider />
-        <CardBody>
-          <div className="grid grid-cols-3 gap-2">
-            <Input
-              isReadOnly
-              type="text"
-              label="Etage"
-              variant="bordered"
-              className="max-w"
-              value={formData.location?.floor.toString() ?? ""}
-            />
-            <Input
-              isReadOnly
-              type="text"
-              label="Regal"
-              variant="bordered"
-              className="max-w"
-              value={formData.location?.shelf.toString() ?? ""}
-            />
-            <Input
-              isReadOnly
-              type="text"
-              label="Regalabschnitt"
-              variant="bordered"
-              className="max-w"
-              value={formData.location?.shelfSection.toString() ?? ""}
-            />
-          </div>
-        </CardBody>
-      </Card>
+      <EditButton />
     </section>
   );
 }
