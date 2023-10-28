@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Medium zurückgeben",
 };
 
-export default function ReturnMediaLayout({
+export default function ReturnRentedMediaLayout({
   children,
 }: {
   children: React.ReactNode;

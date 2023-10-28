@@ -54,7 +54,7 @@ export default async function EmployeeCards() {
             isPressable
             isHoverable
             className="h-[250px] w-[300px]"
-            onPress={() => router.push("/media/return")}
+            onPress={() => router.push("/rentedmedia/return")}
           >
             <CardBody className="">
               <RiArrowGoBackFill className="h-full w-full" />

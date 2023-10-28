@@ -38,7 +38,7 @@ export default async function UserCards() {
             isPressable
             isHoverable
             className="h-[250px] w-[300px]"
-            onPress={() => router.push("/media/rented")}
+            onPress={() => router.push("/rentedmedia")}
           >
             <CardBody className="">
               <ImBooks className="h-full w-full" />

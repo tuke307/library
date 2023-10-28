@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
+import { RentedMediaTableProp } from "@/models/rentedMediaTable";
 import InputForm from "./components/inputForm";
 import ReturnMediaTable from "./components/returnMediaTable";
-import { RentedMediaTableProp } from "@/models/rentedMediaTable";
 
 
-export default function ReturnMediaPage() {
+export default function ReturnRentedMediaPage() {
   const [rentedMediaData, setRentedMediaData] = React.useState<RentedMediaTableProp[]>([]);
 
   return (
