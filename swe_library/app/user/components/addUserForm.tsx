@@ -3,7 +3,7 @@ import React from "react";
 import { Card, CardBody, CardHeader, Divider, Input } from "@nextui-org/react";
 import { experimental_useFormState as useFormState } from "react-dom";
 import { createUser } from "@/actions/user";
-import { SubmitButton } from "./submitButton";
+import { SubmitButton } from "@/app/components/submitButton";
 
 const initialState = {
   message: null,
@@ -82,7 +82,7 @@ export default function AddUserForm() {
       </Card>
 
       <div>
-        <SubmitButton />
+        <SubmitButton text="Kunde erstellen"/>
 
         {/* sr-only: only for the browser, not seeable!  */}
         <p aria-live="polite" className="sr-only">

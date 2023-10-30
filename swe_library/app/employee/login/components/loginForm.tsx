@@ -5,6 +5,7 @@ import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import { SubmitButton } from "@/app/components/submitButton";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -31,8 +32,6 @@ export default function LoginForm() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    setLoading(true);
-
     const res = await signIn("credentials", {
       id: formData.id,
       password: formData.password,
@@ -52,7 +51,6 @@ export default function LoginForm() {
       formData.id = "";
       formData.password = "";
     }
-    setLoading(false);
   }
 
   return (
@@ -98,14 +96,8 @@ export default function LoginForm() {
         />
       </div>
 
-      <Button
-        type="submit"
-        isLoading={loading}
-        className="mt-10"
-        color="primary"
-      >
-        Login
-      </Button>
+      
+      <SubmitButton text="Login" />
       <p className="mb-4 text-center text-base text-red-500">{errorText}</p>
     </form>
   );
