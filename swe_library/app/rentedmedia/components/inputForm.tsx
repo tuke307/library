@@ -4,7 +4,7 @@ import { Input } from "@nextui-org/react";
 import { getRentedMediaByUserId } from "@/actions/rentedMedia";
 import { experimental_useFormState as useFormState } from "react-dom";
 import { RentedMediaTableProp } from "@/models/rentedMediaTable";
-import { LoginButton } from "./loginButton";
+import { SubmitButton } from "@/app/components/submitButton";
 
 type LoginFormProps = {
   onFetchSuccess: (data: RentedMediaTableProp[]) => void;
@@ -50,7 +50,8 @@ export default function InputForm({ onFetchSuccess }: LoginFormProps) {
           className="max-w-xs"
           onChange={handleChange}
         />
-        <LoginButton />
+        
+        <SubmitButton text="abrufen" />
       </div>
     </form>
   );
