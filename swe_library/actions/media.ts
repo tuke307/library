@@ -1,12 +1,12 @@
 "use server";
-import { Media, MediaType, PrismaClient } from "@prisma/client";
+import { Media, MediaType, PrismaClient, User } from "@prisma/client";
 import { revalidatePath } from "next/cache";
-import { MediaDetails } from "@/models/mediaDetails";
+import { MediaDetailProp } from "@/models/mediaDetails";
 import { MediaTableProp } from "@/models/mediaTable";
 
 const prisma = new PrismaClient();
 
-export async function createMedia(prevState: any, formData: FormData) {
+export async function createMedia(formData: FormData): Promise<Media | null> {
   try {
     const authorId = Number(formData.get("authorId"));
     const locationId = Number(formData.get("locationId"));
@@ -16,7 +16,7 @@ export async function createMedia(prevState: any, formData: FormData) {
 
     const media = await prisma.media.create({
       data: {
-        mediaType: formData.get("type") as MediaType,
+        mediaType: formData.get("mediaType") as MediaType,
         title: formData.get("title") as string,
         content: formData.get("content") as string,
         published: formData.get("published")
@@ -28,151 +28,204 @@ export async function createMedia(prevState: any, formData: FormData) {
       },
     });
     revalidatePath("/");
-    return { message: `Media with ID: ${media.id} successfully created.` };
+
+    return media;
   } catch (err) {
-    console.log(err);
-    return { message: "Error creating media!" };
+    //console.log(err);
+    return null;
   }
 }
 
 export async function getMediaDetails(
   id: string,
-): Promise<MediaDetails | null> {
-  const media = await prisma.media.findUnique({
-    where: {
-      id: id,
-    },
-    select: {
-      id: true,
-      title: true,
-      content: true,
-      mediaType: true,
-      createdAt: true,
-      updatedAt: true,
-      published: true,
-      ISBN: true,
-      authorId: true,
-      locationId: true,
-      author: {
-        select: {
-          id: true,
-          firstName: true,
-          lastName: true,
-          createdAt: true,
-          email: true,
-          birthday: true,
+): Promise<MediaDetailProp | null> {
+  try {
+    const media = await prisma.media.findUnique({
+      where: {
+        id: id,
+      },
+      select: {
+        id: true,
+        title: true,
+        content: true,
+        mediaType: true,
+        createdAt: true,
+        updatedAt: true,
+        published: true,
+        ISBN: true,
+        authorId: true,
+        locationId: true,
+        author: {
+          select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+            createdAt: true,
+            email: true,
+            birthday: true,
+          },
+        },
+        rentedBy: {
+          where: {
+            returnedAt: null,
+          },
+          select: {
+            id: true,
+            mediaId: true,
+            userId: true,
+            returnedAt: true,
+            rentedAt: true,
+            user: {
+              select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+              },
+            },
+          },
+        },
+        location: {
+          select: {
+            id: true,
+            floor: true,
+            shelf: true,
+            shelfSection: true,
+            createdAt: true,
+          },
         },
       },
-      rentedBy: {
-        where: {
-          returnedAt: null,
-        },
-        select: {
-          id: true,
-          mediaId: true,
-          userId: true,
-          returnedAt: true,
-          rentedAt: true,
-        },
-      },
-      location: {
-        select: {
-          id: true,
-          floor: true,
-          shelf: true,
-          shelfSection: true,
-          createdAt: true,
-        },
-      },
-    },
-  });
+    });
 
-  if (!media) {
+    if (media === null) {
+      return null;
+    }
+
+    const mediaDetails: MediaDetailProp = {
+      mediaId: media.id,
+      mediaTitle: media.title,
+      mediaMediaType: media.mediaType,
+      mediaContent: media.content!,
+      mediaPublished: media.published,
+      mediaISBN: media.ISBN!,
+      mediaCreatedAt: media.createdAt,
+      mediaUpdatedAt: media.updatedAt,
+
+      authorId: media.author.id,
+      authorFirstName: media.author.firstName,
+      authorLastName: media.author.lastName,
+      authorBirthday: media.author.birthday,
+      authorEmail: media.author.email,
+
+      locationId: media.location.id,
+      locationFloor: media.location.floor,
+      locationShelf: media.location.shelf,
+      locationShelfSection: media.location.shelfSection,
+
+      rentedMediaId:
+        media.rentedBy.length > 0 ? media.rentedBy[0].id : null,
+      rentedMediaMediaId:
+        media.rentedBy.length > 0 ? media.rentedBy[0].mediaId : null,
+      rentedMediaUserId:
+        media.rentedBy.length > 0 ? media.rentedBy[0].userId : null,
+      rentedMediaUserLastName:
+        media.rentedBy.length > 0 ? media.rentedBy[0].user.lastName : null,
+      rentedMediaUserFirstName:
+        media.rentedBy.length > 0 ? media.rentedBy[0].user.firstName : null,
+      rentedMediaRentedDate:
+        media.rentedBy.length > 0 ? media.rentedBy[0].rentedAt : null,
+      rentedMediaReturnDate:
+        media.rentedBy.length > 0 ? media.rentedBy[0].returnedAt : null,
+    };
+
+    return mediaDetails;
+  } catch (err) {
+    //console.log(err);
     return null;
   }
-
-  const mediaDetails: MediaDetails = {
-    ...media,
-    author: media.author,
-    rentedBy: media.rentedBy,
-    location: media.location,
-  };
-
-  return mediaDetails;
 }
 
 export async function getMediaTable(): Promise<MediaTableProp[] | null> {
-  const medias = await prisma.media.findMany({
-    select: {
-      id: true,
-      title: true,
-      author: {
-        select: {
-          firstName: true,
-          lastName: true,
+  try {
+    const medias = await prisma.media.findMany({
+      select: {
+        id: true,
+        title: true,
+        author: {
+          select: {
+            firstName: true,
+            lastName: true,
+          },
+        },
+        rentedBy: {
+          where: {
+            returnedAt: null,
+          },
+          select: {
+            id: true,
+          },
+        },
+        location: {
+          select: {
+            floor: true,
+            shelf: true,
+            shelfSection: true,
+          },
         },
       },
-      rentedBy: {
-        where: {
-          returnedAt: null,
-        },
-        select: {
-          id: true,
-        },
-      },
-      location: {
-        select: {
-          floor: true,
-          shelf: true,
-          shelfSection: true,
-        },
-      },
-    },
-  });
+    });
 
-  if (!medias) {
+    const mediaTableProps: MediaTableProp[] = medias.map((media) => ({
+      id: media.id,
+      title: media.title,
+      authorName: `${media.author.firstName} ${media.author.lastName}`,
+      rented: media.rentedBy.length > 0 ? true : false,
+      locationName: `${media.location.floor}-${media.location.shelf}-${media.location.shelfSection}`,
+    }));
+
+    return mediaTableProps;
+  } catch (err) {
+    //console.log(err);
     return null;
   }
-
-  const mediaTableProps: MediaTableProp[] = medias.map((media) => ({
-    id: media.id,
-    title: media.title,
-    authorName: `${media.author.firstName} ${media.author.lastName}`,
-    rented: media.rentedBy.length > 0 ? true : false,
-    locationName: `${media.location.floor}-${media.location.shelf}-${media.location.shelfSection}`,
-  }));
-
-  return mediaTableProps;
 }
 
-export async function updateMedia(id: string, title: string, content: string): Promise<Media> {
-  const media = await prisma.media.update({
-    where: {
-      id: id,
-    },
-    data: {
-      title: title,
-      content: content,
-    },
-  });
-
-  if (!media) {
-    throw new Error("Media not updated!");
-  }
-
-  return media;
-}
-
-export async function deleteMedia(id: string): Promise<Boolean> {
+export async function updateMedia(media: Media): Promise<Media | null> {
   try {
-    await prisma.media.delete({
+    const retMedia = await prisma.media.update({
+      where: {
+        id: media.id,
+      },
+      data: {
+        mediaType: media.mediaType,
+        title: media.title,
+        content: media.content,
+        published: media.published,
+        ISBN: media.ISBN,
+        authorId: media.authorId,
+        locationId: media.locationId,
+        updatedAt: new Date(),
+      },
+    });
+
+    return retMedia;
+  } catch (err) {
+    //console.log(err);
+    return null;
+  }
+}
+
+// also deletes all rentals of this media
+export async function deleteMedia(id: string): Promise<Media | null> {
+  try {
+    const media = await prisma.media.delete({
       where: {
         id: id,
       },
     });
-    return true;
+
+    return media;
   } catch (err) {
     //console.log(err);
-    return false;
+    return null;
   }
 }

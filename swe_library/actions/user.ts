@@ -1,28 +1,36 @@
 "use server";
-import { PrismaClient } from "@prisma/client";
-import { revalidatePath } from 'next/cache'
+import { PrismaClient, User } from "@prisma/client";
+import { revalidatePath } from "next/cache";
 
 const prisma = new PrismaClient();
 
-
-export async function createUser(prevState: any, formData: FormData) {
-  try {    
+export async function createUser(formData: FormData): Promise<User | null> {
+  try {
     const user = await prisma.user.create({
       data: {
-        firstName: formData.get('firstName') as string,
-        lastName: formData.get('lastName') as string,
-        email: formData.get('email') as string,
-        street: formData.get('street') as string,
-        houseNumber:  formData.get('houseNumber') as string,
-        plz: parseInt(formData.get('plz') as string),
-        city: formData.get('city') as string,
+        firstName: formData.get("firstName") as string,
+        lastName: formData.get("lastName") as string,
+        email: formData.get("email") as string,
+        street: formData.get("street") as string,
+        houseNumber: formData.get("houseNumber") as string,
+        plz: parseInt(formData.get("plz") as string),
+        city: formData.get("city") as string,
       },
     });
     
-    revalidatePath('/')
-    return { message: `User with ID: ${user.id} successfully created.` }
+    return user;
+  } catch (err) {
+    // console.log(err);
+    return null;
+  }
+}
+
+export async function getAllUsers(): Promise<User[] | null> {
+  try {
+    const users = await prisma.user.findMany();
+    return users;
   } catch (err) {
     console.log(err);
-    return { message: 'Error creating user!' }
+    return null;
   }
 }

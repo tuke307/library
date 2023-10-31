@@ -1,6 +1,6 @@
 "use server";
 import { RentedMediaTableProp } from "@/models/rentedMediaTable";
-import { Media, PrismaClient } from "@prisma/client";
+import { Media, PrismaClient, RentedMedia } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -50,14 +50,34 @@ export async function getRentedMediaByUserId(
   }
 }
 
-export async function updateRentedMediaById(id: number): Promise<boolean> {
+export async function updateRentedMediaById(id: number): Promise<RentedMedia | null> {
   try {
-    await prisma.rentedMedia.update({
+    const rentedMedia = await prisma.rentedMedia.update({
       where: {
         id: id,
       },
       data: {
         returnedAt: new Date(),
+      },
+    });
+
+    return rentedMedia;
+  } catch (err) {
+    // console.log(err);
+    return null;
+  }
+}
+
+export async function createRentedMedia(
+  userId: number,
+  mediaId: string,
+): Promise<boolean> {
+  try {
+    await prisma.rentedMedia.create({
+      data: {
+        userId: userId,
+        mediaId: mediaId,
+        rentedAt: new Date(),
       },
     });
 
