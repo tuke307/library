@@ -11,7 +11,7 @@ fake = Faker()
 fakeUsers = 20
 fakeAuthors = 500
 fakeLocations = 2000
-fakeMedias = 2000 # must be equal to fakeLocations
+fakeMedias = 1500 # must be <= then fakeLocations
 fakeRentedMedias = 500
 
 
