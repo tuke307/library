@@ -20,72 +20,73 @@ import {
   SortDescriptor,
   Selection,
 } from "@nextui-org/react";
-import { Author } from "@prisma/client";
+import { User } from "@prisma/client";
+import { getAllUsers } from "@/actions/user";
 
-export default function AuthorModal({
-  authorList,
+export default function UserModal({
+  userList,
   show,
   close,
-  setAuthor,
+  setUser,
 }: {
-  authorList: Author[];
+  userList: User[] | null;
   show: boolean;
   close: () => void;
-  setAuthor: (selectedAuthor: Author) => void;
+  setUser: (selectedUser: User) => void;
 }) {
   const { onClose, onOpen, onOpenChange } = useDisclosure();
-  const [authorFilterValue, setAuthorFilterValue] = React.useState("");
-  const [authorPage, setAuthorPage] = React.useState(1);
+  const [userFilterValue, setUserFilterValue] = React.useState("");
+  const [userPage, setUserPage] = React.useState(1);
   const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
     column: "lastName",
     direction: "ascending",
   });
-  const [selectedAuthorKeys, setSelectedAuthorKeys] = React.useState<Selection>(
+  const [selectedUserKeys, setSelectedUserKeys] = React.useState<Selection>(
     new Set([]),
-  );
+  ); 
+  const users = userList;
 
-  const authors = authorList;
   const rowsPerPage = 10;
-  const hasSearchFilter = Boolean(authorFilterValue);
+  const hasSearchFilter = Boolean(userFilterValue);
 
-  const authorPages = Math.ceil(authors.length / rowsPerPage);
+  const UserPages = Math.ceil((users?.length ?? 0) / rowsPerPage);
 
-  const filteredAuthorItems = React.useMemo(() => {
-    let filteredUsers = [...authors];
+  const filteredUserItems = React.useMemo(() => {
+    let filteredUsers = [...(users ?? [])];
 
     if (hasSearchFilter) {
-      filteredUsers = filteredUsers.filter((author) =>
-        author.lastName.toLowerCase().includes(authorFilterValue.toLowerCase()),
+      filteredUsers = filteredUsers.filter((user) =>
+        user.lastName.toLowerCase().includes(userFilterValue.toLowerCase()),
       );
     }
 
     return filteredUsers;
-  }, [authors, authorFilterValue]);
+  }, [users, userFilterValue]);
 
-  const authorItems = React.useMemo(() => {
-    const start = (authorPage - 1) * rowsPerPage;
+  const UserItems = React.useMemo(() => {
+    const start = (userPage - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return filteredAuthorItems.slice(start, end);
-  }, [authorPage, filteredAuthorItems, rowsPerPage]);
+    return filteredUserItems.slice(start, end);
+  }, [userPage, filteredUserItems, rowsPerPage]);
 
-  const sortedAuthorItems = React.useMemo(() => {
-    return [...authorItems].sort((a, b) => {
-      const first = a[sortDescriptor.column as keyof Author] ?? "";
-      const second = b[sortDescriptor.column as keyof Author] ?? "";
+  const sortedUserItems = React.useMemo(() => {
+    return [...UserItems].sort((a, b) => {
+      const first = a[sortDescriptor.column as keyof User] ?? "";
+      const second = b[sortDescriptor.column as keyof User] ?? "";
       const cmp = first < second ? -1 : first > second ? 1 : 0;
 
       return sortDescriptor.direction === "descending" ? -cmp : cmp;
     });
-  }, [sortDescriptor, authorItems]);
+  }, [sortDescriptor, UserItems]);
 
   const onSearchChange = React.useCallback(
     (value: React.SetStateAction<string>) => {
       if (value) {
-        setAuthorFilterValue(value);
-        setAuthorPage(1);
+        setUserFilterValue(value);
+        setUserPage(1);
       } else {
-        setAuthorFilterValue("");
+        setUserFilterValue("");
       }
     },
     [],
@@ -102,16 +103,16 @@ export default function AuthorModal({
           }}
           placeholder="Suche nach Nachname..."
           size="sm"
-          value={authorFilterValue}
+          value={userFilterValue}
           variant="bordered"
-          onClear={() => setAuthorFilterValue("")}
+          onClear={() => setUserFilterValue("")}
           onValueChange={onSearchChange}
         />
       </div>
     );
-  }, [authorFilterValue, onSearchChange, hasSearchFilter]);
+  }, [userFilterValue, onSearchChange, hasSearchFilter]);
 
-  const bottomAuthorContent = React.useMemo(() => {
+  const bottomUserContent = React.useMemo(() => {
     return (
       <div className="flex items-center justify-between px-2 py-2">
         <Pagination
@@ -120,31 +121,31 @@ export default function AuthorModal({
             cursor: "bg-foreground text-background",
           }}
           color="default"
-          page={authorPage}
-          total={authorPages}
+          page={userPage}
+          total={UserPages}
           variant="light"
-          onChange={setAuthorPage}
+          onChange={setUserPage}
         />
       </div>
     );
-  }, [authorPage, authorPages]);
+  }, [userPage, UserPages]);
 
   return (
     <Modal backdrop="blur" placeholder="center" isOpen={show} onClose={close}>
       <ModalContent>
-        <ModalHeader className="flex flex-col gap-1">Authoren</ModalHeader>
+        <ModalHeader className="flex flex-col gap-1">Kunden</ModalHeader>
         <ModalBody>
           <Table
-            aria-label="author table"
+            aria-label="user table"
             topContent={topContent}
             topContentPlacement="outside"
-            bottomContent={bottomAuthorContent}
+            bottomContent={bottomUserContent}
             bottomContentPlacement="outside"
             sortDescriptor={sortDescriptor}
             onSortChange={setSortDescriptor}
             selectionMode="single"
-            selectedKeys={selectedAuthorKeys}
-            onSelectionChange={setSelectedAuthorKeys}
+            selectedKeys={selectedUserKeys}
+            onSelectionChange={setSelectedUserKeys}
           >
             <TableHeader>
               <TableColumn key="lastName" allowsSorting>
@@ -154,8 +155,8 @@ export default function AuthorModal({
                 Vorname
               </TableColumn>
             </TableHeader>
-            <TableBody>
-              {sortedAuthorItems.map((item) => (
+            <TableBody emptyContent={"keine nutzer gefunden."}>
+              {sortedUserItems.map((item) => (
                 <TableRow key={item.id}>
                   <TableCell>{getKeyValue(item, "lastName")}</TableCell>
                   <TableCell>{getKeyValue(item, "firstName")}</TableCell>
@@ -171,14 +172,14 @@ export default function AuthorModal({
           <Button
             color="primary"
             onPress={() => {
-              const selectedAuthor = sortedAuthorItems.find(
+              const selectedUser = sortedUserItems.find(
                 (x) =>
                   x.id ==
-                  ((selectedAuthorKeys as Set<string>).values().next()
+                  ((selectedUserKeys as Set<string>).values().next()
                     .value as number),
               );
-              if (selectedAuthor) {
-                setAuthor(selectedAuthor);
+              if (selectedUser) {
+                setUser(selectedUser);
               }
 
               close();

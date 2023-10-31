@@ -26,7 +26,7 @@ export default function LocationModal({
   close,
   setLocation,
 }: {
-  freeLocations: Location[];
+  freeLocations: Location[] | null;
   show: boolean;
   close: () => void;
   setLocation: (selectedLocation: Location) => void;
@@ -42,13 +42,13 @@ export default function LocationModal({
   const locations = freeLocations;
   const rowsPerPage = 10;
 
-  const locationPages = Math.ceil(locations.length / rowsPerPage);
+  const locationPages = Math.ceil((locations?.length ?? 0) / rowsPerPage);
 
   const locationItems = React.useMemo(() => {
     const start = (locationPage - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return locations.slice(start, end);
+    return (locations ?? []).slice(start, end);
   }, [locationPage, locations, rowsPerPage]);
 
   const sortedLocationItems = React.useMemo(() => {
@@ -108,7 +108,7 @@ export default function LocationModal({
                 Schranksektion
               </TableColumn>
             </TableHeader>
-            <TableBody>
+            <TableBody emptyContent={"keine lokationen gefunden"}>
               {sortedLocationItems.map((item) => (
                 <TableRow key={item.id}>
                   <TableCell>{getKeyValue(item, "floor")}</TableCell>
