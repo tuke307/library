@@ -6,7 +6,7 @@ export function SubmitButton({ text }: { text: string }) {
   const { pending } = useFormStatus();
 
   return (
-    <Button isLoading={pending} type="submit" className="mt-5" color="primary">
+    <Button isLoading={pending} type="submit" className="m-2" color="primary">
       {text}
     </Button>
   );
