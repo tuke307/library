@@ -5,18 +5,22 @@ import { createUser } from "@/actions/user";
 import { SubmitButton } from "@/app/components/submitButton";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { User } from "@prisma/client";
 
-const initialState = {
+const initialState: User = {
+  id: 0,
   lastName: "",
   firstName: "",
   email: "",
   street: "",
   houseNumber: "",
-  plz: "",
+  plz: 0,
   city: "",
+  birthday: new Date(),
+  createdAt: new Date(),
 };
 
-export default async function AddUserForm() {
+export default function AddUserForm() {
   const router = useRouter();
   const [formData, setFormData] = React.useState(initialState);
 
@@ -30,19 +34,8 @@ export default async function AddUserForm() {
     });
   };
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    
-    const sendformData = new FormData();
-    sendformData.append("lastName", formData.lastName);
-    sendformData.append("firstName", formData.firstName);
-    sendformData.append("email", formData.email);
-    sendformData.append("street", formData.street);
-    sendformData.append("houseNumber", formData.houseNumber);
-    sendformData.append("plz", formData.plz);
-    sendformData.append("city", formData.city);
-  
-    const user = await createUser(sendformData);
+  async function handleSubmit(formData: FormData) {
+    const user = await createUser(formData);
 
     if (!user) {
       toast.error("Nutzer konnte nicht erstellt werden");
@@ -54,7 +47,7 @@ export default async function AddUserForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form action={handleSubmit}>
       <Card shadow="md">
         <CardHeader className="flex gap-3">
           <h1 className="text-3xl">Nutzer hinzufügen</h1>
@@ -87,7 +80,7 @@ export default async function AddUserForm() {
               label="Email"
               placeholder="Enter your email"
               name="email"
-              value={formData.email}
+                value={formData.email!}
               onChange={handleChange}
             />
           </div>
@@ -119,7 +112,7 @@ export default async function AddUserForm() {
               label="PLZ"
               placeholder="Enter your PLZ"
               name="plz"
-              value={formData.plz}
+              value={formData.plz.toString()}
               onChange={handleChange}
             />
 
