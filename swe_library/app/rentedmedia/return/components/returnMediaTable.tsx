@@ -16,14 +16,16 @@ import {
 } from "@nextui-org/react";
 import React from "react";
 import { RentedMediaTableProp } from "@/models/rentedMediaTable";
-import { BsSearch } from "react-icons/bs";
 import { updateRentedMediaById } from "@/actions/rentedMedia";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function ReturnMediaTable({
   returnMediaTableProps,
 }: {
   returnMediaTableProps: RentedMediaTableProp[] | null;
 }) {
+  const router = useRouter();
   const [page, setPage] = React.useState(1);
   const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
     column: "returnedAt",
@@ -73,10 +75,15 @@ export default function ReturnMediaTable({
   }, [items.length, page, pages]);
 
   async function updateRentedMedia(id: number) {
-    await updateRentedMediaById(id);
+    const rentedMedia = await updateRentedMediaById(id);
 
-    // TODO: trigger submit
-    //formAction();
+    if (!rentedMedia) {
+      toast.error("Fehler beim Zurückgeben des Mediums");
+      return;
+    } else {
+      router.refresh();
+      toast.success("Medium erfolgreich zurückgegeben");
+    }
   }
 
   return (
@@ -109,16 +116,18 @@ export default function ReturnMediaTable({
             <TableRow key={item.id}>
               <TableCell>{getKeyValue(item, "mediaTitle")}</TableCell>
               <TableCell>{getKeyValue(item, "mediaId")}</TableCell>
-              <TableCell>{getKeyValue(item, "rentedAt").toLocaleDateString()}</TableCell>
+              <TableCell>
+                {getKeyValue(item, "rentedAt").toLocaleDateString()}
+              </TableCell>
               <TableCell>
                 {getKeyValue(item, "returnedAt")
                   ? getKeyValue(item, "returnedAt").toLocaleDateString()
                   : "-"}
               </TableCell>
               <TableCell>
-                {getKeyValue(item, "returnedAt") 
-                ? "-"
-                : (
+                {getKeyValue(item, "returnedAt") ? (
+                  "-"
+                ) : (
                   <Button
                     onPress={() => updateRentedMedia(getKeyValue(item, "id"))}
                     color="primary"

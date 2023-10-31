@@ -1,19 +1,60 @@
 "use client";
 import React from "react";
 import { Card, CardBody, CardHeader, Divider, Input } from "@nextui-org/react";
-import { experimental_useFormState as useFormState } from "react-dom";
 import { createUser } from "@/actions/user";
 import { SubmitButton } from "@/app/components/submitButton";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const initialState = {
-  message: null,
+  lastName: "",
+  firstName: "",
+  email: "",
+  street: "",
+  houseNumber: "",
+  plz: "",
+  city: "",
 };
 
-export default function AddUserForm() {
-  const [state, formAction] = useFormState(createUser, initialState);
+export default async function AddUserForm() {
+  const router = useRouter();
+  const [formData, setFormData] = React.useState(initialState);
+
+  const handleChange = (event: React.ChangeEvent<any>) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [name]: value,
+      };
+    });
+  };
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    
+    const sendformData = new FormData();
+    sendformData.append("lastName", formData.lastName);
+    sendformData.append("firstName", formData.firstName);
+    sendformData.append("email", formData.email);
+    sendformData.append("street", formData.street);
+    sendformData.append("houseNumber", formData.houseNumber);
+    sendformData.append("plz", formData.plz);
+    sendformData.append("city", formData.city);
+  
+    const user = await createUser(sendformData);
+
+    if (!user) {
+      toast.error("Nutzer konnte nicht erstellt werden");
+      return;
+    } else {
+      router.back();
+      toast.success("Nutzer erfolgreich erstellt");
+    }
+  }
 
   return (
-    <form action={formAction}>
+    <form onSubmit={handleSubmit}>
       <Card shadow="md">
         <CardHeader className="flex gap-3">
           <h1 className="text-3xl">Nutzer hinzufügen</h1>
@@ -27,6 +68,8 @@ export default function AddUserForm() {
               label="Nachname"
               placeholder="Enter your name"
               name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
             />
             <Input
               isRequired
@@ -34,6 +77,8 @@ export default function AddUserForm() {
               label="Vorname"
               placeholder="Enter your Vorname"
               name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
             />
 
             <Input
@@ -42,6 +87,8 @@ export default function AddUserForm() {
               label="Email"
               placeholder="Enter your email"
               name="email"
+              value={formData.email}
+              onChange={handleChange}
             />
           </div>
 
@@ -52,6 +99,8 @@ export default function AddUserForm() {
               label="Straße"
               placeholder="Enter your Straße"
               name="street"
+              value={formData.street}
+              onChange={handleChange}
             />
 
             <Input
@@ -60,6 +109,8 @@ export default function AddUserForm() {
               label="Hausnummer"
               placeholder="Gib deine Hausnummer ein"
               name="houseNumber"
+              value={formData.houseNumber}
+              onChange={handleChange}
             />
 
             <Input
@@ -68,6 +119,8 @@ export default function AddUserForm() {
               label="PLZ"
               placeholder="Enter your PLZ"
               name="plz"
+              value={formData.plz}
+              onChange={handleChange}
             />
 
             <Input
@@ -76,19 +129,14 @@ export default function AddUserForm() {
               label="Stadt"
               placeholder="Enter your Stadt"
               name="city"
+              value={formData.city}
+              onChange={handleChange}
             />
           </div>
         </CardBody>
       </Card>
 
-      <div>
-        <SubmitButton text="Kunde erstellen"/>
-
-        {/* sr-only: only for the browser, not seeable!  */}
-        <p aria-live="polite" className="sr-only">
-          {state?.message}
-        </p>
-      </div>
+      <SubmitButton text="Kunde erstellen" />
     </form>
   );
 }
