@@ -26,18 +26,18 @@ model Media {
   content    String?
   published  Boolean       @default(false)
   ISBN       String?       @unique
-  author     Author        @relation(fields: [authorId], references: [id])
+  author     Author        @relation(fields: [authorId], references: [id], onUpdate: Cascade)
   authorId   Int
   rentedBy   RentedMedia[]
-  location   Location      @relation(fields: [locationId], references: [id])
+  location   Location      @relation(fields: [locationId], references: [id], onUpdate: Cascade)
   locationId Int           @unique
 }
 
 model RentedMedia {
   id         Int       @id @unique @default(autoincrement())
-  media      Media     @relation(fields: [mediaId], references: [id])
+  media      Media     @relation(fields: [mediaId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   mediaId    String    @db.Uuid
-  user       User      @relation(fields: [userId], references: [id])
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId     Int
   rentedAt   DateTime  @default(now())
   returnedAt DateTime?
