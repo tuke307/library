@@ -8,26 +8,17 @@ const prisma = new PrismaClient();
 
 export async function createMedia(formData: FormData): Promise<Media | null> {
   try {
-    const authorId = Number(formData.get("authorId"));
-    const locationId = Number(formData.get("locationId"));
-    if (isNaN(authorId) || isNaN(locationId)) {
-      throw new Error("Invalid authorId or locationId");
-    }
-
     const media = await prisma.media.create({
       data: {
-        mediaType: formData.get("mediaType") as MediaType,
-        title: formData.get("title") as string,
-        content: formData.get("content") as string,
-        published: formData.get("published")
-          ? formData.get("published") === "true"
-          : false,
-        ISBN: formData.get("ISBN") as string,
-        authorId: authorId,
-        locationId: locationId,
+        mediaType: formData.get("mediaMediaType") as MediaType,
+        title: formData.get("mediaTitle") as string,
+        content: formData.get("mediaContent") as string,
+        published: Boolean(formData.get("mediaPublished")),
+        ISBN: formData.get("mediaISBN") as string,
+        authorId: Number(formData.get("authorId")),
+        locationId: Number(formData.get("locationId")),
       },
     });
-    revalidatePath("/");
 
     return media;
   } catch (err) {
