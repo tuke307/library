@@ -4,9 +4,6 @@ import { Providers } from "./providers";
 import { Navbar } from "./components/navbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//import { getServerSession } from "next-auth";
-//import SessionProvider from "./components/SessionProvider";
-//import { authOptions } from "./api/auth/[...nextauth]";
 
 export const metadata: Metadata = {
   title: "Bibliothek",
@@ -18,8 +15,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  //const session = await getServerSession(authOptions);
-
   return (
     <html lang="de" suppressHydrationWarning>
       <head />

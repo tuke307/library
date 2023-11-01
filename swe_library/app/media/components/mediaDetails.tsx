@@ -103,11 +103,13 @@ export default function MediaDetails({
     }
   }, [mediaDetails, session]);
 
-  const mediaTypeIcon = mediaDetails
-    ? mediaTypesWithIcons.find(
-        (mediaType) => mediaType.enum === mediaDetails.mediaMediaType,
-      )?.icon
-    : undefined;
+  const mediaTypeIcon = React.useMemo(() => {
+    return mediaDetails
+      ? mediaTypesWithIcons.find(
+          (mediaType) => mediaType.enum === mediaDetails.mediaMediaType,
+        )?.icon
+      : undefined;
+  }, [mediaDetails]);
 
   const handleChange = (event: React.ChangeEvent<any>) => {
     const { name, value } = event.target;
@@ -123,10 +125,10 @@ export default function MediaDetails({
     const media = await createMedia(formData);
 
     if (!media) {
-      toast.error("Erstellung des Kunden fehlgeschlagen!");
+      toast.error("Erstellung des Mediums fehlgeschlagen!");
       return;
     } else {
-      toast.success("Kunde erfolgreich erstellt!");
+      toast.success("Medium erfolgreich erstellt!");
     }
   }
 
@@ -298,19 +300,21 @@ export default function MediaDetails({
               </div>
             )}
           </CardHeader>
+
           <Divider />
-          <CardBody>
-            <Input
-              isReadOnly
-              isDisabled
-              type="text"
-              label="Id"
-              name="mediaId"
-              variant="bordered"
-              className="sr-only"
-              onChange={handleChange}
-              value={formData.mediaId}
-            />
+
+          <CardBody className="flex-col">
+            <div className="sr-only" hidden>
+              <Input
+                isReadOnly
+                type="text"
+                label="Id"
+                name="mediaId"
+                variant="bordered"
+                onChange={handleChange}
+                value={formData.mediaId}
+              />
+            </div>
 
             {isEditMode && (
               <div>
@@ -452,16 +456,17 @@ export default function MediaDetails({
 
             <CardBody>
               <div className="flex gap-2">
-                <Input
-                  isReadOnly
-                  type="number"
-                  label="Nachname"
-                  name="authorId"
-                  variant="bordered"
-                  className="sr-only"
-                  value={formData.authorId!.toString() ?? ""}
-                  onChange={handleChange}
-                />
+                <div className="sr-only" hidden>
+                  <Input
+                    isReadOnly
+                    type="number"
+                    label="Author-ID"
+                    name="authorId"
+                    variant="bordered"
+                    value={formData.authorId!.toString() ?? ""}
+                    onChange={handleChange}
+                  />
+                </div>
                 <Input
                   isReadOnly
                   isDisabled
@@ -541,16 +546,18 @@ export default function MediaDetails({
             <Divider />
             <CardBody>
               <div className="flex gap-2">
-                <Input
-                  isReadOnly
-                  name="locationId"
-                  type="number"
-                  label="Id"
-                  variant="bordered"
-                  className="sr-only"
-                  value={formData.locationId!.toString()}
-                  onChange={handleChange}
-                />
+                <div className="sr-only" hidden>
+                  <Input
+                    isReadOnly
+                    name="locationId"
+                    type="number"
+                    label="Id"
+                    variant="bordered"
+                    value={formData.locationId!.toString()}
+                    onChange={handleChange}
+                  />
+                </div>
+
                 <Input
                   isReadOnly
                   isDisabled
@@ -640,21 +647,34 @@ export default function MediaDetails({
                 <div>
                   <Divider />
                   <CardBody className="flex flex-row gap-2">
+                    <div className="sr-only" hidden>
+                      <Input
+                        isReadOnly
+                        type="text"
+                        label="ID"
+                        name="rentedMediaId"
+                        variant="bordered"
+                        className="max-w"
+                        value={formData.rentedMediaId!.toString()}
+                      />
+                    </div>
                     <Input
                       isReadOnly
+                      isDisabled
                       type="text"
                       label="Kunden-ID"
                       name="rentedMediaUserId"
                       variant="bordered"
                       className="max-w"
                       value={
-                        formData.rentedMediaId === 0
+                        formData.rentedMediaUserId === 0
                           ? ""
-                          : formData.rentedMediaId!.toString()
+                          : formData.rentedMediaUserId!.toString()
                       }
                     />
                     <Input
                       isReadOnly
+                      isDisabled
                       type="text"
                       label="Nachname"
                       name="rentedMediaUserLastName"
@@ -664,6 +684,7 @@ export default function MediaDetails({
                     />
                     <Input
                       isReadOnly
+                      isDisabled
                       type="text"
                       label="Nachname"
                       name="rentedMediaUserFirstName"

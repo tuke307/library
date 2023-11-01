@@ -11,7 +11,7 @@ export default async function MediaCreatePage() {
   const users = await getAllUsers();
 
   return (
-    <section className="m-5">
+    <section className="m-3">
       <MediaDetails authors={authorList} locations={freeLocationList} users={users} mediaDetails={null} />
     </section>
   );

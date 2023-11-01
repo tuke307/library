@@ -9,30 +9,33 @@ import {
 } from "@nextui-org/react";
 
 import { signIn, signOut, useSession } from "next-auth/react";
+import React from "react";
 import { AiFillHome } from "react-icons/ai";
 
-function AuthButton() {
+export function Navbar() {
   const { data: session } = useSession();
 
-  if (session) {
+  const AuthButton = React.useMemo(() => {
+    if (session) {
+      return (
+        <>
+          <Button onClick={() => signOut()} color="primary">
+            Logout
+          </Button>
+        </>
+      );
+    }
     return (
       <>
-        <Button onClick={() => signOut()} color="primary">
-          Logout
+        <Button onClick={() => signIn()} color="primary">
+          Mitarbeiterlogin
         </Button>
       </>
     );
-  }
-  return (
-    <>
-      <Button onClick={() => signIn()} color="primary">Mitarbeiterlogin</Button>
-    </>
-  );
-}
+  }, [session]);
 
-export const Navbar = () => {
   return (
-    <NextUINavbar isBordered maxWidth="xl" position="sticky">
+    <NextUINavbar isBordered maxWidth="xl">
       <NavbarBrand>
         <Link className="flex items-center justify-start gap-1" href="/">
           <AiFillHome />
@@ -41,10 +44,8 @@ export const Navbar = () => {
       </NavbarBrand>
 
       <NavbarContent justify="end">
-        <NavbarItem>
-          <AuthButton />
-        </NavbarItem>
+        <NavbarItem>{AuthButton}</NavbarItem>
       </NavbarContent>
     </NextUINavbar>
   );
-};
+}

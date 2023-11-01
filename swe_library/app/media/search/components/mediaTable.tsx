@@ -82,12 +82,9 @@ export default function MediaTable({
       <div className="flex flex-col gap-4">
         <Input
           isClearable
-          classNames={{
-            base: "w-full sm:max-w-[44%]",
-            inputWrapper: "border-1",
-          }}
+          className="w-full sm:max-w-[44%]"
           placeholder="Suche nach Titel..."
-          size="sm"
+          size="md"
           value={filterValue}
           variant="bordered"
           onClear={() => setFilterValue("")}
@@ -119,7 +116,7 @@ export default function MediaTable({
 
   return (
     <section>
-      <Table
+      <Table 
         aria-label="Media Table"
         topContent={topContent}
         topContentPlacement="outside"

@@ -7,7 +7,7 @@ export default async function MediaSearchPage() {
   const mediaTableProps = await getMediaTable();
 
   return (
-    <section className="m-10">
+    <section className="m-3">
       <MediaTable mediaTableProps={mediaTableProps} />
     </section>
   );
