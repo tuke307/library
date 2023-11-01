@@ -80,7 +80,7 @@ export default function AddUserForm() {
               label="Email"
               placeholder="Enter your email"
               name="email"
-                value={formData.email!}
+              value={formData.email!}
               onChange={handleChange}
             />
           </div>
@@ -112,7 +112,7 @@ export default function AddUserForm() {
               label="PLZ"
               placeholder="Enter your PLZ"
               name="plz"
-              value={formData.plz.toString()}
+              value={formData.plz === 0 ? "" : formData.plz.toString()}
               onChange={handleChange}
             />
 
