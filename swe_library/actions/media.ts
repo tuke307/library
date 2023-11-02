@@ -104,8 +104,8 @@ export async function getMediaDetails(
       authorId: media.author.id,
       authorFirstName: media.author.firstName,
       authorLastName: media.author.lastName,
-      authorBirthday: media.author.birthday,
-      authorEmail: media.author.email,
+      authorBirthday: media.author.birthday || undefined,
+      authorEmail: media.author.email  || undefined,
 
       locationId: media.location.id,
       locationFloor: media.location.floor,
@@ -113,19 +113,19 @@ export async function getMediaDetails(
       locationShelfSection: media.location.shelfSection,
 
       rentedMediaId:
-        media.rentedBy.length > 0 ? media.rentedBy[0].id : null,
+        media.rentedBy.length > 0 ? media.rentedBy[0].id : undefined,
       rentedMediaMediaId:
-        media.rentedBy.length > 0 ? media.rentedBy[0].mediaId : null,
+        media.rentedBy.length > 0 ? media.rentedBy[0].mediaId : undefined,
       rentedMediaUserId:
-        media.rentedBy.length > 0 ? media.rentedBy[0].userId : null,
+        media.rentedBy.length > 0 ? media.rentedBy[0].userId : undefined,
       rentedMediaUserLastName:
-        media.rentedBy.length > 0 ? media.rentedBy[0].user.lastName : null,
+        media.rentedBy.length > 0 ? media.rentedBy[0].user.lastName : undefined,
       rentedMediaUserFirstName:
-        media.rentedBy.length > 0 ? media.rentedBy[0].user.firstName : null,
+        media.rentedBy.length > 0 ? media.rentedBy[0].user.firstName : undefined,
       rentedMediaRentedDate:
-        media.rentedBy.length > 0 ? media.rentedBy[0].rentedAt : null,
+        media.rentedBy.length > 0 ? media.rentedBy[0].rentedAt : undefined,
       rentedMediaReturnDate:
-        media.rentedBy.length > 0 ? media.rentedBy[0].returnedAt : null,
+        media.rentedBy.length > 0 ? media.rentedBy[0].returnedAt ?? undefined : undefined,
     };
 
     return mediaDetails;
@@ -180,20 +180,29 @@ export async function getMediaTable(): Promise<MediaTableProp[] | null> {
   }
 }
 
-export async function updateMedia(media: Media): Promise<Media | null> {
+export async function updateMedia(
+  id: string,
+  mediaType: MediaType,
+  title: string,
+  content: string | undefined,
+  published: boolean,
+  ISBN: string | undefined,
+  authorId: number,
+  locationId: number,
+): Promise<Media | null> {
   try {
     const retMedia = await prisma.media.update({
       where: {
-        id: media.id,
+        id: id,
       },
       data: {
-        mediaType: media.mediaType,
-        title: media.title,
-        content: media.content,
-        published: media.published,
-        ISBN: media.ISBN,
-        authorId: media.authorId,
-        locationId: media.locationId,
+        mediaType: mediaType,
+        title: title,
+        content: content,
+        published: published,
+        ISBN: ISBN,
+        authorId: authorId,
+        locationId: locationId,
         updatedAt: new Date(),
       },
     });
