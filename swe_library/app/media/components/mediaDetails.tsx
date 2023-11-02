@@ -35,33 +35,33 @@ import UserModal from "./userModal";
 import { createRentedMedia } from "@/actions/rentedMedia";
 
 const initialMedia: MediaDetailProp = {
-  mediaId: "",
-  mediaTitle: "",
+  mediaId: undefined,
+  mediaTitle: undefined,
   mediaMediaType: MediaType.BOOK,
-  mediaContent: "",
+  mediaContent: undefined,
   mediaPublished: false,
-  mediaISBN: "",
-  mediaCreatedAt: new Date(),
-  mediaUpdatedAt: new Date(),
+  mediaISBN: undefined,
+  mediaCreatedAt: undefined,
+  mediaUpdatedAt: undefined,
 
-  authorId: 0,
-  authorLastName: "",
-  authorFirstName: "",
-  authorEmail: "",
-  authorBirthday: null,
+  authorId: undefined,
+  authorLastName: undefined,
+  authorFirstName: undefined,
+  authorEmail: undefined,
+  authorBirthday: undefined,
 
-  locationId: 0,
-  locationFloor: 0,
-  locationShelf: 0,
-  locationShelfSection: 0,
+  locationId: undefined,
+  locationFloor: undefined,
+  locationShelf: undefined,
+  locationShelfSection: undefined,
 
-  rentedMediaId: 0,
-  rentedMediaMediaId: "",
-  rentedMediaUserId: 0,
-  rentedMediaUserLastName: "",
-  rentedMediaUserFirstName: "",
-  rentedMediaRentedDate: null,
-  rentedMediaReturnDate: null,
+  rentedMediaId: undefined,
+  rentedMediaMediaId: undefined,
+  rentedMediaUserId: undefined,
+  rentedMediaUserLastName: undefined,
+  rentedMediaUserFirstName: undefined,
+  rentedMediaRentedDate: undefined,
+  rentedMediaReturnDate: undefined,
 };
 
 export default function MediaDetails({
@@ -70,10 +70,10 @@ export default function MediaDetails({
   locations,
   users,
 }: {
-  mediaDetails: MediaDetailProp | null;
-  authors: Author[] | null;
-  locations: Location[] | null;
-  users: User[] | null;
+  mediaDetails: MediaDetailProp | undefined;
+  authors: Author[] | undefined;
+  locations: Location[] | undefined;
+  users: User[] | undefined;
 }) {
   const router = useRouter();
   const { data: session } = useSession();
@@ -159,7 +159,13 @@ export default function MediaDetails({
     };
 
     const handleDelete = () => {
+      if (!formData.mediaId) {
+        toast.error("Löschen fehlgeschlagen!");
+        return;
+      }
+
       const media = deleteMedia(formData.mediaId);
+
       if (!media) {
         toast.error("Löschen fehlgeschlagen!");
         return;
@@ -252,13 +258,21 @@ export default function MediaDetails({
     });
   };
 
-  const setUser = (selectedUser: User) => {
-    const rentedMedia = createRentedMedia(selectedUser.id, formData.mediaId);
+  const setUser = async (selectedUser: User) => {
+    if (!formData.mediaId) {
+      toast.error("Medium löschen fehlgeschlagen!");
+      return;
+    }
+
+    const rentedMedia = await createRentedMedia(selectedUser.id, formData.mediaId);
 
     if (!rentedMedia) {
+      toast.error("Ausleihe fehlgeschlagen!");
+    } else {
       setFormData((prevFormData) => {
         return {
           ...prevFormData,
+          rentedMediaId: rentedMedia.id,
           rentedMediaUserId: selectedUser.id,
           rentedMediaUserLastName: selectedUser.lastName,
           rentedMediaUserFirstName: selectedUser.firstName,
@@ -268,15 +282,13 @@ export default function MediaDetails({
       setRented(true);
 
       toast.success("Ausleihe erfolgreich!");
-    } else {
-      toast.error("Ausleihe fehlgeschlagen!");
     }
   };
 
   return (
     <form action={handleSubmit} className="flex flex-col gap-3">
       <div className="flex flex-row gap-3">
-        <Card shadow="md" className="flex-grow">
+        <Card shadow="md" className="flex min-w-[50%] flex-grow">
           <CardHeader className="flex gap-3">
             <h1 className="text-3xl">Medium</h1>
 
@@ -426,7 +438,7 @@ export default function MediaDetails({
           </CardBody>
         </Card>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col flex-wrap gap-3">
           <Card shadow="md">
             <CardHeader className="flex justify-between gap-3">
               <h1 className="text-3xl">Author</h1>
