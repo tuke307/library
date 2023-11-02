@@ -71,9 +71,9 @@ export async function updateRentedMediaById(id: number): Promise<RentedMedia | n
 export async function createRentedMedia(
   userId: number,
   mediaId: string,
-): Promise<boolean> {
+): Promise<RentedMedia> {
   try {
-    await prisma.rentedMedia.create({
+    const rentedMedia = await prisma.rentedMedia.create({
       data: {
         userId: userId,
         mediaId: mediaId,
@@ -81,7 +81,7 @@ export async function createRentedMedia(
       },
     });
 
-    return true;
+    return rentedMedia;
   } catch (err) {
     return false;
   }
