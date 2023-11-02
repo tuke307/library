@@ -6,23 +6,41 @@ import { MediaTableProp } from "@/models/mediaTable";
 
 const prisma = new PrismaClient();
 
-export async function createMedia(formData: FormData): Promise<Media | null> {
+export async function createMedia(
+  mediaType: MediaType,
+  title: string,
+  published: boolean,
+  content: string | undefined,
+  ISBN: string | undefined,
+  authorId: number,
+  locationId: number,
+): Promise<Media | null> {
   try {
+    const mediaData: any = {
+      mediaType,
+      title,
+      published,
+      authorId,
+      locationId,
+    };
+
+    if (content) {
+      mediaData.content = content;
+    }
+
+    if (ISBN) {
+      mediaData.ISBN = ISBN;
+    }
+
+    mediaData.createdAt = new Date();
+
     const media = await prisma.media.create({
-      data: {
-        mediaType: formData.get("mediaMediaType") as MediaType,
-        title: formData.get("mediaTitle") as string,
-        content: formData.get("mediaContent") as string,
-        published: Boolean(formData.get("mediaPublished")),
-        ISBN: formData.get("mediaISBN") as string,
-        authorId: Number(formData.get("authorId")),
-        locationId: Number(formData.get("locationId")),
-      },
+      data: mediaData,
     });
 
     return media;
   } catch (err) {
-    //console.log(err);
+    console.log(err);
     return null;
   }
 }

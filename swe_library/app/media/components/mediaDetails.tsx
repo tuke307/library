@@ -31,8 +31,6 @@ import { Author, Location, Media, MediaType, User } from "@prisma/client";
 import AuthorModal from "./authorModal";
 import { SubmitButton } from "@/app/components/submitButton";
 import LocationModal from "./locationModal";
-import UserModal from "./userModal";
-import { createRentedMedia } from "@/actions/rentedMedia";
 
 const initialMedia: MediaDetailProp = {
   mediaId: undefined,
@@ -68,12 +66,10 @@ export default function MediaDetails({
   mediaDetails,
   authors,
   locations,
-  users,
 }: {
   mediaDetails: MediaDetailProp | null;
   authors: Author[] | null;
   locations: Location[] | null;
-  users: User[] | null;
 }) {
   const router = useRouter();
   const { data: session } = useSession();
@@ -90,7 +86,6 @@ export default function MediaDetails({
   const [showAuthorModal, setShowAuthorModal] = React.useState<boolean>(false);
   const [showLocationModal, setShowLocationModal] =
     React.useState<boolean>(false);
-  const [showUserModal, setShowUserModal] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     mediaDetails ? setDetailsMode(true) : setDetailsMode(false);
@@ -121,34 +116,48 @@ export default function MediaDetails({
     });
   };
 
-  async function handleSubmit(formData: FormData) {
-    const media = await createMedia(formData);
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    
+    if (
+      !formData.mediaTitle ||
+      !formData.authorId ||
+      !formData.locationId
+    ) {
+      toast.error("Erstellung des Mediums fehlgeschlagen, fehlende Informationen!");
+      return;
+    }
+
+    const media = await createMedia(
+      formData.mediaMediaType,
+      formData.mediaTitle,
+      formData.mediaPublished,
+      formData.mediaContent,
+      formData.mediaISBN,
+      formData.authorId,
+      formData.locationId,
+    );
 
     if (!media) {
       toast.error("Erstellung des Mediums fehlgeschlagen!");
       return;
     } else {
       toast.success("Medium erfolgreich erstellt!");
+      router.back();
     }
   }
 
   function EditButton() {
     const handleSave = async () => {
-      if (!formData.mediaId || !formData.mediaTitle || !formData.authorId || !formData.locationId) {
+      if (
+        !formData.mediaId ||
+        !formData.mediaTitle ||
+        !formData.authorId ||
+        !formData.locationId
+      ) {
         toast.error("Speichern fehlgeschlagen, fehlende Informationen!");
         return;
       }
-
-      const updatedMedia = {
-        id: formData.mediaId,
-        mediaType: formData.mediaMediaType,
-        title: formData.mediaTitle,
-        content: formData.mediaContent,
-        published: formData.mediaPublished,
-        ISBN: formData.mediaISBN,
-        authorId: formData.authorId ?? -1,
-        locationId: formData.locationId ?? -1,
-      };
 
       const media = await updateMedia(
         formData.mediaId,
@@ -164,7 +173,7 @@ export default function MediaDetails({
       if (!media) {
         toast.error("Speichern fehlgeschlagen!");
         return;
-      } else {    
+      } else {
         toast.success("Speichern erfolgreich!");
         setEditable(false);
         router.refresh();
@@ -271,36 +280,8 @@ export default function MediaDetails({
     });
   };
 
-  const setUser = async (selectedUser: User) => {
-    if (!formData.mediaId) {
-      console.log("mediaId is undefined");
-      toast.error("Medium löschen fehlgeschlagen!");
-      return;
-    }
-
-    const rentedMedia = await createRentedMedia(selectedUser.id, formData.mediaId);
-
-    if (!rentedMedia) {
-      toast.error("Ausleihe fehlgeschlagen!");
-    } else {
-      setFormData((prevFormData) => {
-        return {
-          ...prevFormData,
-          rentedMediaId: rentedMedia.id,
-          rentedMediaUserId: selectedUser.id,
-          rentedMediaUserLastName: selectedUser.lastName,
-          rentedMediaUserFirstName: selectedUser.firstName,
-        };
-      });
-
-      setRented(true);
-
-      toast.success("Ausleihe erfolgreich!");
-    }
-  };
-
   return (
-    <form action={handleSubmit} className="flex flex-col gap-3">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <div className="flex flex-row gap-3">
         <Card shadow="md" className="flex min-w-[50%] flex-grow">
           <CardHeader className="flex gap-3">
@@ -322,6 +303,10 @@ export default function MediaDetails({
                   {mediaDetails?.mediaPublished
                     ? "Veröffentlicht"
                     : "Nicht veröffentlicht"}
+                </Chip>
+
+                <Chip variant="flat" color={isRented ? "warning" : "success"}>
+                  {isRented ? "ausgeliehen" : "nicht ausgeliehen"}
                 </Chip>
               </div>
             )}
@@ -620,97 +605,10 @@ export default function MediaDetails({
               </div>
             </CardBody>
           </Card>
+        </div>
+      </div>
 
-          {!isCreationMode && (
-                  <Card shadow="md">
-                    <CardHeader className="flex justify-between gap-3">
-                      <h1 className="text-3xl">Ausleihe</h1>
-
-                      {isDetailsMode && (
-                        <div className="flex-grow justify-items-center">
-                          <Chip
-                            variant="flat"
-                            color={isRented ? "warning" : "success"}
-                          >
-                            {isRented ? "ausgeliehen" : "nicht ausgeliehen"}
-                          </Chip>
-                        </div>
-                      )}
-
-                      {isEmployee && !isRented && (
-                        <div className="flex flex-row gap-2">
-                          <Button
-                            isIconOnly
-                            size="lg"
-                            onPress={() => setShowUserModal(true)}
-                            color="primary"
-                          >
-                            <AiOutlineSearch className="m-1" />
-                          </Button>
-
-                          <UserModal
-                            userList={users}
-                            show={showUserModal}
-                            close={() => setShowUserModal(false)}
-                            setUser={setUser}
-                          />
-                        </div>
-                      )}
-                    </CardHeader>
-                    {isEmployee && isRented && (
-                      <>
-                        <Divider />
-                        <CardBody className="flex flex-row gap-2">
-                          <div className="sr-only" hidden>
-                            <Input
-                              isReadOnly
-                              type="text"
-                              label="ID"
-                              name="rentedMediaId"
-                              variant="bordered"
-                              className="max-w"
-                              value={formData.rentedMediaId?.toString()}
-                            />
-                          </div>
-                          <Input
-                            isReadOnly
-                            isDisabled
-                            type="text"
-                            label="Kunden-ID"
-                            name="rentedMediaUserId"
-                            variant="bordered"
-                            className="max-w"
-                            value={formData.rentedMediaUserId?.toString()}
-                          />
-                          <Input
-                            isReadOnly
-                            isDisabled
-                            type="text"
-                            label="Nachname"
-                            name="rentedMediaUserLastName"
-                            variant="bordered"
-                            className="max-w"
-                            value={formData.rentedMediaUserLastName?.toString()}
-                          />
-                          <Input
-                            isReadOnly
-                            isDisabled
-                            type="text"
-                            label="Nachname"
-                            name="rentedMediaUserFirstName"
-                            variant="bordered"
-                            className="max-w"
-                            value={formData.rentedMediaUserFirstName?.toString()}
-                          />
-                        </CardBody>
-                      </>
-                    )}
-                  </Card>
-                )}
-              </div>
-            </div>
-
-            <EditButton />
+      <EditButton />
     </form>
   );
 }
