@@ -19,20 +19,29 @@ import { RentedMediaTableProp } from "@/models/rentedMediaTable";
 import { updateRentedMediaById } from "@/actions/rentedMedia";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { useSession } from "next-auth/react";
 
-export default function ReturnMediaTable({
-  returnMediaTableProps,
+export default function RentedMediaTable({
+  rentedMediaTableProps,
 }: {
-  returnMediaTableProps: RentedMediaTableProp[] | null;
+  rentedMediaTableProps: RentedMediaTableProp[] | null;
 }) {
   const router = useRouter();
+  const { data: session } = useSession();
+  const [isEmployee, setEmployee] = React.useState(false);
   const [page, setPage] = React.useState(1);
   const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
     column: "returnedAt",
     direction: "descending",
   });
 
-  const medias = returnMediaTableProps;
+  React.useEffect(() => {
+    if(session)
+      setEmployee(true);
+  });
+  
+
+  const medias = rentedMediaTableProps;
   const rowsPerPage = 10;
 
   const pages = Math.ceil((medias?.length ?? 0) / rowsPerPage);
@@ -109,7 +118,7 @@ export default function ReturnMediaTable({
           <TableColumn key="returnedAt" allowsSorting>
             Zurückgegeben am
           </TableColumn>
-          <TableColumn key="action">Aktion</TableColumn>
+          <TableColumn key="action" hidden={!isEmployee}>Aktion</TableColumn>
         </TableHeader>
         <TableBody emptyContent={"keine ausgeliehenen Medien gefunden."}>
           {sortedItems.map((item) => (
@@ -124,7 +133,7 @@ export default function ReturnMediaTable({
                   ? getKeyValue(item, "returnedAt").toLocaleDateString()
                   : "-"}
               </TableCell>
-              <TableCell>
+              <TableCell hidden={!isEmployee}>
                 {getKeyValue(item, "returnedAt") ? (
                   "-"
                 ) : (
@@ -132,6 +141,7 @@ export default function ReturnMediaTable({
                     onPress={() => updateRentedMedia(getKeyValue(item, "id"))}
                     color="primary"
                     variant="flat"
+                    disabled={!isEmployee}
                   >
                     zurückgegeben
                   </Button>

@@ -6,11 +6,11 @@ import { experimental_useFormState as useFormState } from "react-dom";
 import { RentedMediaTableProp } from "@/models/rentedMediaTable";
 import { SubmitButton } from "@/app/components/submitButton";
 
-type LoginFormProps = {
+export default function InputForm({
+  onFetchSuccess,
+}: {
   onFetchSuccess: (data: RentedMediaTableProp[]) => void;
-};
-
-export default function InputForm({ onFetchSuccess }: LoginFormProps) {
+}) {
   const [userId, setUserId] = useState<string>("");
   const [state, formAction] = useFormState<number>(getUserIdState, 0);
 
@@ -45,12 +45,11 @@ export default function InputForm({ onFetchSuccess }: LoginFormProps) {
           type="number"
           variant="bordered"
           name="userId"
-          labelPlacement="outside"
-          placeholder="Gib deine Kundennummer ein"
+          placeholder="Kundennummer"
           className="max-w-xs"
           onChange={handleChange}
         />
-        
+
         <SubmitButton text="abrufen" />
       </div>
     </form>

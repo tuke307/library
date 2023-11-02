@@ -3,16 +3,17 @@ import { useState } from "react";
 import React from "react";
 import { RentedMediaTableProp } from "@/models/rentedMediaTable";
 import InputForm from "./components/inputForm";
-import RentedMediaTable from "./components/rentedMediaTable";
+import RentedMediaTable from "./components/returnMediaTable";
 
-
-export default async function RentedMediaPage() {
-  const [rentedMediaData, setRentedMediaData] = useState<RentedMediaTableProp[]>([]);
+export default function RentedMediaPage() {
+  const [rentedMediaData, setRentedMediaData] = useState<
+    RentedMediaTableProp[]
+  >([]);
 
   return (
     <section className="m-3 flex flex-col gap-5">
       <InputForm onFetchSuccess={setRentedMediaData} />
-      <RentedMediaTable rentedMediaTableProp={rentedMediaData} />
+      <RentedMediaTable rentedMediaTableProps={rentedMediaData} />
     </section>
   );
 }

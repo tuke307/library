@@ -9,9 +9,5 @@ export default function RentedMediaLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <section className="">
-      {children}
-    </section>
-  );
+  return <section className="">{children}</section>;
 }
