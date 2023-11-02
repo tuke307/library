@@ -1,4 +1,3 @@
-"use server";
 import React from "react";
 import MediaTable from "./components/mediaTable";
 import { getMediaTable } from "@/actions/media";
