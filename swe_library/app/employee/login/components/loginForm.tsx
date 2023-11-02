@@ -57,7 +57,7 @@ export default function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-1/3">
+    <form onSubmit={handleSubmit} className="min-w-[300px] min-h-[200px]">
       <Card >
         <CardHeader>
           <h2 className="text-3xl font-bold">Login</h2>

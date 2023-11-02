@@ -10,7 +10,7 @@ export default async function RentedMediaPage() {
   const [rentedMediaData, setRentedMediaData] = useState<RentedMediaTableProp[]>([]);
 
   return (
-    <section className="m-10 flex flex-col gap-5">
+    <section className="m-3 flex flex-col gap-5">
       <InputForm onFetchSuccess={setRentedMediaData} />
       <RentedMediaTable rentedMediaTableProp={rentedMediaData} />
     </section>
