@@ -92,7 +92,8 @@ dotenv -e .env.development.local npx prisma studio
 - [Tailwind CSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Prettier Tailwind CSS](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
-
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [Code Spell Checker German](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-german)
 
 ## templates to learn
 - [Next.js 13 (app directory) and NextUI (v2)](https://github.com/nextui-org/next-app-template/tree/main)
