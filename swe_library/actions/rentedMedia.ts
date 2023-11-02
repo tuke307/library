@@ -50,7 +50,9 @@ export async function getRentedMediaByUserId(
   }
 }
 
-export async function updateRentedMediaById(id: number): Promise<RentedMedia | null> {
+export async function updateRentedMediaById(
+  id: number,
+): Promise<RentedMedia | null> {
   try {
     const rentedMedia = await prisma.rentedMedia.update({
       where: {
