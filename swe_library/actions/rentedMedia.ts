@@ -72,19 +72,26 @@ export async function updateRentedMediaById(
 
 export async function createRentedMedia(
   userId: number,
-  mediaId: string,
-): Promise<RentedMedia | null> {
+  mediaIds: string[],
+): Promise<RentedMedia[] | null> {
   try {
-    const rentedMedia = await prisma.rentedMedia.create({
-      data: {
-        userId: userId,
-        mediaId: mediaId,
-        rentedAt: new Date(),
-      },
-    });
+    const rentedMedias = [];
 
-    return rentedMedia;
+    for (const mediaId of mediaIds) {
+      const rentedMedia = await prisma.rentedMedia.create({
+        data: {
+          mediaId: mediaId,
+          userId: userId,
+          rentedAt: new Date(),
+        },
+      });
+
+      rentedMedias.push(rentedMedia);
+    }
+
+    return rentedMedias;
   } catch (err) {
+    //console.log(err);
     return null;
   }
 }

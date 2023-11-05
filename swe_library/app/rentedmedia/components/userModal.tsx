@@ -21,7 +21,6 @@ import {
   Selection,
 } from "@nextui-org/react";
 import { User } from "@prisma/client";
-import { getAllUsers } from "@/actions/user";
 
 export default function UserModal({
   userList,
