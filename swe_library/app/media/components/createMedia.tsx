@@ -2,7 +2,6 @@
 import {
   Textarea,
   Input,
-  Chip,
   Spacer,
   Card,
   CardBody,
@@ -17,9 +16,7 @@ import React from "react";
 import { toast } from "react-toastify";
 import { MediaDetailProp } from "@/models/mediaDetails";
 import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
-import { useSession } from "next-auth/react";
 import {
-  AiOutlineEdit,
   AiOutlineSave,
   AiOutlineClose,
   AiOutlineDelete,
@@ -62,23 +59,18 @@ const initialMedia: MediaDetailProp = {
   rentedMediaReturnDate: undefined,
 };
 
-export default function MediaDetails({
-  mediaDetails,
+export default function CreateMedia({
   authors,
   locations,
+  mediaDetails = null,
+  editMode = false,
 }: {
-  mediaDetails: MediaDetailProp | null;
   authors: Author[] | null;
   locations: Location[] | null;
+  mediaDetails?: MediaDetailProp | null;
+  editMode?: boolean;
 }) {
   const router = useRouter();
-  const { data: session } = useSession();
-
-  const [isEditMode, setEditable] = React.useState(false);
-  const [isDetailsMode, setDetailsMode] = React.useState(false);
-  const [isCreationMode, setCreationMode] = React.useState(false);
-  const [isEmployee, setEmployee] = React.useState(false);
-  const [isRented, setRented] = React.useState(false);
 
   const [formData, setFormData] = React.useState<MediaDetailProp>({
     ...(mediaDetails ?? initialMedia),
@@ -86,25 +78,6 @@ export default function MediaDetails({
   const [showAuthorModal, setShowAuthorModal] = React.useState<boolean>(false);
   const [showLocationModal, setShowLocationModal] =
     React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    mediaDetails ? setDetailsMode(true) : setDetailsMode(false);
-    mediaDetails ? setCreationMode(false) : setCreationMode(true);
-    session ? setEmployee(true) : setEmployee(false);
-    mediaDetails?.rentedMediaId ? setRented(true) : setRented(false);
-
-    if (isCreationMode) {
-      setEditable(true);
-    }
-  }, [mediaDetails, session]);
-
-  const mediaTypeIcon = React.useMemo(() => {
-    return mediaDetails
-      ? mediaTypesWithIcons.find(
-          (mediaType) => mediaType.enum === mediaDetails.mediaMediaType,
-        )?.icon
-      : undefined;
-  }, [mediaDetails]);
 
   const handleChange = (event: React.ChangeEvent<any>) => {
     const { name, value } = event.target;
@@ -116,39 +89,35 @@ export default function MediaDetails({
     });
   };
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    
-    if (
-      !formData.mediaTitle ||
-      !formData.authorId ||
-      !formData.locationId
-    ) {
-      toast.error("Erstellung des Mediums fehlgeschlagen, fehlende Informationen!");
-      return;
-    }
+  async function handleSubmit(
+    operation: "create" | "update" | "delete" | "discard",
+  ) {
+    if (operation === "create") {
+      if (!formData.mediaTitle || !formData.authorId || !formData.locationId) {
+        toast.error(
+          "Erstellung des Mediums fehlgeschlagen, fehlende Informationen!",
+        );
+        return;
+      }
 
-    const media = await createMedia(
-      formData.mediaMediaType,
-      formData.mediaTitle,
-      formData.mediaPublished,
-      formData.mediaContent,
-      formData.mediaISBN,
-      formData.authorId,
-      formData.locationId,
-    );
+      const media = await createMedia(
+        formData.mediaMediaType,
+        formData.mediaTitle,
+        formData.mediaPublished,
+        formData.mediaContent,
+        formData.mediaISBN,
+        formData.authorId,
+        formData.locationId,
+      );
 
-    if (!media) {
-      toast.error("Erstellung des Mediums fehlgeschlagen!");
-      return;
-    } else {
-      toast.success("Medium erfolgreich erstellt!");
-      router.back();
-    }
-  }
-
-  function EditButton() {
-    const handleSave = async () => {
+      if (!media) {
+        toast.error("Erstellung des Mediums fehlgeschlagen!");
+        return;
+      } else {
+        toast.success("Medium erfolgreich erstellt!");
+        router.back();
+      }
+    } else if (operation === "update") {
       if (
         !formData.mediaId ||
         !formData.mediaTitle ||
@@ -175,12 +144,9 @@ export default function MediaDetails({
         return;
       } else {
         toast.success("Speichern erfolgreich!");
-        setEditable(false);
         router.refresh();
       }
-    };
-
-    const handleDelete = async () => {
+    } else if (operation === "delete") {
       if (!formData.mediaId) {
         toast.error("Löschen fehlgeschlagen!");
         return;
@@ -195,63 +161,55 @@ export default function MediaDetails({
         toast.success("Löschen erfolgreich!");
         router.back();
       }
-    };
+    } else if (operation === "discard") {
+      router.back();
+    }
+  }
 
-    const handleDiscard = () => {
-      setEditable(false);
-      router.refresh();
-    };
-
+  function EditButtons() {
     return (
-      isEmployee && (
-        <div className="flex justify-start gap-3">
-          {isCreationMode && <SubmitButton text="erstellen" />}
+      <div className="flex justify-start gap-3">
+        {!editMode && (
+          <SubmitButton
+            color="success"
+            variant="flat"
+            onPress={() => handleSubmit("create")}
+          >
+            erstellen
+          </SubmitButton>
+        )}
 
-          {isDetailsMode && isEditMode && (
-            <>
-              <Button
-                color="success"
-                variant="flat"
-                startContent={<AiOutlineSave />}
-                onClick={handleSave}
-              >
-                Speichern
-              </Button>
+        {editMode && (
+          <>
+            <SubmitButton
+              color="success"
+              variant="flat"
+              startContent={<AiOutlineSave />}
+              onPress={() => handleSubmit("update")}
+            >
+              Speichern
+            </SubmitButton>
 
-              <Button
-                color="warning"
-                variant="flat"
-                startContent={<AiOutlineClose />}
-                onClick={handleDiscard}
-              >
-                Abbrechen
-              </Button>
-            </>
-          )}
+            <SubmitButton
+              color="warning"
+              variant="flat"
+              startContent={<AiOutlineClose />}
+              onPress={() => handleSubmit("discard")}
+            >
+              Abbrechen
+            </SubmitButton>
 
-          {isDetailsMode && !isEditMode && (
-            <>
-              <Button
-                color="primary"
-                variant="flat"
-                startContent={<AiOutlineEdit />}
-                onClick={() => setEditable(true)}
-              >
-                Bearbeiten
-              </Button>
-
-              <Button
-                color="danger"
-                variant="flat"
-                startContent={<AiOutlineDelete />}
-                onClick={handleDelete}
-              >
-                Löschen
-              </Button>
-            </>
-          )}
-        </div>
-      )
+            <SubmitButton
+              color="danger"
+              variant="flat"
+              startContent={<AiOutlineDelete />}
+              onPress={() => handleSubmit("delete")}
+            >
+              Löschen
+            </SubmitButton>
+          </>
+        )}
+      </div>
     );
   }
 
@@ -281,35 +239,11 @@ export default function MediaDetails({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+    <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-3">
       <div className="flex flex-row gap-3">
         <Card shadow="md" className="flex min-w-[50%] flex-grow">
           <CardHeader className="flex gap-3">
             <h1 className="text-3xl">Medium</h1>
-
-            {isDetailsMode && !isEditMode && (
-              <div className="flex flex-grow items-center gap-2">
-                <Chip
-                  startContent={mediaTypeIcon}
-                  variant="flat"
-                  color="default"
-                >
-                  {mediaDetails?.mediaMediaType}
-                </Chip>
-                <Chip
-                  variant="flat"
-                  color={mediaDetails?.mediaPublished ? "success" : "warning"}
-                >
-                  {mediaDetails?.mediaPublished
-                    ? "Veröffentlicht"
-                    : "Nicht veröffentlicht"}
-                </Chip>
-
-                <Chip variant="flat" color={isRented ? "warning" : "success"}>
-                  {isRented ? "ausgeliehen" : "nicht ausgeliehen"}
-                </Chip>
-              </div>
-            )}
           </CardHeader>
 
           <Divider />
@@ -327,34 +261,31 @@ export default function MediaDetails({
               />
             </div>
 
-            {isEditMode && (
-              <div>
-                <Select
-                  label="Medientyp"
-                  name="mediaMediaType"
-                  selectionMode="single"
-                  className="max-w"
-                  items={mediaTypesWithIcons}
-                  value={formData.mediaMediaType.toString()}
-                  defaultSelectedKeys={["BOOK"]}
-                  onChange={handleChange}
-                >
-                  {(mediaType) => (
-                    <SelectItem
-                      key={mediaType.enum}
-                      startContent={mediaType.icon}
-                    >
-                      {mediaType.label}
-                    </SelectItem>
-                  )}
-                </Select>
+            <div>
+              <Select
+                label="Medientyp"
+                name="mediaMediaType"
+                selectionMode="single"
+                className="max-w"
+                items={mediaTypesWithIcons}
+                value={formData.mediaMediaType.toString()}
+                defaultSelectedKeys={["BOOK"]}
+                onChange={handleChange}
+              >
+                {(mediaType) => (
+                  <SelectItem
+                    key={mediaType.enum}
+                    startContent={mediaType.icon}
+                  >
+                    {mediaType.label}
+                  </SelectItem>
+                )}
+              </Select>
 
-                <Spacer y={7} />
-              </div>
-            )}
+              <Spacer y={7} />
+            </div>
 
             <Input
-              isReadOnly={!isEditMode}
               type="text"
               label="Titel"
               name="mediaTitle"
@@ -367,7 +298,6 @@ export default function MediaDetails({
             <Spacer y={2} />
 
             <Textarea
-              isReadOnly={!isEditMode}
               type="text"
               label="Inhaltsausschnitt"
               name="mediaContent"
@@ -380,7 +310,6 @@ export default function MediaDetails({
             <Spacer y={7} />
 
             <Input
-              isReadOnly={!isEditMode}
               type="text"
               label="ISBN"
               name="mediaISBN"
@@ -390,50 +319,19 @@ export default function MediaDetails({
               onChange={handleChange}
             />
 
-            {isEditMode && (
-              <div>
-                <Spacer y={2} />
+            <div>
+              <Spacer y={2} />
 
-                <Switch
-                  defaultSelected
-                  name="published"
-                  color="default"
-                  value={formData.mediaPublished.toString()}
-                  onChange={handleChange}
-                >
-                  veröffentlicht
-                </Switch>
-              </div>
-            )}
-
-            {isDetailsMode && !isEditMode && (
-              <>
-                <Spacer y={2} />
-
-                <div className="flex gap-2">
-                  <Input
-                    isReadOnly
-                    isDisabled
-                    type="text"
-                    label="hinzugefügt am"
-                    name="mediaCreatedAt"
-                    variant="bordered"
-                    className="max-w"
-                    value={formData.mediaCreatedAt?.toLocaleDateString()}
-                  />
-                  <Input
-                    isReadOnly
-                    isDisabled
-                    type="text"
-                    label="letztes Update"
-                    name="mediaUpdatedAt"
-                    variant="bordered"
-                    className="max-w"
-                    value={formData.mediaUpdatedAt?.toLocaleDateString()}
-                  />
-                </div>
-              </>
-            )}
+              <Switch
+                defaultSelected
+                name="published"
+                color="default"
+                value={formData.mediaPublished.toString()}
+                onChange={handleChange}
+              >
+                veröffentlicht
+              </Switch>
+            </div>
           </CardBody>
         </Card>
 
@@ -442,7 +340,7 @@ export default function MediaDetails({
             <CardHeader className="flex justify-between gap-3">
               <h1 className="text-3xl">Author</h1>
 
-              {(isCreationMode || isEditMode) && (
+              {(!editMode || editMode) && (
                 <div className="flex flex-row gap-2">
                   <Button
                     isIconOnly
@@ -534,25 +432,23 @@ export default function MediaDetails({
             <CardHeader className="flex justify-between gap-3">
               <h1 className="text-3xl">Lokation</h1>
 
-              {(isCreationMode || isEditMode) && (
-                <div>
-                  <Button
-                    isIconOnly
-                    color="primary"
-                    size="lg"
-                    onPress={() => setShowLocationModal(true)}
-                  >
-                    <AiOutlineSearch className="m-1" />
-                  </Button>
+              <div>
+                <Button
+                  isIconOnly
+                  color="primary"
+                  size="lg"
+                  onPress={() => setShowLocationModal(true)}
+                >
+                  <AiOutlineSearch className="m-1" />
+                </Button>
 
-                  <LocationModal
-                    freeLocations={locations}
-                    show={showLocationModal}
-                    close={() => setShowLocationModal(false)}
-                    setLocation={setLocation}
-                  />
-                </div>
-              )}
+                <LocationModal
+                  freeLocations={locations}
+                  show={showLocationModal}
+                  close={() => setShowLocationModal(false)}
+                  setLocation={setLocation}
+                />
+              </div>
             </CardHeader>
             <Divider />
             <CardBody>
@@ -608,7 +504,7 @@ export default function MediaDetails({
         </div>
       </div>
 
-      <EditButton />
+      <EditButtons />
     </form>
   );
 }

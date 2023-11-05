@@ -1,18 +1,15 @@
 import React from "react";
 import getAllAuthors from "@/actions/authors";
 import getAllFreeLocations from "@/actions/location";
-import MediaDetails from "../components/mediaDetails";
-import { getAllUsers } from "@/actions/user";
- 
+import CreateMedia from "../components/createMedia";
 
 export default async function MediaCreatePage() {
   const authorList = await getAllAuthors();
   const freeLocationList = await getAllFreeLocations();
-  const users = await getAllUsers();
 
   return (
     <section className="m-3">
-      <MediaDetails authors={authorList} locations={freeLocationList} users={users} mediaDetails={null} />
+      <CreateMedia authors={authorList} locations={freeLocationList} />
     </section>
   );
 }

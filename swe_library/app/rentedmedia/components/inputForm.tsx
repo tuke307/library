@@ -50,7 +50,7 @@ export default function InputForm({
           onChange={handleChange}
         />
 
-        <SubmitButton text="abrufen" />
+        <SubmitButton>abrufen</SubmitButton>
       </div>
     </form>
   );

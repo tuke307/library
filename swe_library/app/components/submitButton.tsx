@@ -1,13 +1,10 @@
-"use client";
+import { Button, ButtonProps } from "@nextui-org/react";
 import { experimental_useFormStatus as useFormStatus } from "react-dom";
-import { Button } from "@nextui-org/react";
 
-export function SubmitButton({ text }: { text: string }) {
+export function SubmitButton({ ...props }: ButtonProps) {
   const { pending } = useFormStatus();
 
   return (
-    <Button isLoading={pending} type="submit" className="m-2" color="primary">
-      {text}
-    </Button>
+    <Button isLoading={pending} type="submit" className="m-2" color="primary" {...props} />
   );
 }

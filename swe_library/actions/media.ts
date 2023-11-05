@@ -33,7 +33,7 @@ export async function createMedia(
     }
 
     mediaData.createdAt = new Date();
-
+    
     const media = await prisma.media.create({
       data: mediaData,
     });

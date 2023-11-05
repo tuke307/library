@@ -46,10 +46,14 @@ export default function LoginForm() {
     if (res?.ok) {
       router.push("/");
     } else if (res?.status === 401) {
-      toast.error("Die angegebene Mitarbeiternummer oder das Passwort ist ungültig.");
+      toast.error(
+        "Die angegebene Mitarbeiternummer oder das Passwort ist ungültig.",
+      );
       formData.password = "";
     } else {
-      toast.error("Es ist ein Fehler aufgetreten. Bitte versuche es später erneut");
+      toast.error(
+        "Es ist ein Fehler aufgetreten. Bitte versuche es später erneut",
+      );
 
       formData.id = "";
       formData.password = "";
@@ -57,12 +61,12 @@ export default function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="min-w-[300px] min-h-[200px]">
-      <Card >
+    <form onSubmit={handleSubmit} className="min-h-[200px] min-w-[300px]">
+      <Card>
         <CardHeader>
           <h2 className="text-3xl font-bold">Login</h2>
         </CardHeader>
-        <Divider/>
+        <Divider />
         <CardBody className="flex flex-col gap-3">
           <Input
             isRequired
@@ -103,9 +107,11 @@ export default function LoginForm() {
             className="flex-grow"
           />
         </CardBody>
-        <Divider/>
+        
+        <Divider />
+
         <CardFooter>
-          <SubmitButton text="Login" />
+          <SubmitButton>Login</SubmitButton>
         </CardFooter>
       </Card>
     </form>

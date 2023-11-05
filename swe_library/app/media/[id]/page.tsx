@@ -1,9 +1,6 @@
 import React from "react";
-import MediaDetails from "../components/mediaDetails";
+import ViewMedia from "../components/viewMedia";
 import { getMediaDetails } from "@/actions/media";
-import { getAllUsers } from "@/actions/user";
-import getAllAuthors from "@/actions/authors";
-import getAllFreeLocations from "@/actions/location";
 
 export default async function DetailsPage({
   params,
@@ -11,13 +8,14 @@ export default async function DetailsPage({
   params: { id: string };
 }) {
   const mediaDetails = await getMediaDetails(params.id);
-  const users = await getAllUsers();
-  const authors = await getAllAuthors();
-  const locations = await getAllFreeLocations();
+
+  if (!mediaDetails) {
+    return <div>Media not found</div>;
+  }
 
   return (
     <section className="m-10">
-      <MediaDetails mediaDetails={mediaDetails} authors={authors} locations={locations} users={users} />
+      <ViewMedia mediaDetails={mediaDetails} />
     </section>
   );
 }

@@ -129,7 +129,7 @@ export default function AddUserForm() {
         </CardBody>
       </Card>
 
-      <SubmitButton text="Kunde erstellen" />
+      <SubmitButton>Kunde erstellen</SubmitButton>
     </form>
   );
 }
