@@ -2,11 +2,7 @@
 import React from "react";
 import { Card, CardBody, CardFooter, Divider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import { BiSearch } from "react-icons/bi";
-import { ImBooks } from "react-icons/im";
-import { FiUsers } from "react-icons/fi";
-import { AiOutlinePlus } from "react-icons/ai";
-import { RiArrowGoBackFill } from "react-icons/ri";
+import { AiOutlinePlus, AiOutlineUserAdd, AiOutlineSearch, AiOutlineBackward, AiOutlineForward } from "react-icons/ai";
 
 export default async function EmployeeCards() {
   const router = useRouter();
@@ -22,7 +18,7 @@ export default async function EmployeeCards() {
         onPress={() => router.push("/media/search")}
       >
         <CardBody>
-          <BiSearch className="h-full w-full" />
+          <AiOutlineSearch className="h-full w-full" />
         </CardBody>
         <Divider />
         <CardFooter>
@@ -56,7 +52,7 @@ export default async function EmployeeCards() {
         onPress={() => router.push("/rentedmedia")}
       >
         <CardBody>
-          <RiArrowGoBackFill className="h-full w-full" />
+          <AiOutlineBackward className="h-full w-full" />
         </CardBody>
         <Divider />
         <CardFooter>
@@ -70,10 +66,27 @@ export default async function EmployeeCards() {
         isPressable
         isHoverable
         className="h-[250px] w-[300px]"
+        onPress={() => router.push("/rentedmedia/create")}
+      >
+        <CardBody>
+          <AiOutlineForward className="h-full w-full" />
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <h4 className="text-large font-bold">Medium ausleihen</h4>
+        </CardFooter>
+      </Card>
+
+      <Card
+        shadow="sm"
+        key="5"
+        isPressable
+        isHoverable
+        className="h-[250px] w-[300px]"
         onPress={() => router.push("/user/create")}
       >
         <CardBody>
-          <FiUsers className="h-full w-full" />
+          <AiOutlineUserAdd className="h-full w-full" />
         </CardBody>
         <Divider />
         <CardFooter>
