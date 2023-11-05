@@ -29,7 +29,7 @@ export default function ViewDetails({
 
   React.useEffect(() => {
     mediaDetails?.rentedMediaId ? setRented(true) : setRented(false);
-  }, [mediaDetails, session]);
+  }, [mediaDetails]);
 
   const mediaType = React.useMemo(() => {
     return mediaDetails
@@ -57,7 +57,11 @@ export default function ViewDetails({
             <h1 className="text-3xl">Medium</h1>
 
             <div className="flex flex-grow items-center gap-2">
-              <Chip startContent={mediaType?.icon} variant="flat" color="default">
+              <Chip
+                startContent={mediaType?.icon}
+                variant="flat"
+                color="default"
+              >
                 {mediaType?.label}
               </Chip>
               <Chip
@@ -286,6 +290,65 @@ export default function ViewDetails({
               </div>
             </CardBody>
           </Card>
+
+          {session && isRented && (
+            <Card shadow="md">
+              <CardHeader className="flex justify-between gap-3">
+                <h1 className="text-3xl">Ausleihe</h1>
+              </CardHeader>
+
+              <div>
+                <Divider />
+                <CardBody className="flex flex-row gap-2">
+                  <div className="sr-only" hidden>
+                    <Input
+                      isReadOnly
+                      type="text"
+                      label="ID"
+                      name="rentedMediaId"
+                      variant="bordered"
+                      className="max-w"
+                      value={formData.rentedMediaId!.toString()}
+                    />
+                  </div>
+                  <Input
+                    isReadOnly
+                    isDisabled
+                    type="text"
+                    label="Kunden-ID"
+                    name="rentedMediaUserId"
+                    variant="bordered"
+                    className="max-w"
+                    value={
+                      formData.rentedMediaUserId === 0
+                        ? ""
+                        : formData.rentedMediaUserId!.toString()
+                    }
+                  />
+                  <Input
+                    isReadOnly
+                    isDisabled
+                    type="text"
+                    label="Nachname"
+                    name="rentedMediaUserLastName"
+                    variant="bordered"
+                    className="max-w"
+                    value={formData.rentedMediaUserLastName!.toString()}
+                  />
+                  <Input
+                    isReadOnly
+                    isDisabled
+                    type="text"
+                    label="Nachname"
+                    name="rentedMediaUserFirstName"
+                    variant="bordered"
+                    className="max-w"
+                    value={formData.rentedMediaUserFirstName!.toString()}
+                  />
+                </CardBody>
+              </div>
+            </Card>
+          )}
         </div>
       </div>
     </form>
