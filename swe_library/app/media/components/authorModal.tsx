@@ -96,10 +96,6 @@ export default function AuthorModal({
       <div className="flex flex-col gap-4">
         <Input
           isClearable
-          classNames={{
-            base: "w-full sm:max-w-[44%]",
-            inputWrapper: "border-1",
-          }}
           placeholder="Suche nach Nachname..."
           size="sm"
           value={authorFilterValue}
