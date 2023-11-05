@@ -13,16 +13,20 @@ import {
   Button,
   Link,
   SortDescriptor,
+  Tooltip,
 } from "@nextui-org/react";
 import React from "react";
 import { MediaTableProp } from "@/models/mediaTable";
 import { BsSearch } from "react-icons/bs";
+import { useRouter } from "next/navigation";
+import { AiFillEdit } from "react-icons/ai";
 
 export default function MediaTable({
   mediaTableProps,
 }: {
   mediaTableProps: MediaTableProp[] | null;
 }) {
+  const router = useRouter();
   const [filterValue, setFilterValue] = React.useState("");
   const [page, setPage] = React.useState(1);
   const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
@@ -116,7 +120,7 @@ export default function MediaTable({
 
   return (
     <section>
-      <Table 
+      <Table
         aria-label="Media Table"
         topContent={topContent}
         topContentPlacement="outside"
@@ -124,6 +128,8 @@ export default function MediaTable({
         bottomContentPlacement="outside"
         sortDescriptor={sortDescriptor}
         onSortChange={setSortDescriptor}
+        selectionMode="single"
+        onRowAction={(key) => router.push(`/media/view/${key}`)}
       >
         <TableHeader>
           <TableColumn key="title" allowsSorting>
@@ -138,9 +144,7 @@ export default function MediaTable({
           <TableColumn key="rented" allowsSorting>
             Verfügbarkeit
           </TableColumn>
-          <TableColumn key="details">
-            Details
-          </TableColumn>
+          <TableColumn key="actions">Aktionen</TableColumn>
         </TableHeader>
         <TableBody emptyContent={"keine Medien gefunden."}>
           {sortedItems.map((item) => (
@@ -163,15 +167,19 @@ export default function MediaTable({
                 </Chip>
               </TableCell>
               <TableCell>
-                <Button
-                  href={`/media/${getKeyValue(item, "id")}`}
-                  as={Link}
-                  color="primary"
-                  showAnchorIcon
-                  variant="flat"
-                >
-                  Details
-                </Button>
+                <div className="relative flex items-center gap-2">
+                  <Tooltip content="Medium editieren">
+                    <Button
+                      isIconOnly
+                      href={`/media/edit/${getKeyValue(item, "id")}`}
+                      as={Link}
+                      color="primary"
+                      variant="light"
+                    >
+                      <AiFillEdit />
+                    </Button>
+                  </Tooltip>
+                </div>
               </TableCell>
             </TableRow>
           ))}

@@ -9,8 +9,7 @@ import {
   Divider,
   Input,
 } from "@nextui-org/react";
-import { AiFillEye } from "react-icons/ai";
-import { AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { SubmitButton } from "@/app/components/submitButton";
