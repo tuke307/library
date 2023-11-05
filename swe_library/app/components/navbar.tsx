@@ -40,7 +40,7 @@ export function Navbar() {
   }, [session, status]);
 
   return (
-    <NextUINavbar isBordered maxWidth="xl">
+    <NextUINavbar isBordered maxWidth="full">
       <NavbarBrand>
         <Link className="flex items-center justify-start gap-1" href="/">
           <AiFillHome />
