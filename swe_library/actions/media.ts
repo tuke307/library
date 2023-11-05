@@ -33,7 +33,7 @@ export async function createMedia(
     }
 
     mediaData.createdAt = new Date();
-    
+
     const media = await prisma.media.create({
       data: mediaData,
     });
@@ -123,7 +123,7 @@ export async function getMediaDetails(
       authorFirstName: media.author.firstName,
       authorLastName: media.author.lastName,
       authorBirthday: media.author.birthday || undefined,
-      authorEmail: media.author.email  || undefined,
+      authorEmail: media.author.email || undefined,
 
       locationId: media.location.id,
       locationFloor: media.location.floor,
@@ -139,11 +139,15 @@ export async function getMediaDetails(
       rentedMediaUserLastName:
         media.rentedBy.length > 0 ? media.rentedBy[0].user.lastName : undefined,
       rentedMediaUserFirstName:
-        media.rentedBy.length > 0 ? media.rentedBy[0].user.firstName : undefined,
+        media.rentedBy.length > 0
+          ? media.rentedBy[0].user.firstName
+          : undefined,
       rentedMediaRentedDate:
         media.rentedBy.length > 0 ? media.rentedBy[0].rentedAt : undefined,
       rentedMediaReturnDate:
-        media.rentedBy.length > 0 ? media.rentedBy[0].returnedAt ?? undefined : undefined,
+        media.rentedBy.length > 0
+          ? media.rentedBy[0].returnedAt ?? undefined
+          : undefined,
     };
 
     return mediaDetails;
@@ -251,6 +255,13 @@ export async function deleteMedia(id: string): Promise<Media | null> {
 export async function getAllFreeMedias(): Promise<MediaTableProp[] | null> {
   try {
     const medias = await prisma.media.findMany({
+      where: {
+        rentedBy: {
+          none: {
+            returnedAt: null,
+          },
+        },
+      },
       select: {
         id: true,
         title: true,
@@ -261,11 +272,6 @@ export async function getAllFreeMedias(): Promise<MediaTableProp[] | null> {
           },
         },
         rentedBy: {
-          where: {
-            returnedAt: {
-              not: null,
-            }
-          },
           select: {
             id: true,
           },
