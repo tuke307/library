@@ -6,6 +6,7 @@ import {
   NavbarBrand,
   NavbarItem,
   Button,
+  Spinner,
 } from "@nextui-org/react";
 
 import { signIn, signOut, useSession } from "next-auth/react";
@@ -13,26 +14,30 @@ import React from "react";
 import { AiFillHome } from "react-icons/ai";
 
 export function Navbar() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   const AuthButton = React.useMemo(() => {
-    if (session) {
+    if (status === "loading") {
+      return <Spinner color="primary" />;
+    } else {
+      if (session) {
+        return (
+          <>
+            <Button onClick={() => signOut()} color="primary">
+              Logout
+            </Button>
+          </>
+        );
+      }
       return (
         <>
-          <Button onClick={() => signOut()} color="primary">
-            Logout
+          <Button onClick={() => signIn()} color="primary">
+            Mitarbeiterlogin
           </Button>
         </>
       );
     }
-    return (
-      <>
-        <Button onClick={() => signIn()} color="primary">
-          Mitarbeiterlogin
-        </Button>
-      </>
-    );
-  }, [session]);
+  }, [session, status]);
 
   return (
     <NextUINavbar isBordered maxWidth="xl">

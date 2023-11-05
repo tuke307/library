@@ -20,6 +20,7 @@ import { MediaTableProp } from "@/models/mediaTable";
 import { BsSearch } from "react-icons/bs";
 import { useRouter } from "next/navigation";
 import { AiFillEdit } from "react-icons/ai";
+import { useSession } from "next-auth/react";
 
 export default function MediaTable({
   mediaTableProps,
@@ -27,6 +28,7 @@ export default function MediaTable({
   mediaTableProps: MediaTableProp[] | null;
 }) {
   const router = useRouter();
+  const { data: session, status } = useSession();
   const [filterValue, setFilterValue] = React.useState("");
   const [page, setPage] = React.useState(1);
   const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
@@ -144,7 +146,7 @@ export default function MediaTable({
           <TableColumn key="rented" allowsSorting>
             Verfügbarkeit
           </TableColumn>
-          <TableColumn key="actions">Aktionen</TableColumn>
+          <TableColumn key="actions" hidden={!session}>Aktionen</TableColumn>
         </TableHeader>
         <TableBody emptyContent={"keine Medien gefunden."}>
           {sortedItems.map((item) => (
@@ -166,7 +168,7 @@ export default function MediaTable({
                     : "verfügbar"}
                 </Chip>
               </TableCell>
-              <TableCell>
+              <TableCell hidden={!session}>
                 <div className="relative flex items-center gap-2">
                   <Tooltip content="Medium editieren">
                     <Button
