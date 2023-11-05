@@ -42,7 +42,7 @@ export default function UserModal({
   });
   const [selectedUserKeys, setSelectedUserKeys] = React.useState<Selection>(
     new Set([]),
-  ); 
+  );
   const users = userList;
 
   const rowsPerPage = 10;
@@ -126,7 +126,13 @@ export default function UserModal({
   }, [userPage, UserPages]);
 
   return (
-    <Modal backdrop="blur" placeholder="center" isOpen={show} onClose={close}>
+    <Modal
+      backdrop="blur"
+      size="5xl"
+      placeholder="center"
+      isOpen={show}
+      onClose={close}
+    >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1">Kunden</ModalHeader>
         <ModalBody>

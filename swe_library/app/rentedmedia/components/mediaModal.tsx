@@ -20,7 +20,6 @@ import {
   SortDescriptor,
   Selection,
 } from "@nextui-org/react";
-import { Media } from "@prisma/client";
 import { MediaTableProp } from "@/models/mediaTable";
 
 export default function MediaModal({
@@ -127,7 +126,13 @@ export default function MediaModal({
   }, [MediaPage, MediaPages]);
 
   return (
-    <Modal backdrop="blur" placeholder="center" isOpen={show} onClose={close}>
+    <Modal
+      backdrop="blur"
+      size="5xl"
+      placeholder="center"
+      isOpen={show}
+      onClose={close}
+    >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1">
           unausgeliehene Medien
@@ -152,12 +157,20 @@ export default function MediaModal({
               <TableColumn key="title" allowsSorting>
                 Title
               </TableColumn>
+              <TableColumn key="authorName" allowsSorting>
+                Author
+              </TableColumn>
+              <TableColumn key="locationName" allowsSorting>
+                Lokation
+              </TableColumn>
             </TableHeader>
             <TableBody emptyContent={"keine Medien gefunden"}>
               {sortedMediaItems.map((item) => (
                 <TableRow key={item.id}>
                   <TableCell>{getKeyValue(item, "id")}</TableCell>
                   <TableCell>{getKeyValue(item, "title")}</TableCell>
+                  <TableCell>{getKeyValue(item, "authorName")}</TableCell>
+                  <TableCell>{getKeyValue(item, "locationName")}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

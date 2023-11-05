@@ -126,7 +126,13 @@ export default function AuthorModal({
   }, [authorPage, authorPages]);
 
   return (
-    <Modal backdrop="blur" placeholder="center" isOpen={show} onClose={close}>
+    <Modal
+      backdrop="blur"
+      size="5xl"
+      placeholder="center"
+      isOpen={show}
+      onClose={close}
+    >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1">Authoren</ModalHeader>
         <ModalBody>

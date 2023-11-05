@@ -80,7 +80,13 @@ export default function LocationModal({
   }, [locationPage, locationPages]);
 
   return (
-    <Modal placeholder="center" isOpen={show} onClose={close}>
+    <Modal
+      backdrop="blur"
+      size="5xl"
+      placeholder="center"
+      isOpen={show}
+      onClose={close}
+    >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1">
           freie Lokationen
