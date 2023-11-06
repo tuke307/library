@@ -40,7 +40,9 @@ export default function CreateRentedMedia({
   };
 
   const setMedia = (selectedMedia: MediaTableProp) => {
-    setMediaList((prevMediaList) => [...prevMediaList, selectedMedia]);
+    if (!mediaList.some((media) => media.id === selectedMedia.id)) {
+      setMediaList((prevMediaList) => [...prevMediaList, selectedMedia]);
+    }
   };
 
   const topContent = React.useMemo(() => {
