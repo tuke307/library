@@ -61,6 +61,7 @@ export default function AddUserForm() {
               type="text"
               label="Nachname"
               name="lastName"
+              placeholder="Mustermann"
               value={formData.lastName}
               onChange={handleChange}
             />
@@ -69,6 +70,7 @@ export default function AddUserForm() {
               type="text"
               label="Vorname"
               name="firstName"
+              placeholder="Max"
               value={formData.firstName}
               onChange={handleChange}
             />
@@ -78,6 +80,7 @@ export default function AddUserForm() {
               type="email"
               label="Email"
               name="email"
+              placeholder="mustermann.max@gmail.com"
               value={formData.email!}
               onChange={handleChange}
             />
@@ -89,6 +92,7 @@ export default function AddUserForm() {
               type="text"
               label="Straße"
               name="street"
+              placeholder="Musterstraße"
               value={formData.street}
               onChange={handleChange}
             />
@@ -98,6 +102,7 @@ export default function AddUserForm() {
               type="text"
               label="Hausnummer"
               name="houseNumber"
+              placeholder="1a"
               value={formData.houseNumber}
               onChange={handleChange}
             />
@@ -107,6 +112,7 @@ export default function AddUserForm() {
               type="number"
               label="PLZ"
               name="plz"
+              placeholder="12345"
               value={formData.plz === 0 ? "" : formData.plz.toString()}
               onChange={handleChange}
             />
@@ -116,6 +122,7 @@ export default function AddUserForm() {
               type="text"
               label="Stadt"
               name="city"
+              placeholder="Musterstadt"
               value={formData.city}
               onChange={handleChange}
             />
