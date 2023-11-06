@@ -6,6 +6,7 @@ import { SubmitButton } from "@/app/components/submitButton";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { User } from "@prisma/client";
+import { BsPersonPlus } from "react-icons/bs";
 
 const initialState: User = {
   id: 0,
@@ -122,7 +123,7 @@ export default function AddUserForm() {
         </CardBody>
       </Card>
 
-      <SubmitButton>Kunde erstellen</SubmitButton>
+      <SubmitButton startContent={<BsPersonPlus className="m-1"/>}>Kunde erstellen</SubmitButton>
     </form>
   );
 }

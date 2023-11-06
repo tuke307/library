@@ -21,6 +21,7 @@ import {
   BsX,
   BsTrash,
   BsSearch,
+  BsPlusLg,
 } from "react-icons/bs";
 import { createMedia, deleteMedia, updateMedia } from "@/actions/media";
 import { useRouter } from "next/navigation";
@@ -94,9 +95,7 @@ export default function CreateMedia({
   ) {
     if (operation === "create") {
       if (!formData.mediaTitle || !formData.authorId || !formData.locationId) {
-        toast.error(
-          "Erstellung des Mediums fehlgeschlagen, fehlende Informationen!",
-        );
+        toast.warning("fehlende Informationen!");
         return;
       }
 
@@ -124,7 +123,7 @@ export default function CreateMedia({
         !formData.authorId ||
         !formData.locationId
       ) {
-        toast.error("Speichern fehlgeschlagen, fehlende Informationen!");
+        toast.warning("fehlende Informationen!");
         return;
       }
 
@@ -173,6 +172,7 @@ export default function CreateMedia({
           <SubmitButton
             color="success"
             variant="flat"
+            startContent={<BsPlusLg className="m-1"/>}
             onPress={() => handleSubmit("create")}
           >
             erstellen
@@ -263,6 +263,7 @@ export default function CreateMedia({
 
             <div>
               <Select
+                isRequired={!editMode}
                 label="Medientyp"
                 name="mediaMediaType"
                 selectionMode="single"
@@ -286,6 +287,7 @@ export default function CreateMedia({
             </div>
 
             <Input
+              isRequired={!editMode}
               type="text"
               label="Titel"
               name="mediaTitle"
@@ -379,6 +381,7 @@ export default function CreateMedia({
                 <Input
                   isReadOnly
                   isDisabled
+                  isRequired={!editMode}
                   type="text"
                   label="Nachname"
                   name="authorLastName"
@@ -390,6 +393,7 @@ export default function CreateMedia({
                 <Input
                   isReadOnly
                   isDisabled
+                  isRequired={!editMode}
                   type="text"
                   label="Vorname"
                   name="authorFirstName"
@@ -468,6 +472,7 @@ export default function CreateMedia({
                 <Input
                   isReadOnly
                   isDisabled
+                  isRequired={!editMode}
                   type="text"
                   label="Etage"
                   name="locationFloor"
@@ -479,6 +484,7 @@ export default function CreateMedia({
                 <Input
                   isReadOnly
                   isDisabled
+                  isRequired={!editMode}
                   type="text"
                   label="Regal"
                   name="locationShelf"
@@ -490,6 +496,7 @@ export default function CreateMedia({
                 <Input
                   isReadOnly
                   isDisabled
+                  isRequired={!editMode}
                   type="text"
                   name="locationShelfSection"
                   label="Regalabschnitt"
