@@ -46,7 +46,7 @@ Then you can use the vs code >>run and debug<< function.
 
 
 ## Database
-### local development (over docker)
+### development (over docker)
 for local development, use a docker container:
 ```bash
 docker run -d -e POSTGRES_DB=librarydb -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -p "6500:5432" postgres
@@ -56,6 +56,11 @@ update the `POSTGRES_PRISMA_URL` in your `.env.development.local` file;
 ```
 POSTGRES_PRISMA_URL="postgresql://postgres:postgres@localhost:6500/librarydb?schema=public"
 ```
+use `dotenv -e .env.development.local` for `<env>`
+
+### production
+use `dotenv -e .env.production.local` for `<env>`
+
 ### changing the `prisma.scheme`
 When you have to change the database models, you can do this by editing the `prisma.scheme`.
 You then have to apply (upload) these changes to your database. There are two ways of doing this;
@@ -63,28 +68,28 @@ You then have to apply (upload) these changes to your database. There are two wa
 #### over migrations (slow and safe way):
 ```bash
 # create migration
-dotenv -e .env.development.local npx prisma migrate dev --name add_person_table
+<env> npx prisma migrate dev --name <name>
 # apply migrations for dev
-dotenv -e .env.development.local npx prisma migrate dev
+<env> npx prisma migrate dev
 # apply migrations for prod
-dotenv -e .env.development.local npx prisma migrate deploy
+<env> npx prisma migrate deploy
 ```
 
 #### hard push (fast and unsafe way):
 ```bash
-dotenv -e .env.development.local npx prisma db push
+<env> npx prisma db push
 ```
 
 ### insert sample data (optional)
 if you want sample data, to use the full potential of the website, insert some sample data;
 ```bash
-dotenv -e .env.development.local npx ts-node sampleData/initialDatabase.ts
+<env> npx ts-node sampleData/initialDatabase.ts
 ```
 
 ### Prisma Studio
 Database management with browser GUI:
 ```bash
-dotenv -e .env.development.local npx prisma studio
+<env> npx prisma studio
 ```
 
 
