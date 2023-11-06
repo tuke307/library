@@ -59,7 +59,6 @@ export default function AddUserForm() {
               isRequired
               type="text"
               label="Nachname"
-              placeholder="Enter your name"
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
@@ -68,7 +67,6 @@ export default function AddUserForm() {
               isRequired
               type="text"
               label="Vorname"
-              placeholder="Enter your Vorname"
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
@@ -78,7 +76,6 @@ export default function AddUserForm() {
               isRequired
               type="email"
               label="Email"
-              placeholder="Enter your email"
               name="email"
               value={formData.email!}
               onChange={handleChange}
@@ -90,7 +87,6 @@ export default function AddUserForm() {
               isRequired
               type="text"
               label="Straße"
-              placeholder="Enter your Straße"
               name="street"
               value={formData.street}
               onChange={handleChange}
@@ -100,7 +96,6 @@ export default function AddUserForm() {
               isRequired
               type="text"
               label="Hausnummer"
-              placeholder="Gib deine Hausnummer ein"
               name="houseNumber"
               value={formData.houseNumber}
               onChange={handleChange}
@@ -110,7 +105,6 @@ export default function AddUserForm() {
               isRequired
               type="number"
               label="PLZ"
-              placeholder="Enter your PLZ"
               name="plz"
               value={formData.plz === 0 ? "" : formData.plz.toString()}
               onChange={handleChange}
@@ -120,7 +114,6 @@ export default function AddUserForm() {
               isRequired
               type="text"
               label="Stadt"
-              placeholder="Enter your Stadt"
               name="city"
               value={formData.city}
               onChange={handleChange}
