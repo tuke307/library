@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Input } from "@nextui-org/react";
 import { getRentedMediaByUserId } from "@/actions/rentedMedia";
-import { experimental_useFormState as useFormState } from "react-dom";
+import { useFormState } from "react-dom";
 import { RentedMediaTableProp } from "@/models/rentedMediaTable";
 import { SubmitButton } from "@/app/components/submitButton";
 
