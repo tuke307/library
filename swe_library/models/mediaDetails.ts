@@ -4,7 +4,7 @@ import { Author, Location, Media, MediaType, RentedMedia, User } from "@prisma/c
 export type MediaDetailProp = {
   mediaId: string | undefined,
   mediaTitle: string | undefined,
-  mediaMediaType: MediaType,
+  mediaType: MediaType,
   mediaContent: string | undefined,
   mediaPublished: boolean,
   mediaISBN: string | undefined,

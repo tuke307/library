@@ -1,13 +1,12 @@
 "use server";
 import { Media, MediaType, PrismaClient, User } from "@prisma/client";
-import { revalidatePath } from "next/cache";
 import { MediaDetailProp } from "@/models/mediaDetails";
 import { MediaTableProp } from "@/models/mediaTable";
 
 const prisma = new PrismaClient();
 
 export async function createMedia(
-  mediaType: MediaType,
+  type: MediaType,
   title: string,
   published: boolean,
   content: string | undefined,
@@ -17,7 +16,7 @@ export async function createMedia(
 ): Promise<Media | null> {
   try {
     const mediaData: any = {
-      mediaType,
+      type,
       title,
       published,
       authorId,
@@ -57,7 +56,7 @@ export async function getMediaDetails(
         id: true,
         title: true,
         content: true,
-        mediaType: true,
+        type: true,
         createdAt: true,
         updatedAt: true,
         published: true,
@@ -112,12 +111,12 @@ export async function getMediaDetails(
     const mediaDetails: MediaDetailProp = {
       mediaId: media.id,
       mediaTitle: media.title,
-      mediaMediaType: media.mediaType,
+      mediaType: media.type,
       mediaContent: media.content!,
       mediaPublished: media.published,
       mediaISBN: media.ISBN!,
       mediaCreatedAt: media.createdAt,
-      mediaUpdatedAt: media.updatedAt,
+      mediaUpdatedAt: media.updatedAt!,
 
       authorId: media.author.id,
       authorFirstName: media.author.firstName,
@@ -163,7 +162,7 @@ export async function getMediaTable(): Promise<MediaTableProp[] | null> {
       select: {
         id: true,
         title: true,
-        mediaType: true,
+        type: true,
         author: {
           select: {
             firstName: true,
@@ -191,7 +190,7 @@ export async function getMediaTable(): Promise<MediaTableProp[] | null> {
     const mediaTableProps: MediaTableProp[] = medias.map((media) => ({
       id: media.id,
       title: media.title,
-      type: media.mediaType,
+      type: media.type,
       authorName: `${media.author.firstName} ${media.author.lastName}`,
       rented: media.rentedBy.length > 0 ? true : false,
       locationName: `${media.location.floor}-${media.location.shelf}-${media.location.shelfSection}`,
@@ -206,7 +205,7 @@ export async function getMediaTable(): Promise<MediaTableProp[] | null> {
 
 export async function updateMedia(
   id: string,
-  mediaType: MediaType,
+  type: MediaType,
   title: string,
   content: string | undefined,
   published: boolean,
@@ -220,7 +219,7 @@ export async function updateMedia(
         id: id,
       },
       data: {
-        mediaType: mediaType,
+        type: type,
         title: title,
         content: content,
         published: published,
@@ -267,7 +266,7 @@ export async function getAllFreeMedias(): Promise<MediaTableProp[] | null> {
       select: {
         id: true,
         title: true,
-        mediaType: true,
+        type: true,
         author: {
           select: {
             firstName: true,
@@ -292,7 +291,7 @@ export async function getAllFreeMedias(): Promise<MediaTableProp[] | null> {
     const mediaTableProps: MediaTableProp[] = medias.map((media) => ({
       id: media.id,
       title: media.title,
-      type: media.mediaType,
+      type: media.type,
       authorName: `${media.author.firstName} ${media.author.lastName}`,
       rented: false,
       locationName: `${media.location.floor}-${media.location.shelf}-${media.location.shelfSection}`,

@@ -110,7 +110,7 @@ async function createMedia() {
       data: {
         id: medium.id, // normally autoincremented
         title: medium.title,
-        mediaType: medium.mediaType,
+        type: medium.type,
         updatedAt: medium.updatedAt,
         content: medium.content,
         published: medium.published,

@@ -34,7 +34,7 @@ export default function ViewDetails({
   const mediaType = React.useMemo(() => {
     return mediaDetails
       ? mediaTypesWithIcons.find(
-          (mediaType) => mediaType.enum === mediaDetails.mediaMediaType,
+          (mediaType) => mediaType.enum === mediaDetails.mediaType,
         )
       : undefined;
   }, [mediaDetails]);

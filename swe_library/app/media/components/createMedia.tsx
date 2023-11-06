@@ -32,7 +32,7 @@ import LocationModal from "./locationModal";
 const initialMedia: MediaDetailProp = {
   mediaId: undefined,
   mediaTitle: undefined,
-  mediaMediaType: MediaType.BOOK,
+  mediaType: MediaType.BOOK,
   mediaContent: undefined,
   mediaPublished: false,
   mediaISBN: undefined,
@@ -101,7 +101,7 @@ export default function CreateMedia({
       }
 
       const media = await createMedia(
-        formData.mediaMediaType,
+        formData.mediaType,
         formData.mediaTitle,
         formData.mediaPublished,
         formData.mediaContent,
@@ -130,7 +130,7 @@ export default function CreateMedia({
 
       const media = await updateMedia(
         formData.mediaId,
-        formData.mediaMediaType,
+        formData.mediaType,
         formData.mediaTitle,
         formData.mediaContent,
         formData.mediaPublished,
@@ -268,7 +268,7 @@ export default function CreateMedia({
                 selectionMode="single"
                 className="max-w"
                 items={mediaTypesWithIcons}
-                value={formData.mediaMediaType.toString()}
+                value={formData.mediaType.toString()}
                 defaultSelectedKeys={["BOOK"]}
                 onChange={handleChange}
               >

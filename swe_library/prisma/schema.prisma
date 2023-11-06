@@ -18,14 +18,16 @@ enum MediaType {
 }
 
 model Media {
-  id         String        @id @unique @default(uuid()) @db.Uuid
-  mediaType  MediaType
-  createdAt  DateTime      @default(now())
-  updatedAt  DateTime      @updatedAt
-  title      String
-  content    String?
-  published  Boolean       @default(false)
-  ISBN       String?       @unique
+  id        String    @id @unique @default(uuid()) @db.Uuid
+  type      MediaType
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  title     String
+  content   String?
+  published Boolean   @default(true)
+  exists    Boolean   @default(true)
+  ISBN      String?   @unique
+
   author     Author        @relation(fields: [authorId], references: [id], onUpdate: Cascade)
   authorId   Int
   rentedBy   RentedMedia[]
@@ -34,9 +36,10 @@ model Media {
 }
 
 model RentedMedia {
-  id         Int       @id @unique @default(autoincrement())
-  media      Media     @relation(fields: [mediaId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  mediaId    String    @db.Uuid
+  id      Int    @id @unique @default(autoincrement())
+
+  media   Media  @relation(fields: [mediaId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  mediaId String @db.Uuid
   user       User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId     Int
   rentedAt   DateTime  @default(now())
@@ -49,7 +52,8 @@ model Location {
   shelf        Int
   shelfSection Int
   createdAt    DateTime @default(now())
-  media        Media?
+
+  media Media?
 
   @@unique([floor, shelf, shelfSection])
 }
@@ -66,12 +70,11 @@ model Author {
 }
 
 model User {
-  id        Int      @id @unique @default(autoincrement())
-  email     String?  @unique
-  firstName String
-  lastName  String
-  createdAt DateTime @default(now())
-
+  id          Int       @id @unique @default(autoincrement())
+  firstName   String
+  lastName    String
+  createdAt   DateTime  @default(now())
+  email       String?   @unique
   birthday    DateTime?
   street      String
   houseNumber String
@@ -87,6 +90,5 @@ model Employee {
   firstName String
   lastName  String
   createdAt DateTime @default(now())
-
-  password String
+  password  String
 }

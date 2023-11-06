@@ -60,7 +60,7 @@ for media_id in range(1, fakeMedias+1):
         media_entry = {
             "id": str(uuid4()),
             "title": book_title,
-            "mediaType": media_type,
+            "type": media_type,
             "updatedAt": fake.date_time_this_decade().isoformat() + "Z",
             "content": "A " + media_type.lower() + " by " + fake.name(),
             "published": published,

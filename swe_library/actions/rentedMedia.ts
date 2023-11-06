@@ -23,7 +23,7 @@ export async function getRentedMediaByUserId(
         media: {
           select: {
             title: true,
-            mediaType: true,
+            type: true,
           },
         },
       },
@@ -38,7 +38,7 @@ export async function getRentedMediaByUserId(
         id: rentedMedia.id,
         mediaId: rentedMedia.mediaId,
         mediaTitle: rentedMedia.media.title,
-        mediaType: rentedMedia.media.mediaType,
+        mediaType: rentedMedia.media.type,
         rentedAt: new Date(rentedMedia.rentedAt),
         returnedAt: rentedMedia.returnedAt
           ? new Date(rentedMedia.returnedAt)
