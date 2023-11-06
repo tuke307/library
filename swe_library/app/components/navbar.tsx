@@ -41,7 +41,7 @@ export function Navbar() {
   return (
     <NextUINavbar isBordered maxWidth="full">
       <NavbarBrand>
-        <Link className="flex items-center justify-start gap-1" href="/">
+        <Link className="flex items-center justify-start gap-3" href="/">
           <BsHouse />
           <p className="font-bold text-inherit">Home</p>
         </Link>
