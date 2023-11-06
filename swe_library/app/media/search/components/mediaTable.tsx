@@ -17,9 +17,8 @@ import {
 } from "@nextui-org/react";
 import React from "react";
 import { MediaTableProp } from "@/models/mediaTable";
-import { BsSearch } from "react-icons/bs";
+import { BsSearch, BsPen } from "react-icons/bs";
 import { useRouter } from "next/navigation";
-import { AiFillEdit } from "react-icons/ai";
 import { useSession } from "next-auth/react";
 import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
 
@@ -194,7 +193,7 @@ export default function MediaTable({
                         color="primary"
                         variant="light"
                       >
-                        <AiFillEdit />
+                        <BsPen />
                       </Button>
                     </Tooltip>
                   </div>

@@ -2,7 +2,7 @@
 import React from "react";
 import { Card, CardBody, CardFooter, Divider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import { AiOutlinePlus, AiOutlineUserAdd, AiOutlineSearch, AiOutlineBackward, AiOutlineForward } from "react-icons/ai";
+import { BsClipboardCheck, BsPersonPlus, BsPlusLg, BsSearch, BsArrowReturnLeft, BsArrowReturnRight } from "react-icons/bs";
 
 export default async function EmployeeCards() {
   const router = useRouter();
@@ -18,7 +18,7 @@ export default async function EmployeeCards() {
         onPress={() => router.push("/media/search")}
       >
         <CardBody>
-          <AiOutlineSearch className="h-full w-full" />
+          <BsSearch className="h-full w-full" />
         </CardBody>
         <Divider />
         <CardFooter>
@@ -35,7 +35,7 @@ export default async function EmployeeCards() {
         onPress={() => router.push("/media/create")}
       >
         <CardBody>
-          <AiOutlinePlus className="h-full w-full" />
+          <BsPlusLg className="h-full w-full" />
         </CardBody>
         <Divider />
         <CardFooter>
@@ -49,14 +49,14 @@ export default async function EmployeeCards() {
         isPressable
         isHoverable
         className="h-[250px] w-[300px]"
-        onPress={() => router.push("/rentedmedia")}
+        onPress={() => router.push("/media/inventory")}
       >
         <CardBody>
-          <AiOutlineBackward className="h-full w-full" />
+          <BsClipboardCheck className="h-full w-full" />
         </CardBody>
         <Divider />
         <CardFooter>
-          <h4 className="text-large font-bold">Medium zurückgeben</h4>
+          <h4 className="text-large font-bold">Inventur</h4>
         </CardFooter>
       </Card>
 
@@ -66,14 +66,14 @@ export default async function EmployeeCards() {
         isPressable
         isHoverable
         className="h-[250px] w-[300px]"
-        onPress={() => router.push("/rentedmedia/create")}
+        onPress={() => router.push("/rentedmedia")}
       >
         <CardBody>
-          <AiOutlineForward className="h-full w-full" />
+          <BsArrowReturnLeft className="h-full w-full" />
         </CardBody>
         <Divider />
         <CardFooter>
-          <h4 className="text-large font-bold">Medium ausleihen</h4>
+          <h4 className="text-large font-bold">Medium zurückgeben</h4>
         </CardFooter>
       </Card>
 
@@ -83,10 +83,27 @@ export default async function EmployeeCards() {
         isPressable
         isHoverable
         className="h-[250px] w-[300px]"
+        onPress={() => router.push("/rentedmedia/create")}
+      >
+        <CardBody>
+          <BsArrowReturnRight className="h-full w-full" />
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <h4 className="text-large font-bold">Medium ausleihen</h4>
+        </CardFooter>
+      </Card>
+
+      <Card
+        shadow="sm"
+        key="6"
+        isPressable
+        isHoverable
+        className="h-[250px] w-[300px]"
         onPress={() => router.push("/user/create")}
       >
         <CardBody>
-          <AiOutlineUserAdd className="h-full w-full" />
+          <BsPersonPlus className="h-full w-full" />
         </CardBody>
         <Divider />
         <CardFooter>

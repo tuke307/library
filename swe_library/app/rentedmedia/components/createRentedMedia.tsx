@@ -14,10 +14,10 @@ import { Media, User } from "@prisma/client";
 import React from "react";
 import UserModal from "./userModal";
 import {
-  AiOutlineSearch,
-  AiOutlinePlus,
-  AiOutlineForward,
-} from "react-icons/ai";
+  BsSearch,
+  BsPlus,
+  BsArrowReturnRight,
+} from "react-icons/bs";
 import MediaModal from "./mediaModal";
 import { MediaTableProp } from "@/models/mediaTable";
 import { createRentedMedia } from "@/actions/rentedMedia";
@@ -69,7 +69,7 @@ export default function CreateRentedMedia({
             onPress={() => setShowUserModal(true)}
             color="primary"
           >
-            <AiOutlineSearch className="m-1" />
+            <BsSearch className="m-1" />
           </Button>
 
           <UserModal
@@ -105,7 +105,7 @@ export default function CreateRentedMedia({
           <Button
             color="primary"
             variant="flat"
-            startContent={<AiOutlinePlus className="m-1" />}
+            startContent={<BsPlus className="m-1" />}
             onPress={() => setShowMediaModal(true)}
           >
             Medium hinzufügen
@@ -123,7 +123,7 @@ export default function CreateRentedMedia({
           className="justify-end"
           color="success"
           variant="solid"
-          startContent={<AiOutlineForward className="m-1" />}
+          startContent={<BsArrowReturnRight className="m-1" />}
           onPress={handleRent}
         >
           ausleihen

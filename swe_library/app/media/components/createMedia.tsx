@@ -17,11 +17,11 @@ import { toast } from "react-toastify";
 import { MediaDetailProp } from "@/models/mediaDetails";
 import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
 import {
-  AiOutlineSave,
-  AiOutlineClose,
-  AiOutlineDelete,
-  AiOutlineSearch,
-} from "react-icons/ai";
+  BsSave,
+  BsX,
+  BsTrash,
+  BsSearch,
+} from "react-icons/bs";
 import { createMedia, deleteMedia, updateMedia } from "@/actions/media";
 import { useRouter } from "next/navigation";
 import { Author, Location, Media, MediaType, User } from "@prisma/client";
@@ -184,7 +184,7 @@ export default function CreateMedia({
             <SubmitButton
               color="success"
               variant="flat"
-              startContent={<AiOutlineSave />}
+              startContent={<BsSave />}
               onPress={() => handleSubmit("update")}
             >
               Speichern
@@ -193,7 +193,7 @@ export default function CreateMedia({
             <SubmitButton
               color="warning"
               variant="flat"
-              startContent={<AiOutlineClose />}
+              startContent={<BsX />}
               onPress={() => handleSubmit("discard")}
             >
               Abbrechen
@@ -202,7 +202,7 @@ export default function CreateMedia({
             <SubmitButton
               color="danger"
               variant="flat"
-              startContent={<AiOutlineDelete />}
+              startContent={<BsTrash />}
               onPress={() => handleSubmit("delete")}
             >
               Löschen
@@ -348,7 +348,7 @@ export default function CreateMedia({
                     onPress={() => setShowAuthorModal(true)}
                     color="primary"
                   >
-                    <AiOutlineSearch className="m-1" />
+                    <BsSearch className="m-1" />
                   </Button>
 
                   <AuthorModal
@@ -439,7 +439,7 @@ export default function CreateMedia({
                   size="lg"
                   onPress={() => setShowLocationModal(true)}
                 >
-                  <AiOutlineSearch className="m-1" />
+                  <BsSearch className="m-1" />
                 </Button>
 
                 <LocationModal

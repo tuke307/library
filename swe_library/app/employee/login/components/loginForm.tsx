@@ -9,7 +9,7 @@ import {
   Divider,
   Input,
 } from "@nextui-org/react";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { BsFillEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { SubmitButton } from "@/app/components/submitButton";
@@ -96,9 +96,9 @@ export default function LoginForm() {
                 onClick={toggleVisibility}
               >
                 {isVisible ? (
-                  <AiFillEyeInvisible className="pointer-events-none text-2xl text-default-400" />
+                  <BsFillEyeSlashFill className="pointer-events-none text-2xl text-default-400" />
                 ) : (
-                  <AiFillEye className="pointer-events-none text-2xl text-default-400" />
+                  <BsFillEyeFill className="pointer-events-none text-2xl text-default-400" />
                 )}
               </button>
             }

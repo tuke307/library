@@ -2,11 +2,7 @@
 import React from "react";
 import { Card, CardBody, CardFooter, Divider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
-import { BiSearch } from "react-icons/bi";
-import { ImBooks } from "react-icons/im";
-import { FiUsers } from "react-icons/fi";
-import { AiOutlinePlus } from "react-icons/ai";
-import { RiArrowGoBackFill } from "react-icons/ri";
+import { BsSearch, BsBookshelf } from "react-icons/bs";
 
 export default async function UserCards() {
   const router = useRouter();
@@ -22,7 +18,7 @@ export default async function UserCards() {
         onPress={() => router.push("/media/search")}
       >
         <CardBody>
-          <BiSearch className="h-full w-full" />
+          <BsSearch className="h-full w-full" />
         </CardBody>
         <Divider />
         <CardFooter>
@@ -39,7 +35,7 @@ export default async function UserCards() {
         onPress={() => router.push("/rentedmedia")}
       >
         <CardBody>
-          <ImBooks className="h-full w-full" />
+          <BsBookshelf className="h-full w-full" />
         </CardBody>
         <Divider />
         <CardFooter>

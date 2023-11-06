@@ -8,10 +8,9 @@ import {
   Button,
   Spinner,
 } from "@nextui-org/react";
-
 import { signIn, signOut, useSession } from "next-auth/react";
 import React from "react";
-import { AiFillHome } from "react-icons/ai";
+import { BsHouse } from "react-icons/bs";
 
 export function Navbar() {
   const { data: session, status } = useSession();
@@ -43,7 +42,7 @@ export function Navbar() {
     <NextUINavbar isBordered maxWidth="full">
       <NavbarBrand>
         <Link className="flex items-center justify-start gap-1" href="/">
-          <AiFillHome />
+          <BsHouse />
           <p className="font-bold text-inherit">Home</p>
         </Link>
       </NavbarBrand>
