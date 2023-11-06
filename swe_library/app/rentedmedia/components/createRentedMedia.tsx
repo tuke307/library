@@ -9,15 +9,12 @@ import {
   TableCell,
   getKeyValue,
   TableRow,
+  Tooltip,
 } from "@nextui-org/react";
 import { Media, User } from "@prisma/client";
 import React from "react";
 import UserModal from "./userModal";
-import {
-  BsSearch,
-  BsPlusLg,
-  BsArrowReturnRight,
-} from "react-icons/bs";
+import { BsSearch, BsPlusLg, BsArrowReturnRight, BsXLg } from "react-icons/bs";
 import MediaModal from "./mediaModal";
 import { MediaTableProp } from "@/models/mediaTable";
 import { createRentedMedia } from "@/actions/rentedMedia";
@@ -85,11 +82,10 @@ export default function CreateRentedMedia({
 
   const bottomContent = React.useMemo(() => {
     const handleRent = async () => {
-
       if (!userId) {
         toast.warning("Keine Kundennummer ausgewählt");
         return;
-      }else if(mediaList.length === 0){
+      } else if (mediaList.length === 0) {
         toast.warning("Keine Medien ausgewählt");
         return;
       }
@@ -151,7 +147,9 @@ export default function CreateRentedMedia({
         bottomContentPlacement="outside"
       >
         <TableHeader>
-          <TableColumn key="type" className="w-10">Typ</TableColumn>
+          <TableColumn key="type" className="w-10">
+            Typ
+          </TableColumn>
           <TableColumn key="title" allowsSorting>
             Titel
           </TableColumn>
@@ -161,6 +159,7 @@ export default function CreateRentedMedia({
           <TableColumn key="location" allowsSorting>
             Ort
           </TableColumn>
+          <TableColumn key="actions">Aktion</TableColumn>
         </TableHeader>
         <TableBody emptyContent={"Keine Medien ausgewählt"}>
           {mediaList.map((item) => {
@@ -169,13 +168,29 @@ export default function CreateRentedMedia({
             );
 
             return (
-              <TableRow key={item.id} >
+              <TableRow key={item.id}>
                 <TableCell>
                   {mediaTypeWithIcon ? mediaTypeWithIcon.icon : ""}
                 </TableCell>
                 <TableCell>{getKeyValue(item, "title")}</TableCell>
                 <TableCell>{getKeyValue(item, "authorName")}</TableCell>
                 <TableCell>{getKeyValue(item, "locationName")}</TableCell>
+                <TableCell>
+                  <Tooltip content="Medium editieren">
+                    <Button
+                      isIconOnly
+                      color="danger"
+                      variant="light"
+                      onPress={() => {
+                        setMediaList((prevMediaList) =>
+                          prevMediaList.filter((media) => media.id !== item.id),
+                        );
+                      }}
+                    >
+                      <BsXLg />
+                    </Button>
+                  </Tooltip>
+                </TableCell>
               </TableRow>
             );
           })}
