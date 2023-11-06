@@ -184,19 +184,17 @@ export default function MediaTable({
                   </Chip>
                 </TableCell>
                 <TableCell hidden={!session}>
-                  <div className="relative flex items-center gap-2">
-                    <Tooltip content="Medium editieren">
-                      <Button
-                        isIconOnly
-                        href={`/media/edit/${getKeyValue(item, "id")}`}
-                        as={Link}
-                        color="primary"
-                        variant="light"
-                      >
-                        <BsPen />
-                      </Button>
-                    </Tooltip>
-                  </div>
+                  <Tooltip content="Medium editieren">
+                    <Button
+                      isIconOnly
+                      href={`/media/edit/${getKeyValue(item, "id")}`}
+                      as={Link}
+                      color="primary"
+                      variant="light"
+                    >
+                      <BsPen />
+                    </Button>
+                  </Tooltip>
                 </TableCell>
               </TableRow>
             );
