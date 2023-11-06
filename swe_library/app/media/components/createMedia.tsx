@@ -11,6 +11,7 @@ import {
   Select,
   SelectItem,
   Switch,
+  Badge,
 } from "@nextui-org/react";
 import React from "react";
 import { toast } from "react-toastify";
@@ -22,6 +23,7 @@ import {
   BsTrash,
   BsSearch,
   BsPlusLg,
+  BsExclamation,
 } from "react-icons/bs";
 import { createMedia, deleteMedia, updateMedia } from "@/actions/media";
 import { useRouter } from "next/navigation";
@@ -172,7 +174,7 @@ export default function CreateMedia({
           <SubmitButton
             color="success"
             variant="flat"
-            startContent={<BsPlusLg className="m-1"/>}
+            startContent={<BsPlusLg className="m-1" />}
             onPress={() => handleSubmit("create")}
           >
             erstellen
@@ -344,21 +346,29 @@ export default function CreateMedia({
 
               {(!editMode || editMode) && (
                 <div className="flex flex-row gap-2">
-                  <Button
-                    isIconOnly
-                    size="lg"
-                    onPress={() => setShowAuthorModal(true)}
-                    color="primary"
+                  <Badge
+                    isOneChar
+                    isInvisible={formData.authorId! > 0}
+                    content={<BsExclamation />}
+                    color="danger"
+                    shape="circle"
+                    placement="top-right"
                   >
-                    <BsSearch className="m-1" />
-                  </Button>
+                    <Button
+                      isIconOnly
+                      onPress={() => setShowAuthorModal(true)}
+                      color="primary"
+                    >
+                      <BsSearch />
+                    </Button>
 
-                  <AuthorModal
-                    authorList={authors}
-                    show={showAuthorModal}
-                    close={() => setShowAuthorModal(false)}
-                    setAuthor={setAuthor}
-                  />
+                    <AuthorModal
+                      authorList={authors}
+                      show={showAuthorModal}
+                      close={() => setShowAuthorModal(false)}
+                      setAuthor={setAuthor}
+                    />
+                  </Badge>
                 </div>
               )}
             </CardHeader>
@@ -436,23 +446,33 @@ export default function CreateMedia({
             <CardHeader className="flex justify-between gap-3">
               <h1 className="text-3xl">Lokation</h1>
 
-              <div>
-                <Button
-                  isIconOnly
-                  color="primary"
-                  size="lg"
-                  onPress={() => setShowLocationModal(true)}
-                >
-                  <BsSearch className="m-1" />
-                </Button>
+              {(!editMode || editMode) && (
+                <div>
+                  <Badge
+                    isOneChar
+                    isInvisible={formData.locationId! > 0}
+                    content={<BsExclamation />}
+                    color="danger"
+                    shape="circle"
+                    placement="top-right"
+                  >
+                    <Button
+                      isIconOnly
+                      color="primary"
+                      onPress={() => setShowLocationModal(true)}
+                    >
+                      <BsSearch />
+                    </Button>
 
-                <LocationModal
-                  freeLocations={locations}
-                  show={showLocationModal}
-                  close={() => setShowLocationModal(false)}
-                  setLocation={setLocation}
-                />
-              </div>
+                    <LocationModal
+                      freeLocations={locations}
+                      show={showLocationModal}
+                      close={() => setShowLocationModal(false)}
+                      setLocation={setLocation}
+                    />
+                  </Badge>
+                </div>
+              )}
             </CardHeader>
             <Divider />
             <CardBody>
