@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 
-
 export const metadata: Metadata = {
   title: "Nutzer erstellen",
 };
@@ -10,9 +9,5 @@ export default function CreateUserLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <section>
-      {children}
-    </section>
-  );
+  return <section>{children}</section>;
 }
