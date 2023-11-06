@@ -85,6 +85,15 @@ export default function CreateRentedMedia({
 
   const bottomContent = React.useMemo(() => {
     const handleRent = async () => {
+
+      if (!userId) {
+        toast.warning("Keine Kundennummer ausgewählt");
+        return;
+      }else if(mediaList.length === 0){
+        toast.warning("Keine Medien ausgewählt");
+        return;
+      }
+
       const rentedMedias = await createRentedMedia(
         Number(userId),
         mediaList.map((item) => item.id),
