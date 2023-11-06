@@ -22,6 +22,7 @@ import MediaModal from "./mediaModal";
 import { MediaTableProp } from "@/models/mediaTable";
 import { createRentedMedia } from "@/actions/rentedMedia";
 import { toast } from "react-toastify";
+import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
 
 export default function CreateRentedMedia({
   users,
@@ -141,6 +142,7 @@ export default function CreateRentedMedia({
         bottomContentPlacement="outside"
       >
         <TableHeader>
+          <TableColumn key="type" className="w-10">Typ</TableColumn>
           <TableColumn key="title" allowsSorting>
             Titel
           </TableColumn>
@@ -152,13 +154,22 @@ export default function CreateRentedMedia({
           </TableColumn>
         </TableHeader>
         <TableBody emptyContent={"Keine Medien ausgewählt"}>
-          {mediaList.map((item) => (
-            <TableRow key={item.id}>
-              <TableCell>{getKeyValue(item, "title")}</TableCell>
-              <TableCell>{getKeyValue(item, "authorName")}</TableCell>
-              <TableCell>{getKeyValue(item, "locationName")}</TableCell>
-            </TableRow>
-          ))}
+          {mediaList.map((item) => {
+            const mediaTypeWithIcon = mediaTypesWithIcons.find(
+              (icon) => icon.enum === getKeyValue(item, "type"),
+            );
+
+            return (
+              <TableRow key={item.id} >
+                <TableCell>
+                  {mediaTypeWithIcon ? mediaTypeWithIcon.icon : ""}
+                </TableCell>
+                <TableCell>{getKeyValue(item, "title")}</TableCell>
+                <TableCell>{getKeyValue(item, "authorName")}</TableCell>
+                <TableCell>{getKeyValue(item, "locationName")}</TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </section>

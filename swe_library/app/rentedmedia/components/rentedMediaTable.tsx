@@ -20,6 +20,7 @@ import { updateRentedMediaById } from "@/actions/rentedMedia";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { useSession } from "next-auth/react";
+import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
 
 export default function RentedMediaTable({
   rentedMediaTableProps,
@@ -106,6 +107,9 @@ export default function RentedMediaTable({
         onSortChange={setSortDescriptor}
       >
         <TableHeader>
+          <TableColumn key="mediaType">
+            Typ
+          </TableColumn>
           <TableColumn key="mediaTitle" allowsSorting>
             Titel
           </TableColumn>
@@ -121,8 +125,16 @@ export default function RentedMediaTable({
           <TableColumn key="action" hidden={!isEmployee}>Aktion</TableColumn>
         </TableHeader>
         <TableBody emptyContent={"keine ausgeliehenen Medien gefunden."}>
-          {sortedItems.map((item) => (
+        {sortedItems.map((item) => {
+            const mediaTypeWithIcon = mediaTypesWithIcons.find(
+              (icon) => icon.enum === getKeyValue(item, "mediaType"),
+            );
+
+            return (
             <TableRow key={item.id}>
+              <TableCell>
+                  {mediaTypeWithIcon ? mediaTypeWithIcon.icon : ""}
+                </TableCell>
               <TableCell>{getKeyValue(item, "mediaTitle")}</TableCell>
               <TableCell>{getKeyValue(item, "mediaId")}</TableCell>
               <TableCell>
@@ -148,7 +160,8 @@ export default function RentedMediaTable({
                 )}
               </TableCell>
             </TableRow>
-          ))}
+                 );
+          })}
         </TableBody>
       </Table>
     </section>

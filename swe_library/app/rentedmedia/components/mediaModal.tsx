@@ -21,6 +21,7 @@ import {
   Selection,
 } from "@nextui-org/react";
 import { MediaTableProp } from "@/models/mediaTable";
+import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
 
 export default function MediaModal({
   mediaList,
@@ -34,8 +35,8 @@ export default function MediaModal({
   setMedia: (selectedMedia: MediaTableProp) => void;
 }) {
   const { onClose, onOpen, onOpenChange } = useDisclosure();
-  const [MediaFilterValue, setMediaFilterValue] = React.useState("");
-  const [MediaPage, setMediaPage] = React.useState(1);
+  const [filterValue, setFilterValue] = React.useState("");
+  const [page, setPage] = React.useState(1);
   const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
     column: "lastName",
     direction: "ascending",
@@ -44,48 +45,48 @@ export default function MediaModal({
     new Set([]),
   );
 
-  const Medias = mediaList;
+  const medias = mediaList;
   const rowsPerPage = 10;
-  const hasSearchFilter = Boolean(MediaFilterValue);
+  const hasSearchFilter = Boolean(filterValue);
 
-  const MediaPages = Math.ceil((Medias?.length ?? 0) / rowsPerPage);
+  const MediaPages = Math.ceil((medias?.length ?? 0) / rowsPerPage);
 
-  const filteredMediaItems = React.useMemo(() => {
-    let filteredUsers = [...(Medias ?? [])];
+  const filteredItems = React.useMemo(() => {
+    let filteredUsers = [...(medias ?? [])];
 
     if (hasSearchFilter) {
       filteredUsers = filteredUsers.filter((Media) =>
-        Media.title.toLowerCase().includes(MediaFilterValue.toLowerCase()),
+        Media.title.toLowerCase().includes(filterValue.toLowerCase()),
       );
     }
 
     return filteredUsers;
-  }, [Medias, MediaFilterValue]);
+  }, [medias, filterValue]);
 
-  const MediaItems = React.useMemo(() => {
-    const start = (MediaPage - 1) * rowsPerPage;
+  const items = React.useMemo(() => {
+    const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return filteredMediaItems.slice(start, end);
-  }, [MediaPage, filteredMediaItems, rowsPerPage]);
+    return filteredItems.slice(start, end);
+  }, [page, filteredItems, rowsPerPage]);
 
-  const sortedMediaItems = React.useMemo(() => {
-    return [...MediaItems].sort((a, b) => {
+  const sortedItems = React.useMemo(() => {
+    return [...items].sort((a, b) => {
       const first = a[sortDescriptor.column as keyof MediaTableProp] ?? "";
       const second = b[sortDescriptor.column as keyof MediaTableProp] ?? "";
       const cmp = first < second ? -1 : first > second ? 1 : 0;
 
       return sortDescriptor.direction === "descending" ? -cmp : cmp;
     });
-  }, [sortDescriptor, MediaItems]);
+  }, [sortDescriptor, items]);
 
   const onSearchChange = React.useCallback(
     (value: React.SetStateAction<string>) => {
       if (value) {
-        setMediaFilterValue(value);
-        setMediaPage(1);
+        setFilterValue(value);
+        setPage(1);
       } else {
-        setMediaFilterValue("");
+        setFilterValue("");
       }
     },
     [],
@@ -98,32 +99,32 @@ export default function MediaModal({
           isClearable
           placeholder="Suche nach Titel..."
           size="sm"
-          value={MediaFilterValue}
+          value={filterValue}
           variant="bordered"
-          onClear={() => setMediaFilterValue("")}
+          onClear={() => setFilterValue("")}
           onValueChange={onSearchChange}
         />
       </div>
     );
-  }, [MediaFilterValue, onSearchChange, hasSearchFilter]);
+  }, [filterValue, onSearchChange, hasSearchFilter]);
 
   const bottomMediaContent = React.useMemo(() => {
     return (
-      <div className="flex items-center justify-between px-2 py-2">
+      <div className="flex medias-center justify-between px-2 py-2">
         <Pagination
           showControls
           classNames={{
             cursor: "bg-foreground text-background",
           }}
           color="default"
-          page={MediaPage}
+          page={page}
           total={MediaPages}
           variant="light"
-          onChange={setMediaPage}
+          onChange={setPage}
         />
       </div>
     );
-  }, [MediaPage, MediaPages]);
+  }, [page, MediaPages]);
 
   return (
     <Modal
@@ -135,7 +136,7 @@ export default function MediaModal({
     >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1">
-          unausgeliehene Medien
+          verfügbare Medien
         </ModalHeader>
         <ModalBody>
           <Table
@@ -151,6 +152,7 @@ export default function MediaModal({
             onSelectionChange={setSelectedMediaKeys}
           >
             <TableHeader>
+              <TableColumn key="type" className="w-10">Typ</TableColumn>
               <TableColumn key="id" allowsSorting>
                 Id
               </TableColumn>
@@ -165,14 +167,23 @@ export default function MediaModal({
               </TableColumn>
             </TableHeader>
             <TableBody emptyContent={"keine Medien gefunden"}>
-              {sortedMediaItems.map((item) => (
-                <TableRow key={item.id}>
-                  <TableCell>{getKeyValue(item, "id")}</TableCell>
-                  <TableCell>{getKeyValue(item, "title")}</TableCell>
-                  <TableCell>{getKeyValue(item, "authorName")}</TableCell>
-                  <TableCell>{getKeyValue(item, "locationName")}</TableCell>
-                </TableRow>
-              ))}
+              {sortedItems.map((item) => {
+                const mediaTypeWithIcon = mediaTypesWithIcons.find(
+                  (icon) => icon.enum === getKeyValue(item, "type"),
+                );
+
+                return (
+                  <TableRow key={item.id}>
+                    <TableCell>
+                      {mediaTypeWithIcon ? mediaTypeWithIcon.icon : ""}
+                    </TableCell>
+                    <TableCell>{getKeyValue(item, "id")}</TableCell>
+                    <TableCell>{getKeyValue(item, "title")}</TableCell>
+                    <TableCell>{getKeyValue(item, "authorName")}</TableCell>
+                    <TableCell>{getKeyValue(item, "locationName")}</TableCell>
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
         </ModalBody>
@@ -183,7 +194,7 @@ export default function MediaModal({
           <Button
             color="primary"
             onPress={() => {
-              const selectedMedia = sortedMediaItems.find(
+              const selectedMedia = sortedItems.find(
                 (x) =>
                   x.id ==
                   (selectedMediaKeys as Set<string>).values().next().value,

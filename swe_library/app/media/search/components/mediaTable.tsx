@@ -21,6 +21,7 @@ import { BsSearch } from "react-icons/bs";
 import { useRouter } from "next/navigation";
 import { AiFillEdit } from "react-icons/ai";
 import { useSession } from "next-auth/react";
+import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
 
 export default function MediaTable({
   mediaTableProps,
@@ -134,6 +135,9 @@ export default function MediaTable({
         onRowAction={(key) => router.push(`/media/view/${key}`)}
       >
         <TableHeader>
+          <TableColumn key="type" className="w-10">
+            Typ
+          </TableColumn>
           <TableColumn key="title" allowsSorting>
             Titel
           </TableColumn>
@@ -146,45 +150,58 @@ export default function MediaTable({
           <TableColumn key="rented" allowsSorting>
             Verfügbarkeit
           </TableColumn>
-          <TableColumn key="actions" hidden={!session}>Aktionen</TableColumn>
+          <TableColumn key="actions" hidden={!session}>
+            Aktionen
+          </TableColumn>
         </TableHeader>
         <TableBody emptyContent={"keine Medien gefunden."}>
-          {sortedItems.map((item) => (
-            <TableRow key={item.id}>
-              <TableCell>{getKeyValue(item, "title")}</TableCell>
-              <TableCell>{getKeyValue(item, "authorName")}</TableCell>
-              <TableCell>{getKeyValue(item, "locationName")}</TableCell>
-              <TableCell>
-                <Chip
-                  className="gap-1 border-none capitalize text-default-600"
-                  color={
-                    Boolean(getKeyValue(item, "rented")) ? "danger" : "success"
-                  }
-                  size="sm"
-                  variant="flat"
-                >
-                  {Boolean(getKeyValue(item, "rented"))
-                    ? "ausgeliehen"
-                    : "verfügbar"}
-                </Chip>
-              </TableCell>
-              <TableCell hidden={!session}>
-                <div className="relative flex items-center gap-2">
-                  <Tooltip content="Medium editieren">
-                    <Button
-                      isIconOnly
-                      href={`/media/edit/${getKeyValue(item, "id")}`}
-                      as={Link}
-                      color="primary"
-                      variant="light"
-                    >
-                      <AiFillEdit />
-                    </Button>
-                  </Tooltip>
-                </div>
-              </TableCell>
-            </TableRow>
-          ))}
+          {sortedItems.map((item) => {
+            const mediaTypeWithIcon = mediaTypesWithIcons.find(
+              (icon) => icon.enum === getKeyValue(item, "type"),
+            );
+
+            return (
+              <TableRow key={item.id}>
+                <TableCell>
+                  {mediaTypeWithIcon ? mediaTypeWithIcon.icon : ""}
+                </TableCell>
+                <TableCell>{getKeyValue(item, "title")}</TableCell>
+                <TableCell>{getKeyValue(item, "authorName")}</TableCell>
+                <TableCell>{getKeyValue(item, "locationName")}</TableCell>
+                <TableCell>
+                  <Chip
+                    className="gap-1 border-none capitalize text-default-600"
+                    color={
+                      Boolean(getKeyValue(item, "rented"))
+                        ? "danger"
+                        : "success"
+                    }
+                    size="sm"
+                    variant="flat"
+                  >
+                    {Boolean(getKeyValue(item, "rented"))
+                      ? "ausgeliehen"
+                      : "verfügbar"}
+                  </Chip>
+                </TableCell>
+                <TableCell hidden={!session}>
+                  <div className="relative flex items-center gap-2">
+                    <Tooltip content="Medium editieren">
+                      <Button
+                        isIconOnly
+                        href={`/media/edit/${getKeyValue(item, "id")}`}
+                        as={Link}
+                        color="primary"
+                        variant="light"
+                      >
+                        <AiFillEdit />
+                      </Button>
+                    </Tooltip>
+                  </div>
+                </TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </section>
