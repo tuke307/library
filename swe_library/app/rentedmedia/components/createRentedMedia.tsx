@@ -15,7 +15,7 @@ import React from "react";
 import UserModal from "./userModal";
 import {
   BsSearch,
-  BsPlus,
+  BsPlusLg,
   BsArrowReturnRight,
 } from "react-icons/bs";
 import MediaModal from "./mediaModal";
@@ -69,7 +69,7 @@ export default function CreateRentedMedia({
             onPress={() => setShowUserModal(true)}
             color="primary"
           >
-            <BsSearch className="m-1" />
+            <BsSearch />
           </Button>
 
           <UserModal
@@ -105,7 +105,7 @@ export default function CreateRentedMedia({
           <Button
             color="primary"
             variant="flat"
-            startContent={<BsPlus className="m-1" />}
+            startContent={<BsPlusLg />}
             onPress={() => setShowMediaModal(true)}
           >
             Medium hinzufügen
@@ -123,7 +123,7 @@ export default function CreateRentedMedia({
           className="justify-end"
           color="success"
           variant="solid"
-          startContent={<BsArrowReturnRight className="m-1" />}
+          startContent={<BsArrowReturnRight />}
           onPress={handleRent}
         >
           ausleihen
