@@ -95,7 +95,7 @@ export default function MediaTable({
           variant="bordered"
           onClear={() => setFilterValue("")}
           onValueChange={onSearchChange}
-          startContent={<BsSearch className="m-1" />}
+          startContent={<BsSearch />}
         />
       </div>
     );
