@@ -51,7 +51,7 @@ export default function CreateRentedMedia({
           isDisabled
           isReadOnly
           value={userId}
-          label="Kundennumer"
+          label="Kundennummer"
           type="number"
           variant="bordered"
           name="userId"
