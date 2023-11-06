@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ausgeliehene Medien",
+  title: "Medium bearbeiten",
 };
 
-export default function RentedMediaLayout({
+export default function MediaEditLayout({
   children,
 }: {
   children: React.ReactNode;

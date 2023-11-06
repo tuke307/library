@@ -4,7 +4,7 @@ import CreateMedia from "../../components/createMedia";
 import getAllAuthors from "@/actions/authors";
 import getAllFreeLocations from "@/actions/location";
 
-export default async function DetailsPage({
+export default async function MediaEditPage({
   params,
 }: {
   params: { id: string };

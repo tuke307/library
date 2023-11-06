@@ -3,7 +3,7 @@ import React from "react";
 import CreateRentedMedia from "../components/createRentedMedia";
 import { getAllFreeMedias } from "@/actions/media";
 
-export default async function CreateRentedMediaPage() {
+export default async function RentedMediaCreatePage() {
   const users = await getAllUsers();
   const medias = await getAllFreeMedias();
 
