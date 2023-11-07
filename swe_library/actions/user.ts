@@ -1,6 +1,5 @@
 "use server";
 import { PrismaClient, User } from "@prisma/client";
-import { revalidatePath } from "next/cache";
 
 const prisma = new PrismaClient();
 
@@ -17,7 +16,7 @@ export async function createUser(formData: FormData): Promise<User | null> {
         city: formData.get("city") as string,
       },
     });
-    
+
     return user;
   } catch (err) {
     // console.log(err);
