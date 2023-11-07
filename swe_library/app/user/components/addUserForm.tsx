@@ -1,15 +1,14 @@
 "use client";
 import React from "react";
 import { Card, CardBody, CardHeader, Divider, Input } from "@nextui-org/react";
-import { createUser } from "@/actions/user";
+import { ICreateUser, createUser } from "@/actions/user";
 import { SubmitButton } from "@/app/components/submitButton";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { User } from "@prisma/client";
 import { BsPersonPlus } from "react-icons/bs";
 
-const initialState: User = {
-  id: 0,
+const initialState: ICreateUser = {
   lastName: "",
   firstName: "",
   email: "",
@@ -17,8 +16,6 @@ const initialState: User = {
   houseNumber: "",
   plz: 0,
   city: "",
-  birthday: new Date(),
-  createdAt: new Date(),
 };
 
 export default function AddUserForm() {
@@ -35,7 +32,9 @@ export default function AddUserForm() {
     });
   };
 
-  async function handleSubmit(formData: FormData) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
     const user = await createUser(formData);
 
     if (!user) {
@@ -48,7 +47,7 @@ export default function AddUserForm() {
   }
 
   return (
-    <form action={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Card shadow="md">
         <CardHeader className="flex gap-3">
           <h1 className="text-3xl">Nutzer hinzufügen</h1>

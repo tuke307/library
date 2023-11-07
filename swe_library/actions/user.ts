@@ -3,21 +3,31 @@ import { PrismaClient, User } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export async function createUser(formData: FormData): Promise<User | null> {
+export interface ICreateUser {
+  firstName: string;
+  lastName: string;
+  email: string;
+  street: string;
+  houseNumber: string;
+  plz: number;
+  city: string;
+}
+
+export async function createUser(user: ICreateUser): Promise<User | null> {
   try {
-    const user = await prisma.user.create({
+    const newUser = await prisma.user.create({
       data: {
-        firstName: formData.get("firstName") as string,
-        lastName: formData.get("lastName") as string,
-        email: formData.get("email") as string,
-        street: formData.get("street") as string,
-        houseNumber: formData.get("houseNumber") as string,
-        plz: parseInt(formData.get("plz") as string),
-        city: formData.get("city") as string,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        street: user.street,
+        houseNumber: user.houseNumber,
+        plz: user.plz,
+        city: user.city,
       },
     });
 
-    return user;
+    return newUser;
   } catch (err) {
     // console.log(err);
     return null;
