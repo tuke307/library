@@ -29,6 +29,8 @@ const rentedMedia = JSON.parse(
 );
 
 async function main() {
+  await cleanupDatabase();
+
   await createUsers();
   await createEmployees();
   await createAuthors();
@@ -46,6 +48,24 @@ main()
     await prisma.$disconnect();
     process.exit(1);
   });
+
+async function cleanupDatabase() {
+  const tablenames = await prisma.$queryRaw<
+    Array<{ tablename: string }>
+  >`SELECT tablename FROM pg_tables WHERE schemaname='public'`;
+
+  const tables = tablenames
+    .map(({ tablename }) => tablename)
+    .filter((name) => name !== "_prisma_migrations")
+    .map((name) => `"public"."${name}"`)
+    .join(", ");
+
+  try {
+    await prisma.$executeRawUnsafe(`TRUNCATE TABLE ${tables} CASCADE;`);
+  } catch (error) {
+    console.log({ error });
+  }
+}
 
 async function createUsers() {
   for (const user of users) {
