@@ -23,15 +23,19 @@ import { useRouter } from "next/navigation";
 import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
 import { setMediaExists } from "@/actions/media";
 
+interface MediaTableProps {
+  mediaTableProps: MediaTableProp[] | null;
+  showExistCheckbox?: boolean;
+  showActions?: boolean;
+  updateMediaTableProps?: () => void;
+}
+
 export default function MediaTable({
   mediaTableProps,
   showActions = false,
   showExistCheckbox = false,
-}: {
-  mediaTableProps: MediaTableProp[] | null;
-  showActions?: boolean;
-  showExistCheckbox?: boolean;
-}) {
+  updateMediaTableProps = () => {},
+}: MediaTableProps) {
   const router = useRouter();
   const [filterValue, setFilterValue] = React.useState("");
   const [page, setPage] = React.useState(1);
@@ -75,6 +79,8 @@ export default function MediaTable({
     });
   }, [sortDescriptor, items]);
 
+  
+  
   const onSearchChange = React.useCallback(
     (value: React.SetStateAction<string>) => {
       if (value) {
@@ -124,21 +130,9 @@ export default function MediaTable({
     );
   }, [items.length, page, pages, hasSearchFilter]);
 
-  const handleCheckboxChange = async (id: string, isChecked: boolean) => {
-    // Find the index of the media item
-    const index = sortedItems.findIndex((item) => item.id === id);
-    
-    if (index !== -1) {
-      // Create a new array with the updated item
-      const newSortedItems = [...sortedItems];
-      newSortedItems[index] = {
-        ...newSortedItems[index],
-        exists: isChecked,
-      };
-  
-      // Call the setMediaExists function
-      await setMediaExists(id, isChecked);
-    }
+  const handleCheckboxChange = async (id: string, exists: boolean) => {
+    await setMediaExists(id, exists);
+    updateMediaTableProps();
   };
 
   return (

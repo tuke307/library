@@ -9,6 +9,11 @@ export default function InventoryPage() {
   const [mediaTableProps, setMediaTableProps] = React.useState<MediaTableProp[] | null>(null);
   const [update, setUpdate] = React.useState(false);
 
+  const updateMediaTableProps = async () => {
+    const newProps = await getMediaTable();
+    setMediaTableProps(newProps);
+  };
+
   React.useEffect(() => {
     const fetchData = async () => {
       const props = await getMediaTable();
@@ -24,7 +29,7 @@ export default function InventoryPage() {
 
   return (
     <section className="flex flex-col gap-3 m-3">
-      {mediaTableProps && <MediaTable mediaTableProps={mediaTableProps} showExistCheckbox={true} />}
+      <MediaTable mediaTableProps={mediaTableProps} updateMediaTableProps={updateMediaTableProps} showExistCheckbox={true} />
       <ButtonComponent onButtonClick={handleButtonClick} />
     </section>
   );
