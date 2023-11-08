@@ -1,8 +1,6 @@
+import prisma from "@/client";
 import { PrismaClient } from "@prisma/client";
 import { User } from "next-auth";
-
-// Create a new Prisma client instance for handling our database requests
-const prisma = new PrismaClient();
 
 type LoginFn = (id: string, password: string) => Promise<User>;
 

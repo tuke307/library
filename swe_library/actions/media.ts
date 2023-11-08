@@ -2,8 +2,7 @@
 import { Media, MediaType, PrismaClient, User } from "@prisma/client";
 import { MediaDetailProp } from "@/models/mediaDetails";
 import { MediaTableProp } from "@/models/mediaTable";
-
-const prisma = new PrismaClient();
+import prisma from "@/client";
 
 export async function createMedia(
   type: MediaType,
