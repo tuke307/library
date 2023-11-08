@@ -21,6 +21,7 @@ import { MediaTableProp } from "@/models/mediaTable";
 import { BsSearch, BsPen } from "react-icons/bs";
 import { useRouter } from "next/navigation";
 import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
+import { setMediaExists } from "@/actions/media";
 
 export default function MediaTable({
   mediaTableProps,
@@ -123,6 +124,23 @@ export default function MediaTable({
     );
   }, [items.length, page, pages, hasSearchFilter]);
 
+  const handleCheckboxChange = async (id: string, isChecked: boolean) => {
+    // Find the index of the media item
+    const index = sortedItems.findIndex((item) => item.id === id);
+    
+    if (index !== -1) {
+      // Create a new array with the updated item
+      const newSortedItems = [...sortedItems];
+      newSortedItems[index] = {
+        ...newSortedItems[index],
+        exists: isChecked,
+      };
+  
+      // Call the setMediaExists function
+      await setMediaExists(id, isChecked);
+    }
+  };
+
   return (
     <section>
       <Table
@@ -154,7 +172,7 @@ export default function MediaTable({
           </TableColumn>
           <TableColumn key="exists" hidden={!showExistCheckbox}>
             Existiert
-          </TableColumn>  
+          </TableColumn>
           <TableColumn key="actions" hidden={!showActions}>
             Aktionen
           </TableColumn>
@@ -190,7 +208,12 @@ export default function MediaTable({
                   </Chip>
                 </TableCell>
                 <TableCell hidden={!showExistCheckbox}>
-                  <Checkbox isSelected={getKeyValue(item, "exists")}/>
+                <Checkbox
+              isSelected={getKeyValue(item, "exists")} // Check the "exists" property
+              onChange={(event) =>
+                handleCheckboxChange(item.id, event.target.checked)
+              }
+            />
                 </TableCell>
                 <TableCell hidden={!showActions}>
                   <Tooltip content="Medium editieren">

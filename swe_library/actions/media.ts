@@ -306,9 +306,24 @@ export async function getAllFreeMedias(): Promise<MediaTableProp[] | null> {
   }
 }
 
-export async function seAllMediaExists(exists: boolean): Promise<void> {
+export async function setAllMediaExists(exists: boolean): Promise<void> {
   try {
     await prisma.media.updateMany({
+      data: {
+        exists: exists,
+      },
+    });
+  } catch (err) {
+    //console.log(err);
+  }
+}
+
+export async function setMediaExists(id: string, exists: boolean): Promise<void> {
+  try {
+    await prisma.media.update({
+      where: {
+        id: id,
+      },
       data: {
         exists: exists,
       },
