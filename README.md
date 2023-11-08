@@ -25,12 +25,38 @@
 
 
 ## Development
-### set up the environment
+
+1. [set up the environment](#environments)
+2. [start server](#start-server)
+3. [runnning tests](#running-tests)
+
+
+### Debugging
+follow [these steps](https://nextjs.org/docs/pages/building-your-application/configuring/debugging#debugging-with-vs-code) for debugging the api calls and other stuff in vs code.
+Then you can use the vs code >>run and debug<< function.
+
+
+## Environments
 - duplicate and rename the `.env.development` file to `.env.development.local`
 - duplicate and rename the `.env.production` file to `.env.production.local`
-- change the variables in `.env.development.local` and `.env.production.local` to your desired source
 
-### start server
+### development (docker)
+update the `POSTGRES_PRISMA_URL` in your `.env.development.local` file;
+```env
+POSTGRES_PRISMA_URL="postgresql://postgres:postgres@localhost:6500/librarydb?schema=public"
+```
+use `dotenv -e .env.development.local` for `<env>`
+
+for local development, use a docker container:
+```bash
+<env> npm run docker:up # also inserts sample Data
+```
+
+### production (vercel)
+use `dotenv -e .env.production.local` for `<env>` and ask for the production keys.
+
+
+## start server
 ```bash
 # navigate to source code
 cd swe_library/
@@ -40,39 +66,24 @@ npm install
 npm run dev
 ```
 
-### Debugging
-follow [these steps](https://nextjs.org/docs/pages/building-your-application/configuring/debugging#debugging-with-vs-code) for debugging the api calls and other stuff in vs code.
-Then you can use the vs code >>run and debug<< function.
-
-
-## Database
-### development (over docker)
-for local development, use a docker container:
+## Running tests
 ```bash
-docker run -d -e POSTGRES_DB=librarydb -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -p "6500:5432" postgres
+<env> npm run test
 ```
 
-update the `POSTGRES_PRISMA_URL` in your `.env.development.local` file;
-```
-POSTGRES_PRISMA_URL="postgresql://postgres:postgres@localhost:6500/librarydb?schema=public"
-```
-use `dotenv -e .env.development.local` for `<env>`
 
-### production
-use `dotenv -e .env.production.local` for `<env>`
+## Source code developing
 
-### changing the `prisma.scheme`
+### changing the database scheme
 When you have to change the database models, you can do this by editing the `prisma.scheme`.
 You then have to apply (upload) these changes to your database. There are two ways of doing this;
 
 #### over migrations (slow and safe way):
 ```bash
-# create migration
-<env> npx prisma migrate dev --name <name>
-# apply migrations for dev
-<env> npx prisma migrate dev
-# apply migrations for prod
-<env> npx prisma migrate deploy
+# apply migration dev
+npx prisma migrate dev
+# apply migration
+npx prisma migrate deploy
 ```
 
 #### hard push (fast and unsafe way):
@@ -80,25 +91,12 @@ You then have to apply (upload) these changes to your database. There are two wa
 <env> npx prisma db push
 ```
 
-### insert sample data (optional)
-if you want sample data, to use the full potential of the website, insert some sample data;
-```bash
-<env> npx ts-node sampleData/initialDatabase.ts
-```
-
-### Prisma Studio
-Database management with browser GUI:
-```bash
-<env> npx prisma studio
-```
-
-
-## Visual Studio Code Plugins
+### Visual Studio Code Plugins
 - [Tailwind CSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Prettier Tailwind CSS](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - [Code Spell Checker German](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-german)
 
-## templates to learn
+### templates to learn
 - [Next.js 13 (app directory) and NextUI (v2)](https://github.com/nextui-org/next-app-template/tree/main)
