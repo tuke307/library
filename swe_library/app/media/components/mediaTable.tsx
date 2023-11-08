@@ -14,21 +14,24 @@ import {
   Link,
   SortDescriptor,
   Tooltip,
+  Checkbox,
 } from "@nextui-org/react";
 import React from "react";
 import { MediaTableProp } from "@/models/mediaTable";
 import { BsSearch, BsPen } from "react-icons/bs";
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
 import { mediaTypesWithIcons } from "@/models/mediaTypesWithIcons";
 
 export default function MediaTable({
   mediaTableProps,
+  showActions = false,
+  showExistCheckbox = false,
 }: {
   mediaTableProps: MediaTableProp[] | null;
+  showActions?: boolean;
+  showExistCheckbox?: boolean;
 }) {
   const router = useRouter();
-  const { data: session, status } = useSession();
   const [filterValue, setFilterValue] = React.useState("");
   const [page, setPage] = React.useState(1);
   const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
@@ -149,7 +152,10 @@ export default function MediaTable({
           <TableColumn key="rented" allowsSorting>
             Verfügbarkeit
           </TableColumn>
-          <TableColumn key="actions" hidden={!session}>
+          <TableColumn key="exists" hidden={!showExistCheckbox}>
+            Existiert
+          </TableColumn>  
+          <TableColumn key="actions" hidden={!showActions}>
             Aktionen
           </TableColumn>
         </TableHeader>
@@ -183,7 +189,10 @@ export default function MediaTable({
                       : "verfügbar"}
                   </Chip>
                 </TableCell>
-                <TableCell hidden={!session}>
+                <TableCell hidden={!showExistCheckbox}>
+                  <Checkbox isSelected={getKeyValue(item, "exists")}/>
+                </TableCell>
+                <TableCell hidden={!showActions}>
                   <Tooltip content="Medium editieren">
                     <Button
                       isIconOnly

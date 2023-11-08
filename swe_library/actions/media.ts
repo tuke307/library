@@ -164,6 +164,7 @@ export async function getMediaTable(): Promise<MediaTableProp[] | null> {
         id: true,
         title: true,
         type: true,
+        exists: true,
         author: {
           select: {
             firstName: true,
@@ -192,6 +193,7 @@ export async function getMediaTable(): Promise<MediaTableProp[] | null> {
       id: media.id,
       title: media.title,
       type: media.type,
+      exists: media.exists,
       authorName: `${media.author.firstName} ${media.author.lastName}`,
       rented: media.rentedBy.length > 0 ? true : false,
       locationName: `${media.location.floor}-${media.location.shelf}-${media.location.shelfSection}`,
@@ -265,6 +267,7 @@ export async function getAllFreeMedias(): Promise<MediaTableProp[] | null> {
         id: true,
         title: true,
         type: true,
+        exists: true,
         author: {
           select: {
             firstName: true,
@@ -290,6 +293,7 @@ export async function getAllFreeMedias(): Promise<MediaTableProp[] | null> {
       id: media.id,
       title: media.title,
       type: media.type,
+      exists: media.exists,
       authorName: `${media.author.firstName} ${media.author.lastName}`,
       rented: false,
       locationName: `${media.location.floor}-${media.location.shelf}-${media.location.shelfSection}`,
