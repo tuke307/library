@@ -60,6 +60,7 @@ export async function getMediaDetails(
         updatedAt: true,
         published: true,
         ISBN: true,
+        exists: true,
         authorId: true,
         locationId: true,
         author: {
@@ -114,6 +115,7 @@ export async function getMediaDetails(
       mediaContent: media.content!,
       mediaPublished: media.published,
       mediaISBN: media.ISBN!,
+      mediaExists: media.exists,
       mediaCreatedAt: media.createdAt,
       mediaUpdatedAt: media.updatedAt!,
 
@@ -202,29 +204,26 @@ export async function getMediaTable(): Promise<MediaTableProp[] | null> {
   }
 }
 
-export async function updateMedia(
-  id: string,
-  type: MediaType,
-  title: string,
-  content: string | undefined,
-  published: boolean,
-  ISBN: string | undefined,
-  authorId: number,
-  locationId: number,
-): Promise<Media | null> {
+export interface IUpdateMedia {
+  id: string;
+  type: MediaType;
+  title: string;
+  content: string | undefined;
+  published: boolean;
+  ISBN: string | undefined;
+  exists: boolean;
+  authorId: number;
+  locationId: number;
+}
+
+export async function updateMedia(media: IUpdateMedia): Promise<Media | null> {
   try {
     const retMedia = await prisma.media.update({
       where: {
-        id: id,
+        id: media.id,
       },
       data: {
-        type: type,
-        title: title,
-        content: content,
-        published: published,
-        ISBN: ISBN,
-        authorId: authorId,
-        locationId: locationId,
+        ...media,
         updatedAt: new Date(),
       },
     });
@@ -302,3 +301,17 @@ export async function getAllFreeMedias(): Promise<MediaTableProp[] | null> {
     return null;
   }
 }
+
+export async function seAllMediaExists(exists: boolean): Promise<void> {
+  try {
+    await prisma.media.updateMany({
+      data: {
+        exists: exists,
+      },
+    });
+  } catch (err) {
+    //console.log(err);
+  }
+}
+
+

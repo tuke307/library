@@ -8,6 +8,7 @@ export type MediaDetailProp = {
   mediaContent: string | undefined,
   mediaPublished: boolean,
   mediaISBN: string | undefined,
+  mediaExists: boolean,
   mediaCreatedAt: Date | undefined,
   mediaUpdatedAt: Date | undefined,
 

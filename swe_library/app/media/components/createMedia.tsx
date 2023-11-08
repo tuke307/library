@@ -25,7 +25,7 @@ import {
   BsPlusLg,
   BsExclamation,
 } from "react-icons/bs";
-import { createMedia, deleteMedia, updateMedia } from "@/actions/media";
+import { IUpdateMedia, createMedia, deleteMedia, updateMedia } from "@/actions/media";
 import { useRouter } from "next/navigation";
 import { Author, Location, Media, MediaType, User } from "@prisma/client";
 import AuthorModal from "./authorModal";
@@ -39,6 +39,7 @@ const initialMedia: MediaDetailProp = {
   mediaContent: undefined,
   mediaPublished: false,
   mediaISBN: undefined,
+  mediaExists: true,
   mediaCreatedAt: undefined,
   mediaUpdatedAt: undefined,
 
@@ -129,16 +130,19 @@ export default function CreateMedia({
         return;
       }
 
-      const media = await updateMedia(
-        formData.mediaId,
-        formData.mediaType,
-        formData.mediaTitle,
-        formData.mediaContent,
-        formData.mediaPublished,
-        formData.mediaISBN,
-        formData.authorId,
-        formData.locationId,
-      );
+      const newMedia : IUpdateMedia = {
+        id: formData.mediaId,
+        type: formData.mediaType,
+        title: formData.mediaTitle,
+        content: formData.mediaContent,
+        published: formData.mediaPublished,
+        ISBN: formData.mediaISBN,
+        exists: formData.mediaExists,
+        authorId: formData.authorId,
+        locationId: formData.locationId,
+      };
+
+      const media = await updateMedia(newMedia);
 
       if (!media) {
         toast.error("Speichern fehlgeschlagen!");
