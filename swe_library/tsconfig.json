@@ -33,7 +33,6 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "lib/prisma.js",
     ".next/types/**/*.ts"
   ],
   "exclude": [
