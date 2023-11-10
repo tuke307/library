@@ -29,7 +29,7 @@ const rentedMedia = JSON.parse(
 );
 
 async function main() {
-  await cleanupDatabase();
+  //await cleanupDatabase();
 
   await createUsers();
   await createEmployees();

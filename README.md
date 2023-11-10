@@ -3,70 +3,66 @@
 
 ## Technologies Used
 
-### Frontend
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
-
-### Backend
-- [Next.js 13](https://nextjs.org/docs/getting-started)
-- [TypeScript](https://www.typescriptlang.org/)
-
-### Database
-- [Prisma](https://www.prisma.io/)
-- [Postgres](https://www.postgresql.org/)
-
-### Hosting
-- [Vercel](https://vercel.com/)
-- [Docker](https://www.docker.com/)
-- [GitHub](https://github.com/)
+| Frontend | Backend      | Database | Hosting |
+|----------|--------------|----------|---------|
+| - [NextUI v2](https://nextui.org/)<br>- [Tailwind CSS](https://tailwindcss.com/)<br>- [Tailwind Variants](https://tailwind-variants.org)<br>- [Framer Motion](https://www.framer.com/motion/)<br>- [next-themes](https://github.com/pacocoursey/next-themes)<br>  | - [Next.js 13](https://nextjs.org/docs/getting-started)<br>- [TypeScript](https://www.typescriptlang.org/) |  - [Prisma](https://www.prisma.io/)<br>- [Postgres](https://www.postgresql.org/)        |  - [Vercel](https://vercel.com/)<br>- [Docker](https://www.docker.com/)<br>- [GitHub](https://github.com/)       |
 
 
 ## Development
 
-1. [set up the environment](#environments)
-2. [start server](#start-server)
-3. [runnning tests](#running-tests)
+1. [install dependencies](#install-dependencies)
+2. [choose environment](#environment)
+3. [start server](#start-server)
+4. [runnning tests](#running-tests)
 
 
-### Debugging
-follow [these steps](https://nextjs.org/docs/pages/building-your-application/configuring/debugging#debugging-with-vs-code) for debugging the api calls and other stuff in vs code.
-Then you can use the vs code >>run and debug<< function.
+### install dependencies
+```bash
+# navigate to source code
+cd swe_library/
+# Install dependencies
+npm install
+```
 
+### environment
 
-## Environments
-- duplicate and rename the `.env.development` file to `.env.development.local`
-- duplicate and rename the `.env.production` file to `.env.production.local`
-
-### development (docker)
-update the `POSTGRES_PRISMA_URL` in your `.env.development.local` file;
+#### development (docker)
+update the variables in your `.env.development` file;
 ```env
 POSTGRES_PRISMA_URL="postgresql://postgres:postgres@localhost:6500/librarydb?schema=public"
+
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET='sampleKey'
 ```
-use `dotenv -e .env.development.local` for `<env>`
+
+then, use `dotenv -e .env.development` for `<env>`
 
 for local development, use a docker container:
 ```bash
 <env> npm run docker:up # also inserts sample Data
 ```
 
-### production (vercel)
-use `dotenv -e .env.production.local` for `<env>` and ask for the production keys.
+update the scheme.prisma file to use your local docker postgres db;
+```
+...
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+...
+```
 
 
-## start server
+#### production (vercel)
+use `dotenv -e .env.production` for `<env>` and ask for the production keys.
+
+### start server
+Run the development server with this line;
 ```bash
-# navigate to source code
-cd swe_library/
-# Install dependencies
-npm install
-# Run the development server
 npm run dev
 ```
 
-## Running tests
+### Running tests
 ```bash
 <env> npm run test
 ```
@@ -74,7 +70,7 @@ npm run dev
 
 ## Source code developing
 
-### changing the database scheme
+### changing thse database scheme
 When you have to change the database models, you can do this by editing the `prisma.scheme`.
 You then have to apply (upload) these changes to your database. There are two ways of doing this;
 
@@ -90,6 +86,11 @@ npx prisma migrate deploy
 ```bash
 <env> npx prisma db push
 ```
+
+### debugging in Visual Studio Code
+follow [these steps](https://nextjs.org/docs/pages/building-your-application/configuring/debugging#debugging-with-vs-code) for debugging the api calls and other stuff in vs code.
+Then you can use the vs code >>run and debug<< function.
+
 
 ### Visual Studio Code Plugins
 - [Tailwind CSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)

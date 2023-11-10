@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 enum MediaType {
@@ -18,7 +18,7 @@ enum MediaType {
 }
 
 model Media {
-  id        String    @id @unique @default(uuid()) @db.Uuid
+  id        String    @id @unique @default(uuid())
   type      MediaType
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
@@ -39,7 +39,7 @@ model RentedMedia {
   id      Int    @id @unique @default(autoincrement())
 
   media   Media  @relation(fields: [mediaId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  mediaId String @db.Uuid
+  mediaId String 
   user       User      @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId     Int
   rentedAt   DateTime  @default(now())
