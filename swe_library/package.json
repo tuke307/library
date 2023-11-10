@@ -6,8 +6,6 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "npx prisma generate",
-    "docker:up": "docker compose -f docker.compose.yml up -d && npx prisma migrate deploy && npx ts-node sampleData/initialDatabase.ts",
-    "docker:destroy": "docker stop library && docker rm library",
     "test": "jest --watch"
   },
   "dependencies": {

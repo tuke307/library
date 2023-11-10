@@ -34,13 +34,6 @@ NEXTAUTH_URL="http://localhost:3000"
 NEXTAUTH_SECRET='sampleKey'
 ```
 
-then, use `dotenv -e .env.development` for `<env>`
-
-for local development, use a docker container:
-```bash
-<env> npm run docker:up # also inserts sample Data
-```
-
 update the scheme.prisma file to use your local docker postgres db;
 ```
 ...
@@ -51,13 +44,17 @@ datasource db {
 ...
 ```
 
-Run the development server with this line;
+for local development then, execute these statements;
 ```bash
+docker compose -f docker.compose.yml up -d
+dotenv -e .env.development npx prisma generate
+dotenv -e .env.development npx prisma migrate deploy
+dotenv -e .env.development npx ts-node sampleData/initialDatabase.ts
 npm run dev
 ```
 
 #### production (vercel)
-use `dotenv -e .env.production` for `<env>` and ask for the production keys.
+use `dotenv -e .env.production` and ask for the production keys.
 
 Run the production server with this line;
 ```bash
@@ -68,7 +65,8 @@ npm run start
 
 ### Running tests
 ```bash
-<env> npm run test
+dotenv -e .env.development npm run test # dev
+dotenv -e .env.production npm run test # prod
 ```
 
 
@@ -88,7 +86,8 @@ npx prisma migrate deploy
 
 #### hard push (fast and unsafe way):
 ```bash
-<env> npx prisma db push
+dotenv -e .env.development npx db push # dev
+dotenv -e .env.production npx db push # prod
 ```
 
 ### debugging in Visual Studio Code
