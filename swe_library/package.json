@@ -6,7 +6,7 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "npx prisma generate",
-    "test": "jest --watch"
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "@nextui-org/react": "2.2.5",
