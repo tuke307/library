@@ -12,8 +12,7 @@
 
 1. [install dependencies](#install-dependencies)
 2. [choose environment](#environment)
-3. [start server](#start-server)
-4. [runnning tests](#running-tests)
+3. [runnning tests](#running-tests)
 
 
 ### install dependencies
@@ -52,15 +51,20 @@ datasource db {
 ...
 ```
 
-
-#### production (vercel)
-use `dotenv -e .env.production` for `<env>` and ask for the production keys.
-
-### start server
 Run the development server with this line;
 ```bash
 npm run dev
 ```
+
+#### production (vercel)
+use `dotenv -e .env.production` for `<env>` and ask for the production keys.
+
+Run the production server with this line;
+```bash
+npm run build
+npm run start
+```
+
 
 ### Running tests
 ```bash
