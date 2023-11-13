@@ -65,8 +65,8 @@ npm run start
 
 ### Running tests
 ```bash
-dotenv -e .env.development npm run test # dev
-dotenv -e .env.production npm run test # prod
+npm run dev
+npm run cypress:open
 ```
 
 
