@@ -9,7 +9,7 @@ describe("Media Create Page", () => {
   it("should create a new media", () => {
     cy.get('input[name="mediaTitle"]').type("Sample Media Title");
     cy.get('textarea[name="mediaContent"]').type("Sample Media Content");
-    cy.get('input[name="mediaISBN"]').type("1234567890");
+    //cy.get('input[name="mediaISBN"]').type("1234567890");
 
     // Selecting an author
     cy.get("#authorModalBtn").click();
