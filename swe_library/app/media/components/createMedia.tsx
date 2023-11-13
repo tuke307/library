@@ -362,6 +362,7 @@ export default function CreateMedia({
                       isIconOnly
                       onPress={() => setShowAuthorModal(true)}
                       color="primary"
+                      id="authorModalBtn"
                     >
                       <BsSearch />
                     </Button>
@@ -463,6 +464,7 @@ export default function CreateMedia({
                     <Button
                       isIconOnly
                       color="primary"
+                      id="locationModalBtn"
                       onPress={() => setShowLocationModal(true)}
                     >
                       <BsSearch />

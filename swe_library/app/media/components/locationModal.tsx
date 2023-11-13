@@ -86,6 +86,7 @@ export default function LocationModal({
       placeholder="center"
       isOpen={show}
       onClose={close}
+      id="location-modal"
     >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1">
@@ -94,6 +95,7 @@ export default function LocationModal({
         <ModalBody>
           <Table
             aria-label="location table"
+            id="modal-location-table"
             topContentPlacement="outside"
             bottomContent={bottomLocationContent}
             bottomContentPlacement="outside"
@@ -102,6 +104,7 @@ export default function LocationModal({
             selectionMode="single"
             selectedKeys={selectedLocationKeys}
             onSelectionChange={setSelectedLocationKeys}
+            
           >
             <TableHeader>
               <TableColumn key="floor" allowsSorting>

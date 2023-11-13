@@ -132,12 +132,14 @@ export default function AuthorModal({
       placeholder="center"
       isOpen={show}
       onClose={close}
+      id="author-modal"
     >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1">Authoren</ModalHeader>
         <ModalBody>
           <Table
             aria-label="author table"
+            id="modal-author-table"
             topContent={topContent}
             topContentPlacement="outside"
             bottomContent={bottomAuthorContent}
