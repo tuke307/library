@@ -4,7 +4,7 @@ import { Card, CardBody, CardFooter, Divider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { BsSearch, BsBookshelf } from "react-icons/bs";
 
-export default async function UserCards() {
+export default function UserCards() {
   const router = useRouter();
 
   return (

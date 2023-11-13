@@ -4,7 +4,7 @@ import { Card, CardBody, CardFooter, Divider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { BsClipboardCheck, BsPersonPlus, BsPlusLg, BsSearch, BsArrowReturnLeft, BsArrowReturnRight } from "react-icons/bs";
 
-export default async function EmployeeCards() {
+export default function EmployeeCards() {
   const router = useRouter();
 
   return (
