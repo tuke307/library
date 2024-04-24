@@ -64,14 +64,3 @@ docker run --detach --publish 3000:3000 tonylukeregistry.azurecr.io/tonylukeregi
 npm run dev
 npm run cypress:open
 ```
-
-
-## Source code developing
-
-### changing the database scheme
-When you have to change the database models, you can do this by editing the `prisma.scheme`.
-You then have to apply (upload) these changes to your database. There are two ways of doing this;
-
-```bash
-<env> npx db push
-```
