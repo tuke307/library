@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: tonylukeregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f76635462c624bcc8c2f4020d43da9bc }}/tonylukeregistry/swe-library/app:${{ github.sha }}
+        tags: tonylukeregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f76635462c624bcc8c2f4020d43da9bc }}/swe-library/app:${{ github.sha }}
         file: ./Dockerfile
         build-args: DATABASE_URL=${{ secrets.DATABASE_URL }}
 
@@ -49,4 +49,4 @@ jobs:
         app-name: 'app-swelibrary-prod'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_6b9a0e96c89146bda6d9f72e1e435795 }}
-        images: 'tonylukeregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f76635462c624bcc8c2f4020d43da9bc }}/tonylukeregistry/swe-library/app:${{ github.sha }}'
+        images: 'tonylukeregistry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_f76635462c624bcc8c2f4020d43da9bc }}/swe-library/app:${{ github.sha }}'
