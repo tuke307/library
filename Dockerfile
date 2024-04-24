@@ -6,9 +6,8 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Copy .env.sample and source it
-COPY .env.sample .env
-RUN export $(xargs < .env)
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
 
 # Prisma files
 COPY prisma ./prisma
