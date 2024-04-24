@@ -29,21 +29,29 @@ npm install -g prisma
 
 #### development (docker)
 
-for local development, execute these statements;
+for local development, execute these statements ONCE;
 ```bash
 docker compose -f docker.compose.yml up -d
 dotenv -f .env.development run npx prisma db push
 dotenv -f .env.development run ts-node sampleData/initialDatabase.ts
+```
+
+run development server:
+```bash
 npm run dev
 ```
 
 #### production
 
+execute them once;
+```bash
+dotenv -f .env.production run npx prisma db push
+dotenv -f .env.production run ts-node sampleData/initialDatabase.ts
+```
+
 Run the production server with this line;
 ```bash
 npm run build
-dotenv -f .env.production run npx prisma db push
-dotenv -f .env.production run ts-node sampleData/initialDatabase.ts
 npm run start
 ```
 

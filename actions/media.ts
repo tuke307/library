@@ -1,5 +1,5 @@
 "use server";
-import { Media, MediaType, PrismaClient, User } from "@prisma/client";
+import { Media, MediaType, User } from "@prisma/client";
 import { MediaDetailProp } from "@/models/mediaDetails";
 import { MediaTableProp } from "@/models/mediaTable";
 import prisma from "@/client";

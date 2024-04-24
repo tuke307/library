@@ -1,6 +1,6 @@
 "use server";
 import prisma from "@/client";
-import { PrismaClient, User } from "@prisma/client";
+import { User } from "@prisma/client";
 
 export interface ICreateUser {
   firstName: string;
