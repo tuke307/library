@@ -6,6 +6,10 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
+# Copy .env.sample and source it
+COPY .env.sample .env
+RUN export $(xargs < .env)
+
 # Prisma files
 COPY prisma ./prisma
 
