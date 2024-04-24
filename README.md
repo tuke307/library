@@ -17,49 +17,45 @@
 
 ### install dependencies
 ```bash
-# navigate to source code
-cd swe_library/
-# Install dependencies
 npm install
+npm install -g dotenv-cli
+npm install -g prisma
 ```
 
 ### environment
+* copy and rename `.env.sample` to `.env.development`
+* copy and rename `.env.sample` to `.env.production`
+
 
 #### development (docker)
-update the variables in your `.env.development` file;
-```env
-POSTGRES_PRISMA_URL="postgresql://postgres:postgres@localhost:6500/librarydb?schema=public"
 
-NEXTAUTH_URL="http://localhost:3000"
-NEXTAUTH_SECRET='sampleKey'
-```
-
-update the scheme.prisma file to use your local docker postgres db;
-```
-...
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-...
-```
-
-for local development then, execute these statements;
+for local development, execute these statements;
 ```bash
 docker compose -f docker.compose.yml up -d
-dotenv -e .env.development npx prisma generate
-dotenv -e .env.development npx prisma migrate deploy
-dotenv -e .env.development npx ts-node sampleData/initialDatabase.ts
+dotenv -f .env.development run npx prisma db push
+dotenv -f .env.development run ts-node sampleData/initialDatabase.ts
 npm run dev
 ```
 
-#### production (vercel)
-use `dotenv -e .env.production` and ask for the production keys.
+#### production
 
 Run the production server with this line;
 ```bash
 npm run build
+dotenv -f .env.production run npx prisma db push
+dotenv -f .env.production run ts-node sampleData/initialDatabase.ts
 npm run start
+```
+
+## optional: Docker
+building
+```bash
+docker build --tag tonylukeregistry.azurecr.io/tonylukeregistry/swe-library/app:latest .
+```
+
+running container locally
+```bash
+docker run --detach --publish 3000:3000 tonylukeregistry.azurecr.io/tonylukeregistry/swe-library/app:latest
 ```
 
 
@@ -72,35 +68,10 @@ npm run cypress:open
 
 ## Source code developing
 
-### changing thse database scheme
+### changing the database scheme
 When you have to change the database models, you can do this by editing the `prisma.scheme`.
 You then have to apply (upload) these changes to your database. There are two ways of doing this;
 
-#### over migrations (slow and safe way):
 ```bash
-# apply migration dev
-npx prisma migrate dev
-# apply migration
-npx prisma migrate deploy
+<env> npx db push
 ```
-
-#### hard push (fast and unsafe way):
-```bash
-dotenv -e .env.development npx db push # dev
-dotenv -e .env.production npx db push # prod
-```
-
-### debugging in Visual Studio Code
-follow [these steps](https://nextjs.org/docs/pages/building-your-application/configuring/debugging#debugging-with-vs-code) for debugging the api calls and other stuff in vs code.
-Then you can use the vs code >>run and debug<< function.
-
-
-### Visual Studio Code Plugins
-- [Tailwind CSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [Prettier Tailwind CSS](https://github.com/tailwindlabs/prettier-plugin-tailwindcss)
-- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
-- [Code Spell Checker German](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-german)
-
-### templates to learn
-- [Next.js 13 (app directory) and NextUI (v2)](https://github.com/nextui-org/next-app-template/tree/main)

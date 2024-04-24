@@ -2,7 +2,7 @@
 import React from "react";
 import MediaTable from "../components/mediaTable";
 import { getMediaTable } from "@/actions/media";
-import ButtonComponent from "../inventory/components/ButtonComponent";
+import ButtonComponent from "./components/ButtonComponent";
 import { MediaTableProp } from "@/models/mediaTable";
 
 export default function InventoryPage() {
